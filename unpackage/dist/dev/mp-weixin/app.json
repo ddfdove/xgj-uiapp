@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/canteen/index",
+    "pages/canteen/inspection/list",
+    "pages/canteen/inspection/info",
+    "pages/canteen/keepSample/list",
+    "pages/canteen/keepSample/info",
+    "pages/canteen/purchase/list",
+    "pages/canteen/purchase/info",
+    "pages/inventory/index",
+    "pages/inventory/check/list",
+    "pages/inventory/check/info",
+    "pages/inventory/warehousing/list",
+    "pages/inventory/warehousing/info",
+    "pages/inventory/outbound/list",
+    "pages/inventory/outbound/info",
+    "pages/vehicle/index",
+    "pages/vehicle/refuel/list",
+    "pages/vehicle/refuel/info",
+    "pages/vehicle/repair/list",
+    "pages/vehicle/repair/info",
+    "pages/vehicle/reportRepair/list",
+    "pages/vehicle/reportRepair/info",
+    "pages/login/index",
+    "pages/order/list",
+    "pages/order/info",
+    "pages/packageTicket/orderList",
+    "pages/packageTicket/orderInfo"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#6C7B92",
+    "selectedColor": "#FE5BA4",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/home_page.png",
+        "selectedIconPath": "static/home_page_active.png"
+      },
+      {
+        "text": "食堂",
+        "pagePath": "pages/canteen/index",
+        "iconPath": "static/canteen.png",
+        "selectedIconPath": "static/canteen_active.png"
+      },
+      {
+        "text": "库存",
+        "pagePath": "pages/inventory/index",
+        "iconPath": "static/inventory.png",
+        "selectedIconPath": "static/inventory_active.png"
+      },
+      {
+        "text": "车辆",
+        "pagePath": "pages/vehicle/index",
+        "iconPath": "static/vehicle.png",
+        "selectedIconPath": "static/vehicle_active.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
