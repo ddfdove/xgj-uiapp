@@ -159,7 +159,7 @@
   height: 160rpx;
   border-radius: 12rpx;
   margin-right: 20rpx;
-  background-color: #0a0;
+  background-color: aliceblue;
 }
 .write_list_page .write_list_content .write_list_content_item .write_list_content_item_content .content_right {
   width: 472rpx;

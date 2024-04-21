@@ -23,8 +23,9 @@
 
 <style lang="scss">
 	@import "@/uni_modules/uview-ui/index.scss";
+	// @import '@/uni_modules/uni-scss/index.scss';
+
 	@import url('@/static/css/iconfont.css');
-	@import url('@/static/css/flex_base.css');
-	@import '@/uni_modules/uview-ui/theme.scss';
+	// @import url('@/static/css/flex_base.css'); 
 	/*每个页面公共css */
 </style>

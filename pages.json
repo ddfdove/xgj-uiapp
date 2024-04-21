@@ -1,7 +1,7 @@
 {
 	"easycom": {
 		"^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
-	},
+	}, 
 	"lazyCodeLoading": "requiredComponents",
 	"pages": [{
 			"path": "pages/index/index",
@@ -46,8 +46,10 @@
 		}, {
 			"path": "pages/canteen/purchase/info",
 			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
+				"navigationBarTitleText": "采购详情",
+				"navigationBarTextStyle":"black"
+				// "navigationStyle":"default"
+				// "enablePullDownRefresh": false
 			}
 		}, {
 			"path": "pages/inventory/index",

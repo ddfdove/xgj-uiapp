@@ -8,9 +8,9 @@ export default function request({url,data={},method='POST',isFormRequest=false,s
 		if(showload) uni.showLoading({ title: '加载中...', mask:true }); 
 		let urls=baseUrl+url; 
 		// let wxtoken=util.getWXToken()
-		// let token=util.getToken() 
 		// if(wxtoken) headerToken['X-Wx-Login-Token']=wxtoken
-		// if(token) headerToken['X-Auth-Token']=token   
+		let token=util.getToken() 
+		if(token) headerToken['access_token']=token   
 		if(/https/.test(url))urls=url;    
 		uni.request({
 			url:urls,
@@ -25,7 +25,7 @@ export default function request({url,data={},method='POST',isFormRequest=false,s
 				if (res.statusCode == 200) { 
 					if(res.data&&res.data.code=="0"){  
 					resolve(res.data)
-					}else if(res.data&&(res.data.code=="500"||res.data.code=="1001")){  
+					}else if(res.data&&(res.data.code=="401")){  
 							 var pages = getCurrentPages() //获取加载的页面  
 							 var currentPage = pages[pages.length - 1] //获取当前页面的对象
 							 var url = currentPage.route //当前页面url 

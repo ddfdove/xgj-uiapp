@@ -5,6 +5,7 @@ import uView from '@/uni_modules/uview-ui'
 import {util,router} from "@/utils/util.js" 
 import './uni.promisify.adaptor'
 import filters from "@/filters/filters.js";
+// 如此配置即可
 Vue.config.productionTip = false
 Vue.use(uView)
 uni.$u.setConfig({

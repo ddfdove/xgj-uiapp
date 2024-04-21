@@ -34,6 +34,33 @@ export function purchaseList(data) {
 		data
 	})
 }
+//采购详情
+export function purchaseInfo(data) {
+	return request({
+		url:'/api/wms/purchase/info',
+		method: 'GET',
+		data
+	})
+}
+//新增采购
+export function purchaseSave(data) {
+	return request({
+		url:'/api/wms/purchase/save',
+		method: 'POST',
+		data
+	})
+}
+//更新采购
+export function purchaseUpdate(data) {
+	return request({
+		url:'/api/wms/purchase/update',
+		method: 'POST',
+		data
+	})
+}
+
+
+
 //所有核销详细
 export function getOrderDetail(data) {
 	return request({
