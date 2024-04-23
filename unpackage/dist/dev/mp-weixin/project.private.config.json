@@ -5,6 +5,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/canteen/purchase/info",
+          "pathName": "pages/canteen/purchase/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "采购详情",
           "pathName": "pages/canteen/purchase/info",
           "query": "id=2",

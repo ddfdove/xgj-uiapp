@@ -18,7 +18,7 @@ export function login(data) {
 	})
 } 
 
-//核销
+//
 export function verification(data) {
 	return request({
 		url:'/api/vma/order/ticket/verification',
@@ -26,6 +26,7 @@ export function verification(data) {
 		data
 	})
 }
+
 //采购列表
 export function purchaseList(data) {
 	return request({
@@ -54,10 +55,38 @@ export function purchaseSave(data) {
 export function purchaseUpdate(data) {
 	return request({
 		url:'/api/wms/purchase/update',
+		method: 'PUT',
+		data
+	})
+}
+
+//部门列表 
+export function deptList(data) {
+	return request({
+		url:'/api/wms/list/deptList',
 		method: 'POST',
 		data
 	})
 }
+//食材列表
+export function mxMaterialInfoList(data) {
+	return request({
+		url:'/api/wms/list/mxMaterialInfoList',
+		method: 'POST',
+		data
+	})
+}
+//用户列表
+export function userList(data) {
+	return request({
+		url:'/api/wms/list/userList',
+		method: 'POST',
+		data
+	})
+}
+
+
+
 
 
 

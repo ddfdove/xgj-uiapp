@@ -92,7 +92,6 @@
   align-items: center;
 }
 .write_list_page .write_list_content .write_list_content_top .write_list_content_top_l > ._div {
-  width: 180rpx;
   height: 62rpx;
   background: #FFFFFF;
   border-radius: 34rpx;
@@ -102,10 +101,11 @@
   align-items: center;
 }
 .write_list_page .write_list_content .write_list_content_top .write_list_content_top_l > ._div ._span {
+  display: inline-block;
   font-size: 26rpx;
-  font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #6C7B92;
+  padding: 5rpx 15rpx;
   line-height: 26rpx;
 }
 .write_list_page .write_list_content .write_list_content_top .write_list_content_top_r {

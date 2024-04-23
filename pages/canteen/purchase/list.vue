@@ -102,7 +102,7 @@
 		// },
 		methods:{
 			checkedDate(){
-				 goToPage(`/pages/canteen/purchase/info`)
+				 this.goToPage(`/pages/canteen/purchase/info`)
 			},
 			changePage(args){
 				if(args){
@@ -205,7 +205,7 @@
 					justify-content: space-between;
 					align-items: center;
 					>div{
-						width: 180rpx;
+						// width: 180rpx;
 						height: 62rpx;
 						background: #FFFFFF;
 						border-radius: 34rpx;
@@ -214,10 +214,11 @@
 						justify-content: center;
 						align-items: center;
 						span{
+							display: inline-block;
 							font-size: 26rpx;
-							font-family: PingFangSC-Semibold, PingFang SC;
 							font-weight: 600;
 							color: #6C7B92 ;
+							padding:5rpx 15rpx;
 							line-height: 26rpx;
 						}
 					}

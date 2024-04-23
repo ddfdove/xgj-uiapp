@@ -9727,16 +9727,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.auth = auth;
+exports.deptList = deptList;
 exports.getOrderDetail = getOrderDetail;
 exports.getSnowOrderDetail = getSnowOrderDetail;
 exports.getSnowOrderDetailById = getSnowOrderDetailById;
 exports.login = login;
 exports.mineSnowOrderList = mineSnowOrderList;
+exports.mxMaterialInfoList = mxMaterialInfoList;
 exports.purchaseInfo = purchaseInfo;
 exports.purchaseList = purchaseList;
 exports.purchaseSave = purchaseSave;
 exports.purchaseUpdate = purchaseUpdate;
 exports.snowVerification = snowVerification;
+exports.userList = userList;
 exports.verification = verification;
 var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 32));
 var _baseUrl = _interopRequireDefault(__webpack_require__(/*! @/utils/baseUrl.js */ 33));
@@ -9756,7 +9759,7 @@ function login(data) {
   });
 }
 
-//核销
+//
 function verification(data) {
   return (0, _request.default)({
     url: '/api/vma/order/ticket/verification',
@@ -9764,6 +9767,7 @@ function verification(data) {
     data: data
   });
 }
+
 //采购列表
 function purchaseList(data) {
   return (0, _request.default)({
@@ -9792,6 +9796,31 @@ function purchaseSave(data) {
 function purchaseUpdate(data) {
   return (0, _request.default)({
     url: '/api/wms/purchase/update',
+    method: 'PUT',
+    data: data
+  });
+}
+
+//部门列表 
+function deptList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/list/deptList',
+    method: 'POST',
+    data: data
+  });
+}
+//食材列表
+function mxMaterialInfoList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/list/mxMaterialInfoList',
+    method: 'POST',
+    data: data
+  });
+}
+//用户列表
+function userList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/list/userList',
     method: 'POST',
     data: data
   });
@@ -19868,7 +19897,6 @@ var publicMixin = {
       if (url) this.$router.push(url);
     },
     goToTab: function goToTab(url, param) {
-      console.log("跳转地址", url);
       this.$router.reLaunch(url);
     },
     goBack: function goBack() {

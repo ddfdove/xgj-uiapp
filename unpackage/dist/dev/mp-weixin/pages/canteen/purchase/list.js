@@ -280,7 +280,7 @@ var _default = {
   // },
   methods: {
     checkedDate: function checkedDate() {
-      goToPage("/pages/canteen/purchase/info");
+      this.goToPage("/pages/canteen/purchase/info");
     },
     changePage: function changePage(args) {
       if (args) {

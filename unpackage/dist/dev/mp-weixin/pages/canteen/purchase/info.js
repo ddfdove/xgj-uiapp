@@ -251,6 +251,15 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var validateForm = __webpack_require__(/*! @/utils/validation.js */ 196);
 var _default = {
@@ -258,38 +267,66 @@ var _default = {
   data: function data() {
     return {
       menuButtonInfo: null,
-      range: [{
-        value: 0,
-        text: "篮球"
-      }, {
-        value: 1,
-        text: "足球"
-      }, {
-        value: 2,
-        text: "游泳"
-      }],
-      form: {},
+      deptOptions: [],
+      userOptions: [],
+      materialOptions: [],
+      form: {
+        department: "",
+        materialId: "",
+        planManager: "",
+        updateTime: "",
+        quantity: 0,
+        unit: "",
+        remark: "",
+        purchaseId: ""
+        /* createBy: "",
+        createTime: "",
+        delFlag: "",
+        isSelected: true,
+        materialName: "",
+        params: {},
+        planDate: "",
+        planManagerName: "",
+        purchaseId: 0,
+        purchaseNumber: "",
+        status: "",
+        updateBy: "", */
+      },
+
       queryParam: {
         purchaseId: ""
       },
       rules: [{
-        name: "name",
+        name: "department",
         rule: ["required"],
-        msg: ["请输入联系人"]
+        msg: ["请选择部门"]
       }, {
-        name: "idcard",
-        rule: ["required", 'isIdCard'],
-        msg: ["请输入身份证", "请输入正确身份证格式"]
+        name: "materialId",
+        rule: ["required"],
+        msg: ["请选择材料"]
       }, {
-        name: "mobile",
-        rule: ["required", 'isMobile'],
-        msg: ["请输入联系电话", "请输入正确电话格式"]
+        name: "planManager",
+        rule: ["required"],
+        msg: ["请选择负责人"]
+      }, {
+        name: "updateTime",
+        rule: ["required"],
+        msg: ["请选择日期"]
+      }, {
+        name: "quantity",
+        rule: ["required"],
+        msg: ["请输入数量"]
+      }, {
+        name: "unit",
+        rule: ["required"],
+        msg: ["请输入单位"]
       }]
     };
   },
   onLoad: function onLoad(_ref) {
     var id = _ref.id;
     this.menuButtonInfo = uni.getMenuButtonBoundingClientRect();
+    this.getOptionsData(); //获取所有下拉数据
     if (id) {
       this.queryParam.purchaseId = id;
       this.asyncGetDetail();
@@ -299,28 +336,75 @@ var _default = {
     back: function back() {
       uni.navigateBack();
     },
-    suer: function suer() {
+    //所有下拉列表数据
+    getOptionsData: function getOptionsData() {
       var _this = this;
-      var method = this.queryParam ? _index.purchaseUpdate : _index.purchaseSave;
+      Promise.all([(0, _index.deptList)(), (0, _index.mxMaterialInfoList)(), (0, _index.userList)()]).then(function (res) {
+        console.log("所有下拉数据", res);
+        var dp = res[0];
+        var mt = res[1];
+        var user = res[2];
+        _this.deptOptions = dp.data.map(function (item) {
+          return {
+            text: item.deptName,
+            value: String(item.deptId)
+          };
+        });
+        _this.materialOptions = mt.data.map(function (item) {
+          return {
+            text: item.materialName,
+            value: item.materialId
+          };
+        });
+        _this.userOptions = user.data.map(function (item) {
+          return {
+            text: item.userName,
+            value: String(item.userId)
+          };
+        });
+      });
+    },
+    suer: function suer() {
+      var _this2 = this;
+      var method = this.queryParam.purchaseId ? _index.purchaseUpdate : _index.purchaseSave;
       var checkRes = validateForm.validation(this.form, this.rules);
       if (checkRes) {
-        this.$mvc.alert(checkRes, 'error');
+        this.$mvc.alert(checkRes, "error");
       } else {
         method(this.form).then(function (res) {
-          if (res.code == 200) {
-            _this.$mvc.alert("核销成功!", "success");
+          if (res.code == 0) {
+            _this2.$mvc.alert("提交成功!", "success");
             setTimeout(function () {
-              _this.goToPage("/pages/canteen/purchase/list");
+              _this2.goToPage("/pages/canteen/purchase/list");
             }, 2000);
           }
         });
       }
     },
     asyncGetDetail: function asyncGetDetail() {
-      var _this2 = this;
+      var _this3 = this;
       (0, _index.purchaseInfo)(this.queryParam).then(function (res) {
-        if (res.code == 200) {
-          _this2.info = res.data;
+        if (res.code == 0) {
+          _this3.form = res.data;
+          /* let {
+             department,
+             materialId,
+             planManager,
+             updateTime,
+             quantity,
+             unit,
+             remark,
+           } = res.data;
+           this.form = {
+             department,
+             materialId,
+             planManager,
+             planManager,
+             updateTime,
+             quantity,
+             unit,
+             remark,
+           }; */
         }
       });
     }

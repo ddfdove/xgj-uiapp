@@ -38,7 +38,6 @@ export const publicMixin = {
 			if (url) this.$router.push(url);
 		},
 		goToTab(url, param) {
-			console.log("跳转地址",url);
 			this.$router.reLaunch(url);
 		},
 		goBack(args = 1) {
