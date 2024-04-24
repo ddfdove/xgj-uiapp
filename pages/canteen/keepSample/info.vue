@@ -1,88 +1,78 @@
 <template>
 	<view class="write_info_page">
-		<div class="write_info_nav" v-if="menuButtonInfo" :style="{height:menuButtonInfo.height+'px',top:menuButtonInfo.top+'px'}">
-			<image src="../../static/back.png" mode="" @click="back"></image>
-			<span>核销订单</span>
+		<div class="write_info_nav" v-if="menuButtonInfo" :style="{
+        height: menuButtonInfo.height + 'px',
+        top: menuButtonInfo.top + 'px',
+      }">
+			<image src="../../../static/back.png" mode="" @click="back()"></image>
+			<span>食品留样</span>
 		</div>
 		<div class="write_info_content">
-			<div class="content_order_info">
-				<div class="content_order_info_tips">
-					<span v-text="info.aggStatus.desc">待核验</span>
-				</div>
-				<p v-text="info.orderExtActivity&&info.orderExtActivity.name">温迪姆小小勇士障碍赛</p>
-				<div class="content_order_info_content"   :style="{marginTop:'60rpx'}">
-					<div><span>有效期</span></div>
-					<span v-text="info.orderExtActivity&&info.orderExtActivity.gameTimeEnd"></span>
-				</div>
-				<div class="content_order_info_content" >
-					<div><span>核验码</span></div>
-					<span :style="{color:'#2591FF'}" v-text="info.number"></span>
-				</div>
-				<div class="content_order_info_content">
-					<div><span>姓名</span></div>
-					<span :style="{color:'#2591FF'}" v-text="info.ticketExtActivitys&&info.ticketExtActivitys[0].name"></span>
-				</div>
-				<div class="content_order_info_content">
-					<div><span>手机号码</span></div>
-					<span :style="{color:'#2591FF'}" v-text="info.ticketExtActivitys&&info.ticketExtActivitys[0].phoneNumber"></span>
-				</div>
-				<div class="content_order_info_content">
-					<div><span>儿童姓名</span></div>
-					<span :style="{color:'#2591FF'}" v-text="info.ticketExtActivitys&&info.ticketExtActivitys[0].childName"></span>
-				</div>
-				<div class="content_order_info_content">
-					<div><span>儿童年龄</span></div>
-					<span :style="{color:'#2591FF'}" v-text="info.ticketExtActivitys&&info.ticketExtActivitys[0].childAge"></span>
-				</div>
-			</div>
-			<div class="content_payment_info">
-				<div style="margin-bottom: 70rpx;">
-					<div class="content_payment_info_price"   :style="{marginTop:'0'}">
-						<div>
-							<span>商品价格</span>
-						</div>
-						<span v-text="info.totalPrice"></span>
-					</div>
-					<div class="content_payment_info_price">
-						<div>
-							<span>商品优惠</span>
-						</div>
-						<span v-text="info.discountAmount"></span>
-					</div>
-					<div class="content_payment_info_price">
-						<div>
-							<span>实付金额</span>
-						</div>
-						<span :style="{color:'#FE5BA4'}" v-text="info.actualPay"></span>
-					</div>
-				</div>
-				<div class="content_payment_info_orderNo">
-					<div>
-						<span>订单编号</span>
-					</div>
-					<span v-text="info.order&&info.order.number"></span>
-				</div>
-				<div class="content_payment_info_orderNo">
-					<div>
-						<span>下单时间</span>
-					</div> 
-					<span v-text="info.order&&info.order.orderTime"></span>
-				</div>
-				<div class="content_payment_info_orderNo">
-					<div>
-						<span>支付方式</span>
-					</div>
-					<span v-text="info.order&&info.order.payType.desc"></span>
-				</div>
-				<div class="content_payment_info_orderNo">
-					<div>
-						<span>支付时间</span>
-					</div>
-					<span v-text="info.order&&info.order.payTime"></span>
-				</div>
-			</div>
-			<div class="write_info_content_button" @click="suer" v-if="info.aggStatus.code=='0'">
-				<span >确认核销</span>
+			<view class="personForm">
+
+				<!-- <view class="flex-row-start formItem">
+					<view class="label">食堂</view>
+					<uni-data-select class="select" v-model="form.canteenId"
+						:localdata="materialOptions"></uni-data-select>
+				</view>
+				<view class="flex-row-start formItem">
+					<view class="label">餐别</view>
+					<uni-data-select class="select" v-model="form.mealId"
+						:localdata="materialOptions"></uni-data-select>
+				</view>
+				<view class="flex-row-start formItem">
+					<view class="label">菜品</view>
+					<uni-data-select class="select" v-model="form.dishId"
+						:localdata="materialOptions"></uni-data-select>
+				</view> -->
+				<view class="flex-row-start formItem">
+					<view class="label">食堂</view>
+					<input class="input" type="text" v-model="form.canteenName" />
+				</view>
+				<view class="flex-row-start formItem">
+					<view class="label">餐别</view>
+					<input class="input" type="text" v-model="form.mealName" />
+				</view>
+				<view class="flex-row-start formItem">
+					<view class="label">菜品</view>
+					<input class="input" type="text" v-model="form.dishName" />
+				</view>
+				<view class="flex-row-start formItem">
+					<view class="label">留样结果</view>
+					<input class="input" type="text" v-model="form.srResult" />
+				</view>
+				<view class="flex-row-start formItem">
+					<view class="label">留样时间</view>
+					<uni-datetime-picker class="picker" type="datetime" v-model="form.srTime" />
+				</view>
+				<view class="flex-row-start formItem">
+					<view class="label">数量</view>
+					<input class="input" type="text" v-model="form.servingQuantity" placeholder="请输入数量" />
+				</view>
+				<view class="flex-row-start formItem">
+					<view class="label">留样人</view>
+					<input class="input" type="text" v-model="form.srByName" placeholder="请输入留样人" />
+				</view>
+				<view class="flex-row-start formItem">
+					<view class="label">销毁人</view>
+					<input class="input" type="text" v-model="form.destructionByName" placeholder="请输入销毁人" />
+				</view>
+				<view class="flex-row-start formItem">
+					<view class="label">单位名</view>
+					<input class="input" type="text" v-model="form.danwei" placeholder="请输入单位名" />
+				</view>
+				<view class="flex-row-start formItem">
+					<view class="label">负责人</view>
+					<input class="input" type="text" v-model="form.fuzeByName" placeholder="请输入负责人" />
+				</view>
+				
+				<view class="flex-row-start formItem">
+					<view class="label">备注</view>
+					<textarea class="textare" v-model="form.remark" placeholder="请输入备注..."></textarea>
+				</view>
+			</view>
+			<div class="write_info_content_button" @click="suer">
+				<span>提交</span>
 			</div>
 		</div>
 	</view>
@@ -90,81 +80,207 @@
 
 <script>
 	const validateForm = require("@/utils/validation.js");
-	import {publicMixin} from "@/pages/mixin/mixin.js"
-	import { getOrderDetail,verification} from "@/api/index.js" 
-	import { util,router} from "@/utils/util.js"
+	import {
+		publicMixin
+	} from "@/pages/mixin/mixin.js";
+	import {
+		getKeepSampleInfo,
+		getKeepSampleSave,
+		deptList,
+		mxMaterialInfoList,
+		userList,
+		getKeepSampleUpdate,
+	} from "@/api/index.js";
+	import {
+		util,
+		router
+	} from "@/utils/util.js";
 	export default {
 		mixins: [publicMixin],
 		data() {
 			return {
-				menuButtonInfo:null,
-				info:{},
-				writeOfForm:{
-					orderNumber:"",
-					ticketNumber:"",
+				menuButtonInfo: null,
+				deptOptions: [],
+				userOptions: [],
+				materialOptions: [],
+				form: {
+					
+					        "canteenName": "",
+					        // "canteenId": '',
+							// "mealId": '',
+							"mealName": "",
+							// "dishId": '',
+							"dishName": "",
+							"srResult": "",
+							"srTime": "",
+							"servingQuantity": "",
+							// "srBy": 1,
+							"srByName": "",
+							// "destructionBy": 1,
+							"destructionByName": "",
+							"danwei": "",
+							// "fuzeBy": '',
+							"fuzeByName": "",
+					        "remark": "",
+					        "srId": "",
+					        
+				},
+				queryParam: {
+					srId: "",
+				},
+				rules: [{
+						name: "canteenName",
+						rule: ["required"],
+						msg: ["请食堂名"],
+					},
+					{
+						name: "mealName",
+						rule: ["required"],
+						msg: ["请输入餐别"],
+					},
+					{
+						name: "dishName",
+						rule: ["required"],
+						msg: ["请输入菜品"],
+					},
+					{
+						name: "srResult",
+						rule: ["required"],
+						msg: ["请输入留样结果"],
+					},
+					{
+						name: "srTime",
+						rule: ["required"],
+						msg: ["请输入留样时间"],
+					},
+					{
+						name: "servingQuantity",
+						rule: ["required"],
+						msg: ["请输入数量"],
+					},
+					{
+						name: "srByName",
+						rule: ["required"],
+						msg: ["请输入留样人"],
+					},
+					{
+						name: "destructionByName",
+						rule: ["required"],
+						msg: ["请输入销毁人"],
+					},
+					{
+						name: "danwei",
+						rule: ["required"],
+						msg: ["请输入单位名"],
+					},
+					{
+						name: "fuzeByName",
+						rule: ["required"],
+						msg: ["请输入负责人姓名"],
+					},
+					{
+						name: "remark",
+						rule: ["required"],
+						msg: ["请输入备注"],
+					},
+				],
+			};
+		},
+		onLoad({
+			id
+		}) {
+			this.menuButtonInfo = uni.getMenuButtonBoundingClientRect();
+			this.getOptionsData(); //获取所有下拉数据
+			if (id) {
+				console.log(id)
+				this.queryParam.srId = id;
+				this.asyncGetDetail();
+			}
+		},
+		methods: {
+			back() {
+				uni.navigateBack();
+			},
+			//所有下拉列表数据
+			getOptionsData() {
+				Promise.all([deptList(), mxMaterialInfoList(), userList()]).then(
+					(res) => {
+						console.log("所有下拉数据", res);
+						let dp = res[0];
+						let mt = res[1];
+						let user = res[2];
+						this.deptOptions = dp.data.map((item) => ({
+							text: item.deptName,
+							value: String(item.deptId),
+						}));
+						this.materialOptions = mt.data.map((item) => ({
+							text: item.materialName,
+							value: item.materialId,
+						}));
+						this.userOptions = user.data.map((item) => ({
+							text: item.userName,
+							value: String(item.userId),
+						}));
+					}
+				);
+			},
+			suer() {
+				let method = this.queryParam.srId ? getKeepSampleUpdate : getKeepSampleSave;
+				let checkRes = validateForm.validation(this.form, this.rules);
+				if (checkRes) {
+					this.$mvc.alert(checkRes, "error");
+				} else {
+					method(this.form).then((res) => {
+						if (res.code == 0) {
+							this.$mvc.alert("提交成功!", "success");
+							console.log('成功')
+							setTimeout(() => {
+								this.goToPage("/pages/canteen/keepSample/list");
+							}, 2000);
+						}
+					});
 				}
-			}
-		},
-		onLoad({ticketNumber}) {
-			this.menuButtonInfo = uni.getMenuButtonBoundingClientRect()
-			ticketNumber=decodeURIComponent(ticketNumber);
-			if(ticketNumber){
-				this.asyncGetDetail(ticketNumber)
-				this.writeOfForm.ticketNumber=ticketNumber;
-			} 
-		},
-		methods:{
-			back(){
-				uni.navigateBack()
 			},
-			suer(){
-				// console.log(this.$mvc); 
-				verification(this.writeOfForm).then(res=>{
-					if(res.code==200){
-						this.$mvc.alert("核销成功!","success")
-						setTimeout(()=>{
-							this.$router.redirectTo("/pages/index/index")
-							// this.goToPage("/pages/index/index"); 
-						},2000)
+			asyncGetDetail() {
+				getKeepSampleInfo(this.queryParam).then((res) => {
+
+					if (res.code == 0) {
+						console.log(res);
+						this.form = res.data;
+						
 					}
-				})
+				});
 			},
-			asyncGetDetail(ticketNumber){
-				getOrderDetail({ticketNumber}).then(res=>{
-					if(res.code==200){
-						this.info=res.data;
-						this.writeOfForm.orderNumber=this.info.order.number;
-					}
-				})
-			}
-			
-		}
-	}
-</script> 
+		},
+	};
+</script>
 <style lang="scss">
-	.write_info_page{
+	.write_info_page {
 		width: 750rpx;
 		height: 100vh;
-		background-color: #F5F8FE;
+		background-color: #f5f8fe;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		position: relative;
 		overflow-y: scroll;
-		.write_info_nav{
+
+		.write_info_nav {
 			position: absolute;
 			width: 750rpx;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
 			justify-content: center;
-			image{
+
+			image {
 				width: 44rpx;
 				height: 44rpx;
 				position: absolute;
 				left: 24rpx;
 			}
-			span{
+
+			span {
 				font-size: 32rpx;
 				font-family: PingFangSC-Semibold, PingFang SC;
 				font-weight: 600;
@@ -172,143 +288,102 @@
 				line-height: 32rpx;
 			}
 		}
-		.write_info_content{
-			margin-top: 196rpx;
+
+		.write_info_content {
+			margin-top: 155rpx;
 			padding-bottom: 50rpx;
 			box-sizing: border-box;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			.content_order_info{
-				width: 702rpx;
-				background: #FFFFFF;
+			width: 702rpx;
+
+			.personForm {
 				border-radius: 30rpx;
-				position: relative;
-				padding: 40rpx 30rpx;
-				box-sizing: border-box;
-				.content_order_info_tips{
-					position: absolute;
-					right: 0;
-					top: 0;
-					width: 130rpx;
-					height: 48rpx;
-					background: #FE5BA4;
-					border-top-right-radius: 30rpx;
-					border-bottom-left-radius: 30rpx;
+				background-color: #ffffff;
+				width: 100%;
+				box-shadow: 0px -2px 27px 0px rgba(208, 208, 208, 0.25);
+
+				.formItem {
+					padding: 30rpx 0rpx;
+					border-bottom: 1rpx solid #f2f2f2;
+					margin: 0rpx 25rpx;
 					display: flex;
-					justify-content: center;
+					justify-content: flex-start;
 					align-items: center;
-					span{
-						font-size: 24rpx;
-						font-family: PingFangSC-Regular, PingFang SC;
-						font-weight: 400;
-						color: #FFFFFF;
-						line-height: 24rpx;
+
+					&:last-child {
+						border-bottom: 0rpx;
 					}
-				}
-				>p{
-					font-size: 32rpx;
-					font-family: PingFangSC-Semibold, PingFang SC;
-					font-weight: bold;
-					color: #333333;
-					line-height: 32rpx;
-					margin-bottom: 26rpx;
-				}
-				.content_order_info_content{
-					display: flex;
-					flex-direction: row;
-					align-items: center;
-					margin-top: 34rpx;
-					>div{
-						width: 112rpx;
-						span{
-							font-size: 28rpx;
-							font-family: PingFangSC-Regular, PingFang SC;
-							font-weight: 400;
-							color: #6C7B92;
-							line-height: 28rpx;
-						}
-					}
-					>span{
-						margin-left: 40rpx;
-						font-size: 28rpx;
-						font-family: PingFangSC-Regular, PingFang SC;
-						font-weight: 400;
+
+					.label {
+						min-width: 150rpx;
+						display: inline-block;
+						font-weight: 500;
+						font-size: 32rpx;
 						color: #333333;
-						line-height: 28rpx;
+					}
+
+					.input {
+						font-size: 32rpx;
+						border: 1px solid #e5e5e5;
+						border-radius: 4px;
+						padding: 0 5px;
+						padding-left: 10px;
+						-webkit-user-select: none;
+						user-select: none;
+						width: 100%;
+						flex: 1;
+						height: 80rpx;
+					}
+
+					.select {
+						width: 100%;
+						border: 0;
+
+						.uni-select {
+							font-size: 32rpx;
+						}
+					}
+
+					.uni-date-editor {
+						.uniui-calendar:before {
+							content: "";
+						}
+
+						.uni-date__x-input {
+							padding-left: 20rpx;
+							font-size: 32rpx !important;
+						}
+					}
+
+					.textare {
+						border: 1px solid #e5e5e5;
+						font-size: 32rpx;
+						padding: 5px;
+						height: 200rpx;
+					}
+
+					.input[type="textare"] {
+						height: 200rpx;
 					}
 				}
 			}
-			.content_payment_info{
-				width: 702rpx;
-				background: #FFFFFF;
-				border-radius: 30rpx;
-				padding: 40rpx 30rpx;
-				box-sizing: border-box;
-				margin-top: 24rpx;
-				.content_payment_info_price{
-					display: flex;
-					flex-direction: row;
-					align-items: center;
-					justify-content: space-between;
-					margin-top: 34rpx;
-					>div{
-						width: 112rpx;
-						span{
-							font-size: 28rpx;
-							font-family: PingFangSC-Regular, PingFang SC;
-							font-weight: 400;
-							color: #6C7B92;
-							line-height: 28rpx;
-						}
-					}
-					>span{
-						margin-left: 40rpx;
-						font-size: 28rpx;
-						font-family: PingFangSC-Regular, PingFang SC;
-						font-weight: 400;
-						color: #666;
-						line-height: 28rpx;
-					}
-				}.content_payment_info_orderNo{
-					display: flex;
-					flex-direction: row;
-					align-items: center;
-					justify-content: space-between;
-					margin-top: 34rpx;
-					>div{
-						width: 112rpx;
-						span{
-							font-size: 28rpx;
-							font-family: PingFangSC-Regular, PingFang SC;
-							font-weight: 400;
-							color: #6C7B92;
-							line-height: 28rpx;
-						}
-					}
-					>span{
-						margin-left: 40rpx;
-						font-size: 28rpx;
-						font-family: PingFangSC-Regular, PingFang SC;
-						font-weight: 400;
-						color: #666;
-						line-height: 28rpx;
-					}
-				}
-			}
-			.write_info_content_button{
+
+			.write_info_content_button {
 				width: 620rpx;
 				height: 84rpx;
-				background: #FE5BA4;
+				background: #fe5ba4;
 				border-radius: 42rpx;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				margin-top: 50rpx;
-				span{
+
+				span {
 					font-size: 32rpx;
 					font-weight: 400;
-					color: #FFFFFF;
+					color: #ffffff;
 					line-height: 32rpx;
 				}
 			}

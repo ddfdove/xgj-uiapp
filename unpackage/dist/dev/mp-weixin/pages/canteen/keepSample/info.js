@@ -98,6 +98,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    uniDatetimePicker: function () {
+      return Promise.all(/*! import() | uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.vue */ 405))
+    },
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -224,16 +247,6 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 var validateForm = __webpack_require__(/*! @/utils/validation.js */ 196);
 var _default = {
@@ -241,47 +254,145 @@ var _default = {
   data: function data() {
     return {
       menuButtonInfo: null,
-      info: {},
-      writeOfForm: {
-        orderNumber: "",
-        ticketNumber: ""
-      }
+      deptOptions: [],
+      userOptions: [],
+      materialOptions: [],
+      form: {
+        "canteenName": "",
+        // "canteenId": '',
+        // "mealId": '',
+        "mealName": "",
+        // "dishId": '',
+        "dishName": "",
+        "srResult": "",
+        "srTime": "",
+        "servingQuantity": "",
+        // "srBy": 1,
+        "srByName": "",
+        // "destructionBy": 1,
+        "destructionByName": "",
+        "danwei": "",
+        // "fuzeBy": '',
+        "fuzeByName": "",
+        "remark": "",
+        "srId": ""
+      },
+      queryParam: {
+        srId: ""
+      },
+      rules: [{
+        name: "canteenName",
+        rule: ["required"],
+        msg: ["请食堂名"]
+      }, {
+        name: "mealName",
+        rule: ["required"],
+        msg: ["请输入餐别"]
+      }, {
+        name: "dishName",
+        rule: ["required"],
+        msg: ["请输入菜品"]
+      }, {
+        name: "srResult",
+        rule: ["required"],
+        msg: ["请输入留样结果"]
+      }, {
+        name: "srTime",
+        rule: ["required"],
+        msg: ["请输入留样时间"]
+      }, {
+        name: "servingQuantity",
+        rule: ["required"],
+        msg: ["请输入数量"]
+      }, {
+        name: "srByName",
+        rule: ["required"],
+        msg: ["请输入留样人"]
+      }, {
+        name: "destructionByName",
+        rule: ["required"],
+        msg: ["请输入销毁人"]
+      }, {
+        name: "danwei",
+        rule: ["required"],
+        msg: ["请输入单位名"]
+      }, {
+        name: "fuzeByName",
+        rule: ["required"],
+        msg: ["请输入负责人姓名"]
+      }, {
+        name: "remark",
+        rule: ["required"],
+        msg: ["请输入备注"]
+      }]
     };
   },
   onLoad: function onLoad(_ref) {
-    var ticketNumber = _ref.ticketNumber;
+    var id = _ref.id;
     this.menuButtonInfo = uni.getMenuButtonBoundingClientRect();
-    ticketNumber = decodeURIComponent(ticketNumber);
-    if (ticketNumber) {
-      this.asyncGetDetail(ticketNumber);
-      this.writeOfForm.ticketNumber = ticketNumber;
+    this.getOptionsData(); //获取所有下拉数据
+    if (id) {
+      console.log(id);
+      this.queryParam.srId = id;
+      this.asyncGetDetail();
     }
   },
   methods: {
     back: function back() {
       uni.navigateBack();
     },
-    suer: function suer() {
+    //所有下拉列表数据
+    getOptionsData: function getOptionsData() {
       var _this = this;
-      // console.log(this.$mvc); 
-      (0, _index.verification)(this.writeOfForm).then(function (res) {
-        if (res.code == 200) {
-          _this.$mvc.alert("核销成功!", "success");
-          setTimeout(function () {
-            _this.$router.redirectTo("/pages/index/index");
-            // this.goToPage("/pages/index/index"); 
-          }, 2000);
-        }
+      Promise.all([(0, _index.deptList)(), (0, _index.mxMaterialInfoList)(), (0, _index.userList)()]).then(function (res) {
+        console.log("所有下拉数据", res);
+        var dp = res[0];
+        var mt = res[1];
+        var user = res[2];
+        _this.deptOptions = dp.data.map(function (item) {
+          return {
+            text: item.deptName,
+            value: String(item.deptId)
+          };
+        });
+        _this.materialOptions = mt.data.map(function (item) {
+          return {
+            text: item.materialName,
+            value: item.materialId
+          };
+        });
+        _this.userOptions = user.data.map(function (item) {
+          return {
+            text: item.userName,
+            value: String(item.userId)
+          };
+        });
       });
     },
-    asyncGetDetail: function asyncGetDetail(ticketNumber) {
+    suer: function suer() {
       var _this2 = this;
-      (0, _index.getOrderDetail)({
-        ticketNumber: ticketNumber
-      }).then(function (res) {
-        if (res.code == 200) {
-          _this2.info = res.data;
-          _this2.writeOfForm.orderNumber = _this2.info.order.number;
+      var method = this.queryParam.srId ? _index.getKeepSampleUpdate : _index.getKeepSampleSave;
+      var checkRes = validateForm.validation(this.form, this.rules);
+      if (checkRes) {
+        this.$mvc.alert(checkRes, "error");
+      } else {
+        method(this.form).then(function (res) {
+          if (res.code == 0) {
+            _this2.$mvc.alert("提交成功!", "success");
+            console.log('成功');
+            setTimeout(function () {
+              _this2.goToPage("/pages/canteen/keepSample/list");
+            }, 2000);
+          }
+        });
+      }
+    },
+    asyncGetDetail: function asyncGetDetail() {
+      var _this3 = this;
+      (0, _index.getKeepSampleInfo)(this.queryParam).then(function (res) {
+        if (res.code == 0) {
+          console.log(res);
+          _this3.form = res.data;
         }
       });
     }

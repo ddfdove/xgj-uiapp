@@ -98,6 +98,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    uniDataSelect: function () {
+      return Promise.all(/*! import() | uni_modules/uni-data-select/components/uni-data-select/uni-data-select */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-data-select/components/uni-data-select/uni-data-select")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-data-select/components/uni-data-select/uni-data-select.vue */ 389))
+    },
+    uniDatetimePicker: function () {
+      return Promise.all(/*! import() | uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.vue */ 405))
+    },
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -193,47 +219,6 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 var validateForm = __webpack_require__(/*! @/utils/validation.js */ 196);
 var _default = {
@@ -241,47 +226,136 @@ var _default = {
   data: function data() {
     return {
       menuButtonInfo: null,
-      info: {},
-      writeOfForm: {
-        orderNumber: "",
-        ticketNumber: ""
-      }
+      deptOptions: [],
+      userOptions: [],
+      materialOptions: [],
+      form: {
+        materialId: '',
+        nationalStandard: '',
+        testData: '',
+        testResults: '',
+        testTime: '',
+        testByName: '',
+        remark: ''
+      },
+      queryParam: {
+        testId: ""
+      },
+      rules: [{
+        name: "materialId",
+        rule: ["required"],
+        msg: ["请输入食材名"]
+      }, {
+        name: "nationalStandard",
+        rule: ["required"],
+        msg: ["请输入国家标准"]
+      }, {
+        name: "testData",
+        rule: ["required"],
+        msg: ["请输入检测数据"]
+      }, {
+        name: "testResults",
+        rule: ["required"],
+        msg: ["请输入检测结果"]
+      }, {
+        name: "testTime",
+        rule: ["required"],
+        msg: ["请输入时间"]
+      }, {
+        name: "testByName",
+        rule: ["required"],
+        msg: ["请输入检测人姓名"]
+      }, {
+        name: "remark",
+        rule: ["required"],
+        msg: ["请输入备注"]
+      }]
     };
   },
   onLoad: function onLoad(_ref) {
-    var ticketNumber = _ref.ticketNumber;
+    var id = _ref.id;
     this.menuButtonInfo = uni.getMenuButtonBoundingClientRect();
-    ticketNumber = decodeURIComponent(ticketNumber);
-    if (ticketNumber) {
-      this.asyncGetDetail(ticketNumber);
-      this.writeOfForm.ticketNumber = ticketNumber;
+    this.getOptionsData(); //获取所有下拉数据
+    if (id) {
+      console.log(id);
+      this.queryParam.testId = id;
+      this.asyncGetDetail();
     }
   },
   methods: {
     back: function back() {
       uni.navigateBack();
     },
-    suer: function suer() {
+    //所有下拉列表数据
+    getOptionsData: function getOptionsData() {
       var _this = this;
-      // console.log(this.$mvc); 
-      (0, _index.verification)(this.writeOfForm).then(function (res) {
-        if (res.code == 200) {
-          _this.$mvc.alert("核销成功!", "success");
-          setTimeout(function () {
-            _this.$router.redirectTo("/pages/index/index");
-            // this.goToPage("/pages/index/index"); 
-          }, 2000);
-        }
+      Promise.all([(0, _index.deptList)(), (0, _index.mxMaterialInfoList)(), (0, _index.userList)()]).then(function (res) {
+        console.log("所有下拉数据", res);
+        var dp = res[0];
+        var mt = res[1];
+        var user = res[2];
+        _this.deptOptions = dp.data.map(function (item) {
+          return {
+            text: item.deptName,
+            value: String(item.deptId)
+          };
+        });
+        _this.materialOptions = mt.data.map(function (item) {
+          return {
+            text: item.materialName,
+            value: item.materialId
+          };
+        });
+        _this.userOptions = user.data.map(function (item) {
+          return {
+            text: item.userName,
+            value: String(item.userId)
+          };
+        });
       });
     },
-    asyncGetDetail: function asyncGetDetail(ticketNumber) {
+    suer: function suer() {
       var _this2 = this;
-      (0, _index.getOrderDetail)({
-        ticketNumber: ticketNumber
-      }).then(function (res) {
-        if (res.code == 200) {
-          _this2.info = res.data;
-          _this2.writeOfForm.orderNumber = _this2.info.order.number;
+      var method = this.queryParam.testId ? _index.getInspectionUpdate : _index.getInspectionSave;
+      var checkRes = validateForm.validation(this.form, this.rules);
+      if (checkRes) {
+        this.$mvc.alert(checkRes, "error");
+      } else {
+        method(this.form).then(function (res) {
+          if (res.code == 0) {
+            _this2.$mvc.alert("提交成功!", "success");
+            setTimeout(function () {
+              _this2.goToPage("/pages/canteen/inspection/list");
+            }, 2000);
+          }
+        });
+      }
+    },
+    asyncGetDetail: function asyncGetDetail() {
+      var _this3 = this;
+      (0, _index.getInspectionInfo)(this.queryParam).then(function (res) {
+        if (res.code == 0) {
+          console.log(res);
+          _this3.form = res.data;
+          /* let {
+             department,
+             materialId,
+             planManager,
+             updateTime,
+             quantity,
+             unit,
+             remark,
+           } = res.data;
+           this.form = {
+             department,
+             materialId,
+             planManager,
+             planManager,
+             updateTime,
+             quantity,
+             unit,
+             remark,
+           }; */
         }
       });
     }

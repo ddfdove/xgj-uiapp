@@ -220,32 +220,43 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
+//
 var _default = {
   mixins: [_mixin.publicMixin],
   data: function data() {
     return {
       menuButtonInfo: null,
       listParam: {
-        "number": "",
-        "orderType": "1",
-        "verificationTime": _util.util.formatDate("YYYY-MM-DD", new Date()),
-        pageNum: 1,
-        pageLimit: 10
+        "createBy": "1",
+        "createTime": "2024-04-10 17:00:04",
+        "updateBy": "1",
+        "updateTime": "2024-04-11 18:23:22",
+        "remark": "测试",
+        "isSelected": false,
+        "srId": 1,
+        "canteenId": 1,
+        "canteenName": "食堂1222",
+        "mealId": 9,
+        "mealName": "早餐",
+        "dishId": 6,
+        "dishName": "4444",
+        "srResult": "312",
+        "srTime": "2024-04-10",
+        "servingQuantity": 321,
+        "srBy": 1,
+        "srByName": "超管",
+        "destructionBy": 1,
+        "destructionByName": "超管",
+        "danwei": "123",
+        "fuzeBy": 1,
+        "fuzeByName": "超管",
+        "status": null,
+        "delFlag": null
       },
       list: [],
       totalPages: 0,
       //总页数
-      count: "0",
-      //总条数
-      tabs: [{
-        label: "今日核销",
-        value: _util.util.formatDate("YYYY-MM-DD", new Date()),
-        checked: true
-      }, {
-        label: "全部",
-        value: "",
-        checked: false
-      }]
+      count: "0" //总条数
     };
   },
   onLoad: function onLoad(_ref) {
@@ -262,15 +273,8 @@ var _default = {
   // 	}
   // },
   methods: {
-    checkedDate: function checkedDate(i, row) {
-      var _this = this;
-      this.tabs.forEach(function (item, index) {
-        if (i == index) {
-          item.checked = true;
-          _this.listParam.verificationTime = item.value;
-          _this.asyncGetList();
-        } else item.checked = false;
-      });
+    checkedDate: function checkedDate() {
+      this.goToPage("/pages/canteen/keepSample/info");
     },
     changePage: function changePage(args) {
       if (args) {
@@ -293,13 +297,14 @@ var _default = {
       uni.navigateBack();
     },
     asyncGetList: function asyncGetList() {
-      var _this2 = this;
-      (0, _index.purchaseList)(this.listParam).then(function (res) {
-        if (res.code == 200) {
+      var _this = this;
+      (0, _index.getKeepSampleList)(this.listParam).then(function (res) {
+        console.log(res);
+        if (res.code == 0) {
           var data = res.data;
-          _this2.totalPages = data.totalPages; //总页数
-          _this2.count = data.count;
-          _this2.list = data.list || [];
+          _this.totalPages = data.totalPages; //总页数
+          _this.count = data.count;
+          _this.list = data || [];
         }
       });
     }

@@ -220,32 +220,40 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
+//
 var _default = {
   mixins: [_mixin.publicMixin],
   data: function data() {
     return {
       menuButtonInfo: null,
       listParam: {
-        "number": "",
-        "orderType": "1",
-        "verificationTime": _util.util.formatDate("YYYY-MM-DD", new Date()),
-        pageNum: 1,
-        pageLimit: 10
+        "createBy": "",
+        "createTime": "",
+        "delFlag": "",
+        "department": "",
+        "isSelected": true,
+        "materialId": 0,
+        "materialName": "",
+        "params": {},
+        "planDate": "",
+        "planManager": "",
+        "planManagerName": "",
+        "purchaseId": 0,
+        "purchaseNumber": "",
+        "quantity": 0,
+        "remark": "",
+        "status": "",
+        "unit": "",
+        "updateBy": "",
+        "updateTime": ""
+        // pageNum: 1,
+        // pageLimit:10,
       },
+
       list: [],
       totalPages: 0,
       //总页数
-      count: "0",
-      //总条数
-      tabs: [{
-        label: "今日核销",
-        value: _util.util.formatDate("YYYY-MM-DD", new Date()),
-        checked: true
-      }, {
-        label: "全部",
-        value: "",
-        checked: false
-      }]
+      count: "0" //总条数
     };
   },
   onLoad: function onLoad(_ref) {
@@ -262,15 +270,8 @@ var _default = {
   // 	}
   // },
   methods: {
-    checkedDate: function checkedDate(i, row) {
-      var _this = this;
-      this.tabs.forEach(function (item, index) {
-        if (i == index) {
-          item.checked = true;
-          _this.listParam.verificationTime = item.value;
-          _this.asyncGetList();
-        } else item.checked = false;
-      });
+    checkedDate: function checkedDate() {
+      this.goToPage("/pages/canteen/inspection/info");
     },
     changePage: function changePage(args) {
       if (args) {
@@ -293,13 +294,14 @@ var _default = {
       uni.navigateBack();
     },
     asyncGetList: function asyncGetList() {
-      var _this2 = this;
-      (0, _index.purchaseList)(this.listParam).then(function (res) {
-        if (res.code == 200) {
+      var _this = this;
+      (0, _index.getInspectionList)(this.listParam).then(function (res) {
+        console.log(res);
+        if (res.code == 0) {
           var data = res.data;
-          _this2.totalPages = data.totalPages; //总页数
-          _this2.count = data.count;
-          _this2.list = data.list || [];
+          _this.totalPages = data.totalPages; //总页数
+          _this.count = data.count;
+          _this.list = data || [];
         }
       });
     }
