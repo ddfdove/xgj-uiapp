@@ -9466,9 +9466,9 @@ internalMixin(Vue);
 
 /***/ }),
 /* 26 */
-/*!*****************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/pages.json ***!
-  \*****************************************************/
+/*!*********************************!*\
+  !*** E:/xgj-app-let/pages.json ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9479,9 +9479,9 @@ internalMixin(Vue);
 /* 28 */,
 /* 29 */,
 /* 30 */
-/*!********************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/utils/util.js ***!
-  \********************************************************/
+/*!************************************!*\
+  !*** E:/xgj-app-let/utils/util.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9713,9 +9713,9 @@ exports.util = util;
 
 /***/ }),
 /* 31 */
-/*!*******************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/api/index.js ***!
-  \*******************************************************/
+/*!***********************************!*\
+  !*** E:/xgj-app-let/api/index.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9728,6 +9728,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.auth = auth;
 exports.deptList = deptList;
+exports.getInspectionInfo = getInspectionInfo;
+exports.getInspectionList = getInspectionList;
+exports.getInspectionSave = getInspectionSave;
+exports.getInspectionUpdate = getInspectionUpdate;
+exports.getKeepSampleInfo = getKeepSampleInfo;
+exports.getKeepSampleList = getKeepSampleList;
+exports.getKeepSampleSave = getKeepSampleSave;
+exports.getKeepSampleUpdate = getKeepSampleUpdate;
 exports.getOrderDetail = getOrderDetail;
 exports.getSnowOrderDetail = getSnowOrderDetail;
 exports.getSnowOrderDetailById = getSnowOrderDetailById;
@@ -9868,11 +9876,77 @@ function getSnowOrderDetailById(data) {
   });
 }
 
+//食材检验列表
+function getInspectionList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/test/list',
+    method: 'POST',
+    data: data
+  });
+}
+//食材检验详情
+function getInspectionInfo(data) {
+  return (0, _request.default)({
+    url: '/api/wms/test/info',
+    method: 'GET',
+    data: data
+  });
+}
+//新增检验
+function getInspectionSave(data) {
+  return (0, _request.default)({
+    url: '/api/wms/test/save',
+    method: 'POST',
+    data: data
+  });
+}
+//更新检验
+function getInspectionUpdate(data) {
+  return (0, _request.default)({
+    url: '/api/wms/test/update',
+    method: 'PUT',
+    data: data
+  });
+}
+
+//食品留样列表
+function getKeepSampleList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/sampleretention/list',
+    method: 'POST',
+    data: data
+  });
+}
+//留样详情
+function getKeepSampleInfo(data) {
+  return (0, _request.default)({
+    url: '/api/wms/sampleretention/info',
+    method: 'GET',
+    data: data
+  });
+}
+//新增留样
+function getKeepSampleSave(data) {
+  return (0, _request.default)({
+    url: '/api/wms/sampleretention/save',
+    method: 'POST',
+    data: data
+  });
+}
+//更新留样
+function getKeepSampleUpdate(data) {
+  return (0, _request.default)({
+    url: '/api/wms/sampleretention/update',
+    method: 'PUT',
+    data: data
+  });
+}
+
 /***/ }),
 /* 32 */
-/*!***********************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/utils/request.js ***!
-  \***********************************************************/
+/*!***************************************!*\
+  !*** E:/xgj-app-let/utils/request.js ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9973,9 +10047,9 @@ function request(_ref) {
 
 /***/ }),
 /* 33 */
-/*!***********************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/utils/baseUrl.js ***!
-  \***********************************************************/
+/*!***************************************!*\
+  !*** E:/xgj-app-let/utils/baseUrl.js ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10130,9 +10204,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 37 */
-/*!************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/index.js ***!
-  \************************************************************************/
+/*!****************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/index.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10219,9 +10293,9 @@ exports.default = _default;
 
 /***/ }),
 /* 38 */
-/*!***********************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/mixin/mixin.js ***!
-  \***********************************************************************************/
+/*!***************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/mixin/mixin.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10387,9 +10461,9 @@ exports.default = _default;
 
 /***/ }),
 /* 39 */
-/*!*************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/mixin/mpMixin.js ***!
-  \*************************************************************************************/
+/*!*****************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/mixin/mpMixin.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10410,9 +10484,9 @@ exports.default = _default;
 
 /***/ }),
 /* 40 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/index.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/index.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10430,9 +10504,9 @@ exports.default = _default;
 
 /***/ }),
 /* 41 */
-/*!*************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/core/Request.js ***!
-  \*************************************************************************************************/
+/*!*****************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/core/Request.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10636,9 +10710,9 @@ exports.default = Request;
 
 /***/ }),
 /* 42 */
-/*!*********************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/core/dispatchRequest.js ***!
-  \*********************************************************************************************************/
+/*!*************************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/core/dispatchRequest.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10658,9 +10732,9 @@ exports.default = _default;
 
 /***/ }),
 /* 43 */
-/*!***************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/adapters/index.js ***!
-  \***************************************************************************************************/
+/*!*******************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/adapters/index.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10739,9 +10813,9 @@ exports.default = _default;
 
 /***/ }),
 /* 44 */
-/*!*****************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/helpers/buildURL.js ***!
-  \*****************************************************************************************************/
+/*!*********************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/helpers/buildURL.js ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10809,9 +10883,9 @@ function buildURL(url, params) {
 
 /***/ }),
 /* 45 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/utils.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/utils.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10962,9 +11036,9 @@ function isUndefined(val) {
 
 /***/ }),
 /* 46 */
-/*!*******************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/core/buildFullPath.js ***!
-  \*******************************************************************************************************/
+/*!***********************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/core/buildFullPath.js ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10996,9 +11070,9 @@ function buildFullPath(baseURL, requestedURL) {
 
 /***/ }),
 /* 47 */
-/*!**********************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/helpers/isAbsoluteURL.js ***!
-  \**********************************************************************************************************/
+/*!**************************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/helpers/isAbsoluteURL.js ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11024,9 +11098,9 @@ function isAbsoluteURL(url) {
 
 /***/ }),
 /* 48 */
-/*!********************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/helpers/combineURLs.js ***!
-  \********************************************************************************************************/
+/*!************************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/helpers/combineURLs.js ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11050,9 +11124,9 @@ function combineURLs(baseURL, relativeURL) {
 
 /***/ }),
 /* 49 */
-/*!************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/core/settle.js ***!
-  \************************************************************************************************/
+/*!****************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/core/settle.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11082,9 +11156,9 @@ function settle(resolve, reject, response) {
 
 /***/ }),
 /* 50 */
-/*!************************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/core/InterceptorManager.js ***!
-  \************************************************************************************************************/
+/*!****************************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/core/InterceptorManager.js ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11146,9 +11220,9 @@ exports.default = _default;
 
 /***/ }),
 /* 51 */
-/*!*****************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/core/mergeConfig.js ***!
-  \*****************************************************************************************************/
+/*!*********************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/core/mergeConfig.js ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11222,9 +11296,9 @@ exports.default = _default;
 
 /***/ }),
 /* 52 */
-/*!**************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/core/defaults.js ***!
-  \**************************************************************************************************/
+/*!******************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/core/defaults.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11254,9 +11328,9 @@ exports.default = _default;
 
 /***/ }),
 /* 53 */
-/*!************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/luch-request/utils/clone.js ***!
-  \************************************************************************************************/
+/*!****************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/luch-request/utils/clone.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11502,7 +11576,7 @@ var clone = function () {
 }();
 var _default = clone;
 exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../../../dev/HBuilderX/plugins/uniapp-cli/node_modules/buffer/index.js */ 54).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/buffer/index.js */ 54).Buffer))
 
 /***/ }),
 /* 54 */
@@ -13578,9 +13652,9 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 /* 58 */
-/*!**********************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/util/route.js ***!
-  \**********************************************************************************/
+/*!**************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/util/route.js ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14140,9 +14214,9 @@ module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exp
 
 /***/ }),
 /* 62 */
-/*!**********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/function/colorGradient.js ***!
-  \**********************************************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/function/colorGradient.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14295,9 +14369,9 @@ exports.default = _default;
 
 /***/ }),
 /* 63 */
-/*!*************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/function/test.js ***!
-  \*************************************************************************************/
+/*!*****************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/function/test.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14600,9 +14674,9 @@ exports.default = _default;
 
 /***/ }),
 /* 64 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/function/debounce.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/function/debounce.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14647,9 +14721,9 @@ exports.default = _default;
 
 /***/ }),
 /* 65 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/function/throttle.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/function/throttle.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14696,9 +14770,9 @@ exports.default = _default;
 
 /***/ }),
 /* 66 */
-/*!**************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/function/index.js ***!
-  \**************************************************************************************/
+/*!******************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/function/index.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15497,9 +15571,9 @@ exports.default = _default;
 
 /***/ }),
 /* 67 */
-/*!**************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/function/digit.js ***!
-  \**************************************************************************************/
+/*!******************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/function/digit.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15716,9 +15790,9 @@ module.exports = _toArray, module.exports.__esModule = true, module.exports["def
 
 /***/ }),
 /* 69 */
-/*!*************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/config.js ***!
-  \*************************************************************************************/
+/*!*****************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/config.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15760,9 +15834,9 @@ exports.default = _default;
 
 /***/ }),
 /* 70 */
-/*!************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props.js ***!
-  \************************************************************************************/
+/*!****************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15872,9 +15946,9 @@ exports.default = _default;
 
 /***/ }),
 /* 71 */
-/*!************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/actionSheet.js ***!
-  \************************************************************************************************/
+/*!****************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/actionSheet.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15916,9 +15990,9 @@ exports.default = _default;
 
 /***/ }),
 /* 72 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/album.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/album.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15960,9 +16034,9 @@ exports.default = _default;
 
 /***/ }),
 /* 73 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/alert.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/alert.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15999,9 +16073,9 @@ exports.default = _default;
 
 /***/ }),
 /* 74 */
-/*!*******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/avatar.js ***!
-  \*******************************************************************************************/
+/*!***********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/avatar.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16044,9 +16118,9 @@ exports.default = _default;
 
 /***/ }),
 /* 75 */
-/*!************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/avatarGroup.js ***!
-  \************************************************************************************************/
+/*!****************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/avatarGroup.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16086,9 +16160,9 @@ exports.default = _default;
 
 /***/ }),
 /* 76 */
-/*!********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/backtop.js ***!
-  \********************************************************************************************/
+/*!************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/backtop.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16132,9 +16206,9 @@ exports.default = _default;
 
 /***/ }),
 /* 77 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/badge.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/badge.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16178,9 +16252,9 @@ exports.default = _default;
 
 /***/ }),
 /* 78 */
-/*!*******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/button.js ***!
-  \*******************************************************************************************/
+/*!***********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/button.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16237,9 +16311,9 @@ exports.default = _default;
 
 /***/ }),
 /* 79 */
-/*!*********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/calendar.js ***!
-  \*********************************************************************************************/
+/*!*************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/calendar.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16300,9 +16374,9 @@ exports.default = _default;
 
 /***/ }),
 /* 80 */
-/*!************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/carKeyboard.js ***!
-  \************************************************************************************************/
+/*!****************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/carKeyboard.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16332,9 +16406,9 @@ exports.default = _default;
 
 /***/ }),
 /* 81 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/cell.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/cell.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16384,9 +16458,9 @@ exports.default = _default;
 
 /***/ }),
 /* 82 */
-/*!**********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/cellGroup.js ***!
-  \**********************************************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/cellGroup.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16418,9 +16492,9 @@ exports.default = _default;
 
 /***/ }),
 /* 83 */
-/*!*********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/checkbox.js ***!
-  \*********************************************************************************************/
+/*!*************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/checkbox.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16462,9 +16536,9 @@ exports.default = _default;
 
 /***/ }),
 /* 84 */
-/*!**************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/checkboxGroup.js ***!
-  \**************************************************************************************************/
+/*!******************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/checkboxGroup.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16510,9 +16584,9 @@ exports.default = _default;
 
 /***/ }),
 /* 85 */
-/*!***************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/circleProgress.js ***!
-  \***************************************************************************************************/
+/*!*******************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/circleProgress.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16542,9 +16616,9 @@ exports.default = _default;
 
 /***/ }),
 /* 86 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/code.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/code.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16579,9 +16653,9 @@ exports.default = _default;
 
 /***/ }),
 /* 87 */
-/*!**********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/codeInput.js ***!
-  \**********************************************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/codeInput.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16625,9 +16699,9 @@ exports.default = _default;
 
 /***/ }),
 /* 88 */
-/*!****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/col.js ***!
-  \****************************************************************************************/
+/*!********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/col.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16661,9 +16735,9 @@ exports.default = _default;
 
 /***/ }),
 /* 89 */
-/*!*********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/collapse.js ***!
-  \*********************************************************************************************/
+/*!*************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/collapse.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16695,9 +16769,9 @@ exports.default = _default;
 
 /***/ }),
 /* 90 */
-/*!*************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/collapseItem.js ***!
-  \*************************************************************************************************/
+/*!*****************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/collapseItem.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16737,9 +16811,9 @@ exports.default = _default;
 
 /***/ }),
 /* 91 */
-/*!*************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/columnNotice.js ***!
-  \*************************************************************************************************/
+/*!*****************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/columnNotice.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16778,9 +16852,9 @@ exports.default = _default;
 
 /***/ }),
 /* 92 */
-/*!**********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/countDown.js ***!
-  \**********************************************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/countDown.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16813,9 +16887,9 @@ exports.default = _default;
 
 /***/ }),
 /* 93 */
-/*!********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/countTo.js ***!
-  \********************************************************************************************/
+/*!************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/countTo.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16855,9 +16929,9 @@ exports.default = _default;
 
 /***/ }),
 /* 94 */
-/*!***************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/datetimePicker.js ***!
-  \***************************************************************************************************/
+/*!*******************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/datetimePicker.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16910,9 +16984,9 @@ exports.default = _default;
 
 /***/ }),
 /* 95 */
-/*!********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/divider.js ***!
-  \********************************************************************************************/
+/*!************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/divider.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16949,9 +17023,9 @@ exports.default = _default;
 
 /***/ }),
 /* 96 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/empty.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/empty.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16991,9 +17065,9 @@ exports.default = _default;
 
 /***/ }),
 /* 97 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/form.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/form.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17036,9 +17110,9 @@ exports.default = _default;
 
 /***/ }),
 /* 98 */
-/*!*********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/formItem.js ***!
-  \*********************************************************************************************/
+/*!*************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/formItem.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17076,9 +17150,9 @@ exports.default = _default;
 
 /***/ }),
 /* 99 */
-/*!****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/gap.js ***!
-  \****************************************************************************************/
+/*!********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/gap.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17112,9 +17186,9 @@ exports.default = _default;
 
 /***/ }),
 /* 100 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/grid.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/grid.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17146,9 +17220,9 @@ exports.default = _default;
 
 /***/ }),
 /* 101 */
-/*!*********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/gridItem.js ***!
-  \*********************************************************************************************/
+/*!*************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/gridItem.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17179,9 +17253,9 @@ exports.default = _default;
 
 /***/ }),
 /* 102 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/icon.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/icon.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17231,9 +17305,9 @@ exports.default = _default;
 
 /***/ }),
 /* 103 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/image.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/image.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17278,9 +17352,9 @@ exports.default = _default;
 
 /***/ }),
 /* 104 */
-/*!************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/indexAnchor.js ***!
-  \************************************************************************************************/
+/*!****************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/indexAnchor.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17314,9 +17388,9 @@ exports.default = _default;
 
 /***/ }),
 /* 105 */
-/*!**********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/indexList.js ***!
-  \**********************************************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/indexList.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17352,9 +17426,9 @@ exports.default = _default;
 
 /***/ }),
 /* 106 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/input.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/input.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17417,9 +17491,9 @@ exports.default = _default;
 
 /***/ }),
 /* 107 */
-/*!*********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/keyboard.js ***!
-  \*********************************************************************************************/
+/*!*************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/keyboard.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17464,9 +17538,9 @@ exports.default = _default;
 
 /***/ }),
 /* 108 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/line.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/line.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17501,9 +17575,9 @@ exports.default = _default;
 
 /***/ }),
 /* 109 */
-/*!*************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/lineProgress.js ***!
-  \*************************************************************************************************/
+/*!*****************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/lineProgress.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17537,9 +17611,9 @@ exports.default = _default;
 
 /***/ }),
 /* 110 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/link.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/link.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17579,9 +17653,9 @@ exports.default = _default;
 
 /***/ }),
 /* 111 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/list.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/list.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17624,9 +17698,9 @@ exports.default = _default;
 
 /***/ }),
 /* 112 */
-/*!*********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/listItem.js ***!
-  \*********************************************************************************************/
+/*!*************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/listItem.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17656,9 +17730,9 @@ exports.default = _default;
 
 /***/ }),
 /* 113 */
-/*!************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/loadingIcon.js ***!
-  \************************************************************************************************/
+/*!****************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/loadingIcon.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17702,9 +17776,9 @@ exports.default = _default;
 
 /***/ }),
 /* 114 */
-/*!************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/loadingPage.js ***!
-  \************************************************************************************************/
+/*!****************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/loadingPage.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17742,9 +17816,9 @@ exports.default = _default;
 
 /***/ }),
 /* 115 */
-/*!*********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/loadmore.js ***!
-  \*********************************************************************************************/
+/*!*************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/loadmore.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17791,9 +17865,9 @@ exports.default = _default;
 
 /***/ }),
 /* 116 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/modal.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/modal.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17839,9 +17913,9 @@ exports.default = _default;
 
 /***/ }),
 /* 117 */
-/*!*******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/navbar.js ***!
-  \*******************************************************************************************/
+/*!***********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/navbar.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17888,9 +17962,9 @@ exports.default = _default;
 
 /***/ }),
 /* 118 */
-/*!************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/color.js ***!
-  \************************************************************************************/
+/*!****************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/color.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17921,9 +17995,9 @@ exports.default = _default;
 
 /***/ }),
 /* 119 */
-/*!**********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/noNetwork.js ***!
-  \**********************************************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/noNetwork.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17955,9 +18029,9 @@ exports.default = _default;
 
 /***/ }),
 /* 120 */
-/*!**********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/noticeBar.js ***!
-  \**********************************************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/noticeBar.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18001,9 +18075,9 @@ exports.default = _default;
 
 /***/ }),
 /* 121 */
-/*!*******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/notify.js ***!
-  \*******************************************************************************************/
+/*!***********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/notify.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18040,9 +18114,9 @@ exports.default = _default;
 
 /***/ }),
 /* 122 */
-/*!**********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/numberBox.js ***!
-  \**********************************************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/numberBox.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18092,9 +18166,9 @@ exports.default = _default;
 
 /***/ }),
 /* 123 */
-/*!***************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/numberKeyboard.js ***!
-  \***************************************************************************************************/
+/*!*******************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/numberKeyboard.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18126,9 +18200,9 @@ exports.default = _default;
 
 /***/ }),
 /* 124 */
-/*!********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/overlay.js ***!
-  \********************************************************************************************/
+/*!************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/overlay.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18161,9 +18235,9 @@ exports.default = _default;
 
 /***/ }),
 /* 125 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/parse.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/parse.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18200,9 +18274,9 @@ exports.default = _default;
 
 /***/ }),
 /* 126 */
-/*!*******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/picker.js ***!
-  \*******************************************************************************************/
+/*!***********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/picker.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18250,9 +18324,9 @@ exports.default = _default;
 
 /***/ }),
 /* 127 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/popup.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/popup.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18296,9 +18370,9 @@ exports.default = _default;
 
 /***/ }),
 /* 128 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/radio.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/radio.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18340,9 +18414,9 @@ exports.default = _default;
 
 /***/ }),
 /* 129 */
-/*!***********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/radioGroup.js ***!
-  \***********************************************************************************************/
+/*!***************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/radioGroup.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18387,9 +18461,9 @@ exports.default = _default;
 
 /***/ }),
 /* 130 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/rate.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/rate.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18430,9 +18504,9 @@ exports.default = _default;
 
 /***/ }),
 /* 131 */
-/*!*********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/readMore.js ***!
-  \*********************************************************************************************/
+/*!*************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/readMore.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18469,9 +18543,9 @@ exports.default = _default;
 
 /***/ }),
 /* 132 */
-/*!****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/row.js ***!
-  \****************************************************************************************/
+/*!********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/row.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18503,9 +18577,9 @@ exports.default = _default;
 
 /***/ }),
 /* 133 */
-/*!**********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/rowNotice.js ***!
-  \**********************************************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/rowNotice.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18541,9 +18615,9 @@ exports.default = _default;
 
 /***/ }),
 /* 134 */
-/*!***********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/scrollList.js ***!
-  \***********************************************************************************************/
+/*!***************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/scrollList.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18578,9 +18652,9 @@ exports.default = _default;
 
 /***/ }),
 /* 135 */
-/*!*******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/search.js ***!
-  \*******************************************************************************************/
+/*!***********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/search.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18636,9 +18710,9 @@ exports.default = _default;
 
 /***/ }),
 /* 136 */
-/*!********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/section.js ***!
-  \********************************************************************************************/
+/*!************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/section.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18677,9 +18751,9 @@ exports.default = _default;
 
 /***/ }),
 /* 137 */
-/*!*********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/skeleton.js ***!
-  \*********************************************************************************************/
+/*!*************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/skeleton.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18719,9 +18793,9 @@ exports.default = _default;
 
 /***/ }),
 /* 138 */
-/*!*******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/slider.js ***!
-  \*******************************************************************************************/
+/*!***********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/slider.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18761,9 +18835,9 @@ exports.default = _default;
 
 /***/ }),
 /* 139 */
-/*!**********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/statusBar.js ***!
-  \**********************************************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/statusBar.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18793,9 +18867,9 @@ exports.default = _default;
 
 /***/ }),
 /* 140 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/steps.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/steps.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18831,9 +18905,9 @@ exports.default = _default;
 
 /***/ }),
 /* 141 */
-/*!**********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/stepsItem.js ***!
-  \**********************************************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/stepsItem.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18866,9 +18940,9 @@ exports.default = _default;
 
 /***/ }),
 /* 142 */
-/*!*******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/sticky.js ***!
-  \*******************************************************************************************/
+/*!***********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/sticky.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18903,9 +18977,9 @@ exports.default = _default;
 
 /***/ }),
 /* 143 */
-/*!***********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/subsection.js ***!
-  \***********************************************************************************************/
+/*!***************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/subsection.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18943,9 +19017,9 @@ exports.default = _default;
 
 /***/ }),
 /* 144 */
-/*!************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/swipeAction.js ***!
-  \************************************************************************************************/
+/*!****************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/swipeAction.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18975,9 +19049,9 @@ exports.default = _default;
 
 /***/ }),
 /* 145 */
-/*!****************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/swipeActionItem.js ***!
-  \****************************************************************************************************/
+/*!********************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/swipeActionItem.js ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19013,9 +19087,9 @@ exports.default = _default;
 
 /***/ }),
 /* 146 */
-/*!*******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/swiper.js ***!
-  \*******************************************************************************************/
+/*!***********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/swiper.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19070,9 +19144,9 @@ exports.default = _default;
 
 /***/ }),
 /* 147 */
-/*!*****************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/swipterIndicator.js ***!
-  \*****************************************************************************************************/
+/*!*********************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/swipterIndicator.js ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19106,9 +19180,9 @@ exports.default = _default;
 
 /***/ }),
 /* 148 */
-/*!*******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/switch.js ***!
-  \*******************************************************************************************/
+/*!***********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/switch.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19147,9 +19221,9 @@ exports.default = _default;
 
 /***/ }),
 /* 149 */
-/*!*******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/tabbar.js ***!
-  \*******************************************************************************************/
+/*!***********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/tabbar.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19186,9 +19260,9 @@ exports.default = _default;
 
 /***/ }),
 /* 150 */
-/*!***********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/tabbarItem.js ***!
-  \***********************************************************************************************/
+/*!***************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/tabbarItem.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19223,9 +19297,9 @@ exports.default = _default;
 
 /***/ }),
 /* 151 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/tabs.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/tabs.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19280,9 +19354,9 @@ exports.default = _default;
 
 /***/ }),
 /* 152 */
-/*!****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/tag.js ***!
-  \****************************************************************************************/
+/*!********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/tag.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19326,9 +19400,9 @@ exports.default = _default;
 
 /***/ }),
 /* 153 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/text.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/text.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19382,9 +19456,9 @@ exports.default = _default;
 
 /***/ }),
 /* 154 */
-/*!*********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/textarea.js ***!
-  \*********************************************************************************************/
+/*!*************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/textarea.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19435,9 +19509,9 @@ exports.default = _default;
 
 /***/ }),
 /* 155 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/toast.js ***!
-  \******************************************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/toast.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19481,9 +19555,9 @@ exports.default = _default;
 
 /***/ }),
 /* 156 */
-/*!********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/toolbar.js ***!
-  \********************************************************************************************/
+/*!************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/toolbar.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19518,9 +19592,9 @@ exports.default = _default;
 
 /***/ }),
 /* 157 */
-/*!********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/tooltip.js ***!
-  \********************************************************************************************/
+/*!************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/tooltip.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19562,9 +19636,9 @@ exports.default = _default;
 
 /***/ }),
 /* 158 */
-/*!***********************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/transition.js ***!
-  \***********************************************************************************************/
+/*!***************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/transition.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19597,9 +19671,9 @@ exports.default = _default;
 
 /***/ }),
 /* 159 */
-/*!*******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/props/upload.js ***!
-  \*******************************************************************************************/
+/*!***********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/props/upload.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19656,9 +19730,9 @@ exports.default = _default;
 
 /***/ }),
 /* 160 */
-/*!*************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/config/zIndex.js ***!
-  \*************************************************************************************/
+/*!*****************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/config/zIndex.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19692,9 +19766,9 @@ exports.default = _default;
 
 /***/ }),
 /* 161 */
-/*!*****************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/libs/function/platform.js ***!
-  \*****************************************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/libs/function/platform.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19722,9 +19796,9 @@ exports.default = _default;
 
 /***/ }),
 /* 162 */
-/*!*******************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni.promisify.adaptor.js ***!
-  \*******************************************************************/
+/*!***********************************************!*\
+  !*** E:/xgj-app-let/uni.promisify.adaptor.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19745,9 +19819,9 @@ uni.addInterceptor({
 
 /***/ }),
 /* 163 */
-/*!*************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/filters/filters.js ***!
-  \*************************************************************/
+/*!*****************************************!*\
+  !*** E:/xgj-app-let/filters/filters.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19848,9 +19922,9 @@ exports.default = _default;
 /* 168 */,
 /* 169 */,
 /* 170 */
-/*!***************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/pages/mixin/mixin.js ***!
-  \***************************************************************/
+/*!*******************************************!*\
+  !*** E:/xgj-app-let/pages/mixin/mixin.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19947,9 +20021,9 @@ module.exports = _objectDestructuringEmpty, module.exports.__esModule = true, mo
 /* 194 */,
 /* 195 */,
 /* 196 */
-/*!**************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/utils/validation.js ***!
-  \**************************************************************/
+/*!******************************************!*\
+  !*** E:/xgj-app-let/utils/validation.js ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -20424,9 +20498,9 @@ module.exports = {
 /* 386 */,
 /* 387 */,
 /* 388 */
-/*!*******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/components/u-input/props.js ***!
-  \*******************************************************************************************/
+/*!***********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/components/u-input/props.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20633,389 +20707,7 @@ exports.default = _default;
 /* 391 */,
 /* 392 */,
 /* 393 */,
-/* 394 */,
-/* 395 */,
-/* 396 */,
-/* 397 */,
-/* 398 */,
-/* 399 */,
-/* 400 */,
-/* 401 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/components/u-icon/icons.js ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  'uicon-level': "\uE693",
-  'uicon-column-line': "\uE68E",
-  'uicon-checkbox-mark': "\uE807",
-  'uicon-folder': "\uE7F5",
-  'uicon-movie': "\uE7F6",
-  'uicon-star-fill': "\uE669",
-  'uicon-star': "\uE65F",
-  'uicon-phone-fill': "\uE64F",
-  'uicon-phone': "\uE622",
-  'uicon-apple-fill': "\uE881",
-  'uicon-chrome-circle-fill': "\uE885",
-  'uicon-backspace': "\uE67B",
-  'uicon-attach': "\uE632",
-  'uicon-cut': "\uE948",
-  'uicon-empty-car': "\uE602",
-  'uicon-empty-coupon': "\uE682",
-  'uicon-empty-address': "\uE646",
-  'uicon-empty-favor': "\uE67C",
-  'uicon-empty-permission': "\uE686",
-  'uicon-empty-news': "\uE687",
-  'uicon-empty-search': "\uE664",
-  'uicon-github-circle-fill': "\uE887",
-  'uicon-rmb': "\uE608",
-  'uicon-person-delete-fill': "\uE66A",
-  'uicon-reload': "\uE788",
-  'uicon-order': "\uE68F",
-  'uicon-server-man': "\uE6BC",
-  'uicon-search': "\uE62A",
-  'uicon-fingerprint': "\uE955",
-  'uicon-more-dot-fill': "\uE630",
-  'uicon-scan': "\uE662",
-  'uicon-share-square': "\uE60B",
-  'uicon-map': "\uE61D",
-  'uicon-map-fill': "\uE64E",
-  'uicon-tags': "\uE629",
-  'uicon-tags-fill': "\uE651",
-  'uicon-bookmark-fill': "\uE63B",
-  'uicon-bookmark': "\uE60A",
-  'uicon-eye': "\uE613",
-  'uicon-eye-fill': "\uE641",
-  'uicon-mic': "\uE64A",
-  'uicon-mic-off': "\uE649",
-  'uicon-calendar': "\uE66E",
-  'uicon-calendar-fill': "\uE634",
-  'uicon-trash': "\uE623",
-  'uicon-trash-fill': "\uE658",
-  'uicon-play-left': "\uE66D",
-  'uicon-play-right': "\uE610",
-  'uicon-minus': "\uE618",
-  'uicon-plus': "\uE62D",
-  'uicon-info': "\uE653",
-  'uicon-info-circle': "\uE7D2",
-  'uicon-info-circle-fill': "\uE64B",
-  'uicon-question': "\uE715",
-  'uicon-error': "\uE6D3",
-  'uicon-close': "\uE685",
-  'uicon-checkmark': "\uE6A8",
-  'uicon-android-circle-fill': "\uE67E",
-  'uicon-android-fill': "\uE67D",
-  'uicon-ie': "\uE87B",
-  'uicon-IE-circle-fill': "\uE889",
-  'uicon-google': "\uE87A",
-  'uicon-google-circle-fill': "\uE88A",
-  'uicon-setting-fill': "\uE872",
-  'uicon-setting': "\uE61F",
-  'uicon-minus-square-fill': "\uE855",
-  'uicon-plus-square-fill': "\uE856",
-  'uicon-heart': "\uE7DF",
-  'uicon-heart-fill': "\uE851",
-  'uicon-camera': "\uE7D7",
-  'uicon-camera-fill': "\uE870",
-  'uicon-more-circle': "\uE63E",
-  'uicon-more-circle-fill': "\uE645",
-  'uicon-chat': "\uE620",
-  'uicon-chat-fill': "\uE61E",
-  'uicon-bag-fill': "\uE617",
-  'uicon-bag': "\uE619",
-  'uicon-error-circle-fill': "\uE62C",
-  'uicon-error-circle': "\uE624",
-  'uicon-close-circle': "\uE63F",
-  'uicon-close-circle-fill': "\uE637",
-  'uicon-checkmark-circle': "\uE63D",
-  'uicon-checkmark-circle-fill': "\uE635",
-  'uicon-question-circle-fill': "\uE666",
-  'uicon-question-circle': "\uE625",
-  'uicon-share': "\uE631",
-  'uicon-share-fill': "\uE65E",
-  'uicon-shopping-cart': "\uE621",
-  'uicon-shopping-cart-fill': "\uE65D",
-  'uicon-bell': "\uE609",
-  'uicon-bell-fill': "\uE640",
-  'uicon-list': "\uE650",
-  'uicon-list-dot': "\uE616",
-  'uicon-zhihu': "\uE6BA",
-  'uicon-zhihu-circle-fill': "\uE709",
-  'uicon-zhifubao': "\uE6B9",
-  'uicon-zhifubao-circle-fill': "\uE6B8",
-  'uicon-weixin-circle-fill': "\uE6B1",
-  'uicon-weixin-fill': "\uE6B2",
-  'uicon-twitter-circle-fill': "\uE6AB",
-  'uicon-twitter': "\uE6AA",
-  'uicon-taobao-circle-fill': "\uE6A7",
-  'uicon-taobao': "\uE6A6",
-  'uicon-weibo-circle-fill': "\uE6A5",
-  'uicon-weibo': "\uE6A4",
-  'uicon-qq-fill': "\uE6A1",
-  'uicon-qq-circle-fill': "\uE6A0",
-  'uicon-moments-circel-fill': "\uE69A",
-  'uicon-moments': "\uE69B",
-  'uicon-qzone': "\uE695",
-  'uicon-qzone-circle-fill': "\uE696",
-  'uicon-baidu-circle-fill': "\uE680",
-  'uicon-baidu': "\uE681",
-  'uicon-facebook-circle-fill': "\uE68A",
-  'uicon-facebook': "\uE689",
-  'uicon-car': "\uE60C",
-  'uicon-car-fill': "\uE636",
-  'uicon-warning-fill': "\uE64D",
-  'uicon-warning': "\uE694",
-  'uicon-clock-fill': "\uE638",
-  'uicon-clock': "\uE60F",
-  'uicon-edit-pen': "\uE612",
-  'uicon-edit-pen-fill': "\uE66B",
-  'uicon-email': "\uE611",
-  'uicon-email-fill': "\uE642",
-  'uicon-minus-circle': "\uE61B",
-  'uicon-minus-circle-fill': "\uE652",
-  'uicon-plus-circle': "\uE62E",
-  'uicon-plus-circle-fill': "\uE661",
-  'uicon-file-text': "\uE663",
-  'uicon-file-text-fill': "\uE665",
-  'uicon-pushpin': "\uE7E3",
-  'uicon-pushpin-fill': "\uE86E",
-  'uicon-grid': "\uE673",
-  'uicon-grid-fill': "\uE678",
-  'uicon-play-circle': "\uE647",
-  'uicon-play-circle-fill': "\uE655",
-  'uicon-pause-circle-fill': "\uE654",
-  'uicon-pause': "\uE8FA",
-  'uicon-pause-circle': "\uE643",
-  'uicon-eye-off': "\uE648",
-  'uicon-eye-off-outline': "\uE62B",
-  'uicon-gift-fill': "\uE65C",
-  'uicon-gift': "\uE65B",
-  'uicon-rmb-circle-fill': "\uE657",
-  'uicon-rmb-circle': "\uE677",
-  'uicon-kefu-ermai': "\uE656",
-  'uicon-server-fill': "\uE751",
-  'uicon-coupon-fill': "\uE8C4",
-  'uicon-coupon': "\uE8AE",
-  'uicon-integral': "\uE704",
-  'uicon-integral-fill': "\uE703",
-  'uicon-home-fill': "\uE964",
-  'uicon-home': "\uE965",
-  'uicon-hourglass-half-fill': "\uE966",
-  'uicon-hourglass': "\uE967",
-  'uicon-account': "\uE628",
-  'uicon-plus-people-fill': "\uE626",
-  'uicon-minus-people-fill': "\uE615",
-  'uicon-account-fill': "\uE614",
-  'uicon-thumb-down-fill': "\uE726",
-  'uicon-thumb-down': "\uE727",
-  'uicon-thumb-up': "\uE733",
-  'uicon-thumb-up-fill': "\uE72F",
-  'uicon-lock-fill': "\uE979",
-  'uicon-lock-open': "\uE973",
-  'uicon-lock-opened-fill': "\uE974",
-  'uicon-lock': "\uE97A",
-  'uicon-red-packet-fill': "\uE690",
-  'uicon-photo-fill': "\uE98B",
-  'uicon-photo': "\uE98D",
-  'uicon-volume-off-fill': "\uE659",
-  'uicon-volume-off': "\uE644",
-  'uicon-volume-fill': "\uE670",
-  'uicon-volume': "\uE633",
-  'uicon-red-packet': "\uE691",
-  'uicon-download': "\uE63C",
-  'uicon-arrow-up-fill': "\uE6B0",
-  'uicon-arrow-down-fill': "\uE600",
-  'uicon-play-left-fill': "\uE675",
-  'uicon-play-right-fill': "\uE676",
-  'uicon-rewind-left-fill': "\uE679",
-  'uicon-rewind-right-fill': "\uE67A",
-  'uicon-arrow-downward': "\uE604",
-  'uicon-arrow-leftward': "\uE601",
-  'uicon-arrow-rightward': "\uE603",
-  'uicon-arrow-upward': "\uE607",
-  'uicon-arrow-down': "\uE60D",
-  'uicon-arrow-right': "\uE605",
-  'uicon-arrow-left': "\uE60E",
-  'uicon-arrow-up': "\uE606",
-  'uicon-skip-back-left': "\uE674",
-  'uicon-skip-forward-right': "\uE672",
-  'uicon-rewind-right': "\uE66F",
-  'uicon-rewind-left': "\uE671",
-  'uicon-arrow-right-double': "\uE68D",
-  'uicon-arrow-left-double': "\uE68C",
-  'uicon-wifi-off': "\uE668",
-  'uicon-wifi': "\uE667",
-  'uicon-empty-data': "\uE62F",
-  'uicon-empty-history': "\uE684",
-  'uicon-empty-list': "\uE68B",
-  'uicon-empty-page': "\uE627",
-  'uicon-empty-order': "\uE639",
-  'uicon-man': "\uE697",
-  'uicon-woman': "\uE69C",
-  'uicon-man-add': "\uE61C",
-  'uicon-man-add-fill': "\uE64C",
-  'uicon-man-delete': "\uE61A",
-  'uicon-man-delete-fill': "\uE66A",
-  'uicon-zh': "\uE70A",
-  'uicon-en': "\uE692"
-};
-exports.default = _default;
-
-/***/ }),
-/* 402 */
-/*!******************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uview-ui/components/u-icon/props.js ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  props: {
-    // 图标类名
-    name: {
-      type: String,
-      default: uni.$u.props.icon.name
-    },
-    // 图标颜色，可接受主题色
-    color: {
-      type: String,
-      default: uni.$u.props.icon.color
-    },
-    // 字体大小，单位px
-    size: {
-      type: [String, Number],
-      default: uni.$u.props.icon.size
-    },
-    // 是否显示粗体
-    bold: {
-      type: Boolean,
-      default: uni.$u.props.icon.bold
-    },
-    // 点击图标的时候传递事件出去的index（用于区分点击了哪一个）
-    index: {
-      type: [String, Number],
-      default: uni.$u.props.icon.index
-    },
-    // 触摸图标时的类名
-    hoverClass: {
-      type: String,
-      default: uni.$u.props.icon.hoverClass
-    },
-    // 自定义扩展前缀，方便用户扩展自己的图标库
-    customPrefix: {
-      type: String,
-      default: uni.$u.props.icon.customPrefix
-    },
-    // 图标右边或者下面的文字
-    label: {
-      type: [String, Number],
-      default: uni.$u.props.icon.label
-    },
-    // label的位置，只能右边或者下边
-    labelPos: {
-      type: String,
-      default: uni.$u.props.icon.labelPos
-    },
-    // label的大小
-    labelSize: {
-      type: [String, Number],
-      default: uni.$u.props.icon.labelSize
-    },
-    // label的颜色
-    labelColor: {
-      type: String,
-      default: uni.$u.props.icon.labelColor
-    },
-    // label与图标的距离
-    space: {
-      type: [String, Number],
-      default: uni.$u.props.icon.space
-    },
-    // 图片的mode
-    imgMode: {
-      type: String,
-      default: uni.$u.props.icon.imgMode
-    },
-    // 用于显示图片小图标时，图片的宽度
-    width: {
-      type: [String, Number],
-      default: uni.$u.props.icon.width
-    },
-    // 用于显示图片小图标时，图片的高度
-    height: {
-      type: [String, Number],
-      default: uni.$u.props.icon.height
-    },
-    // 用于解决某些情况下，让图标垂直居中的用途
-    top: {
-      type: [String, Number],
-      default: uni.$u.props.icon.top
-    },
-    // 是否阻止事件传播
-    stop: {
-      type: Boolean,
-      default: uni.$u.props.icon.stop
-    }
-  }
-};
-exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-/* 403 */,
-/* 404 */,
-/* 405 */,
-/* 406 */,
-/* 407 */,
-/* 408 */,
-/* 409 */,
-/* 410 */,
-/* 411 */,
-/* 412 */,
-/* 413 */,
-/* 414 */,
-/* 415 */,
-/* 416 */,
-/* 417 */,
-/* 418 */,
-/* 419 */,
-/* 420 */,
-/* 421 */,
-/* 422 */,
-/* 423 */,
-/* 424 */,
-/* 425 */,
-/* 426 */,
-/* 427 */,
-/* 428 */,
-/* 429 */,
-/* 430 */,
-/* 431 */,
-/* 432 */,
-/* 433 */,
-/* 434 */,
-/* 435 */,
-/* 436 */,
-/* 437 */,
-/* 438 */,
-/* 439 */,
-/* 440 */
+/* 394 */
 /*!************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js ***!
   \************************************************************************************/
@@ -21031,19 +20723,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 59));
-var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ 441));
+var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ 395));
 var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ 5));
 var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 61));
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
-var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ 442));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ 443));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ 444));
-var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/wrapNativeSuper */ 445));
+var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ 396));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ 397));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ 398));
+var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/wrapNativeSuper */ 399));
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
 var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
-var _pages = _interopRequireDefault(__webpack_require__(/*! @/pages.json */ 447));
+var _pages = _interopRequireDefault(__webpack_require__(/*! @/pages.json */ 401));
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e34) { throw _e34; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e35) { didErr = true; err = _e35; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
@@ -21496,7 +21188,7 @@ var S = "development" === "development",
   x = true;
 var O = "";
 try {
-  O = (__webpack_require__(/*! uni-stat-config */ 448).default || __webpack_require__(/*! uni-stat-config */ 448)).appid;
+  O = (__webpack_require__(/*! uni-stat-config */ 402).default || __webpack_require__(/*! uni-stat-config */ 402)).appid;
 } catch (e) {}
 var E = {};
 function L(e) {
@@ -28839,7 +28531,7 @@ exports.default = Bs;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3), __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
 
 /***/ }),
-/* 441 */
+/* 395 */
 /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/assertThisInitialized.js ***!
   \**********************************************************************/
@@ -28855,7 +28547,7 @@ function _assertThisInitialized(self) {
 module.exports = _assertThisInitialized, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 442 */
+/* 396 */
 /*!*********************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/inherits.js ***!
   \*********************************************************/
@@ -28882,7 +28574,7 @@ function _inherits(subClass, superClass) {
 module.exports = _inherits, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 443 */
+/* 397 */
 /*!**************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js ***!
   \**************************************************************************/
@@ -28890,7 +28582,7 @@ module.exports = _inherits, module.exports.__esModule = true, module.exports["de
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = __webpack_require__(/*! ./typeof.js */ 13)["default"];
-var assertThisInitialized = __webpack_require__(/*! ./assertThisInitialized.js */ 441);
+var assertThisInitialized = __webpack_require__(/*! ./assertThisInitialized.js */ 395);
 function _possibleConstructorReturn(self, call) {
   if (call && (_typeof(call) === "object" || typeof call === "function")) {
     return call;
@@ -28902,7 +28594,7 @@ function _possibleConstructorReturn(self, call) {
 module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 444 */
+/* 398 */
 /*!***************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/getPrototypeOf.js ***!
   \***************************************************************/
@@ -28918,16 +28610,16 @@ function _getPrototypeOf(o) {
 module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 445 */
+/* 399 */
 /*!****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/wrapNativeSuper.js ***!
   \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getPrototypeOf = __webpack_require__(/*! ./getPrototypeOf.js */ 444);
+var getPrototypeOf = __webpack_require__(/*! ./getPrototypeOf.js */ 398);
 var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf.js */ 16);
-var isNativeFunction = __webpack_require__(/*! ./isNativeFunction.js */ 446);
+var isNativeFunction = __webpack_require__(/*! ./isNativeFunction.js */ 400);
 var construct = __webpack_require__(/*! ./construct.js */ 15);
 function _wrapNativeSuper(Class) {
   var _cache = typeof Map === "function" ? new Map() : undefined;
@@ -28958,7 +28650,7 @@ function _wrapNativeSuper(Class) {
 module.exports = _wrapNativeSuper, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 446 */
+/* 400 */
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/isNativeFunction.js ***!
   \*****************************************************************/
@@ -28975,10 +28667,10 @@ function _isNativeFunction(fn) {
 module.exports = _isNativeFunction, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 447 */
-/*!**********************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/pages.json?{"type":"origin-pages-json"} ***!
-  \**********************************************************************************/
+/* 401 */
+/*!**************************************************************!*\
+  !*** E:/xgj-app-let/pages.json?{"type":"origin-pages-json"} ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29186,10 +28878,10 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 448 */
-/*!*********************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/pages.json?{"type":"stat"} ***!
-  \*********************************************************************/
+/* 402 */
+/*!*************************************************!*\
+  !*** E:/xgj-app-let/pages.json?{"type":"stat"} ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29206,18 +28898,536 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 449 */,
-/* 450 */,
-/* 451 */,
-/* 452 */,
-/* 453 */,
-/* 454 */,
-/* 455 */,
-/* 456 */,
-/* 457 */
-/*!**********************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uni-icons/components/uni-icons/uniicons_file_vue.js ***!
-  \**********************************************************************************************************/
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */
+/*!***************************************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/index.js ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 411));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 412));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 413));
+var _default = {
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default
+};
+exports.default = _default;
+
+/***/ }),
+/* 411 */
+/*!**************************************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/en.json ***!
+  \**************************************************************************************************/
+/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-datetime-picker.year, uni-datetime-picker.month, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, uni-calender.SUN, uni-calender.confirm, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"select date\",\"uni-datetime-picker.selectTime\":\"select time\",\"uni-datetime-picker.selectDateTime\":\"select date and time\",\"uni-datetime-picker.startDate\":\"start date\",\"uni-datetime-picker.endDate\":\"end date\",\"uni-datetime-picker.startTime\":\"start time\",\"uni-datetime-picker.endTime\":\"end time\",\"uni-datetime-picker.ok\":\"ok\",\"uni-datetime-picker.clear\":\"clear\",\"uni-datetime-picker.cancel\":\"cancel\",\"uni-datetime-picker.year\":\"-\",\"uni-datetime-picker.month\":\"\",\"uni-calender.MON\":\"MON\",\"uni-calender.TUE\":\"TUE\",\"uni-calender.WED\":\"WED\",\"uni-calender.THU\":\"THU\",\"uni-calender.FRI\":\"FRI\",\"uni-calender.SAT\":\"SAT\",\"uni-calender.SUN\":\"SUN\",\"uni-calender.confirm\":\"confirm\"}");
+
+/***/ }),
+/* 412 */
+/*!*******************************************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hans.json ***!
+  \*******************************************************************************************************/
+/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-datetime-picker.year, uni-datetime-picker.month, uni-calender.SUN, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, uni-calender.confirm, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"选择日期\",\"uni-datetime-picker.selectTime\":\"选择时间\",\"uni-datetime-picker.selectDateTime\":\"选择日期时间\",\"uni-datetime-picker.startDate\":\"开始日期\",\"uni-datetime-picker.endDate\":\"结束日期\",\"uni-datetime-picker.startTime\":\"开始时间\",\"uni-datetime-picker.endTime\":\"结束时间\",\"uni-datetime-picker.ok\":\"确定\",\"uni-datetime-picker.clear\":\"清除\",\"uni-datetime-picker.cancel\":\"取消\",\"uni-datetime-picker.year\":\"年\",\"uni-datetime-picker.month\":\"月\",\"uni-calender.SUN\":\"日\",\"uni-calender.MON\":\"一\",\"uni-calender.TUE\":\"二\",\"uni-calender.WED\":\"三\",\"uni-calender.THU\":\"四\",\"uni-calender.FRI\":\"五\",\"uni-calender.SAT\":\"六\",\"uni-calender.confirm\":\"确认\"}");
+
+/***/ }),
+/* 413 */
+/*!*******************************************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hant.json ***!
+  \*******************************************************************************************************/
+/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-datetime-picker.year, uni-datetime-picker.month, uni-calender.SUN, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, uni-calender.confirm, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"選擇日期\",\"uni-datetime-picker.selectTime\":\"選擇時間\",\"uni-datetime-picker.selectDateTime\":\"選擇日期時間\",\"uni-datetime-picker.startDate\":\"開始日期\",\"uni-datetime-picker.endDate\":\"結束日期\",\"uni-datetime-picker.startTime\":\"開始时间\",\"uni-datetime-picker.endTime\":\"結束时间\",\"uni-datetime-picker.ok\":\"確定\",\"uni-datetime-picker.clear\":\"清除\",\"uni-datetime-picker.cancel\":\"取消\",\"uni-datetime-picker.year\":\"年\",\"uni-datetime-picker.month\":\"月\",\"uni-calender.SUN\":\"日\",\"uni-calender.MON\":\"一\",\"uni-calender.TUE\":\"二\",\"uni-calender.WED\":\"三\",\"uni-calender.THU\":\"四\",\"uni-calender.FRI\":\"五\",\"uni-calender.SAT\":\"六\",\"uni-calender.confirm\":\"確認\"}");
+
+/***/ }),
+/* 414 */
+/*!*********************************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uni-datetime-picker/components/uni-datetime-picker/util.js ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Calendar = void 0;
+exports.addZero = addZero;
+exports.checkDate = checkDate;
+exports.dateCompare = dateCompare;
+exports.fixIosDateFormat = fixIosDateFormat;
+exports.getDate = getDate;
+exports.getDateTime = getDateTime;
+exports.getDefaultSecond = getDefaultSecond;
+exports.getTime = getTime;
+var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
+var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
+var Calendar = /*#__PURE__*/function () {
+  function Calendar() {
+    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      selected = _ref.selected,
+      startDate = _ref.startDate,
+      endDate = _ref.endDate,
+      range = _ref.range;
+    (0, _classCallCheck2.default)(this, Calendar);
+    // 当前日期
+    this.date = this.getDateObj(new Date()); // 当前初入日期
+    // 打点信息
+    this.selected = selected || [];
+    // 起始时间
+    this.startDate = startDate;
+    // 终止时间
+    this.endDate = endDate;
+    // 是否范围选择
+    this.range = range;
+    // 多选状态
+    this.cleanMultipleStatus();
+    // 每周日期
+    this.weeks = {};
+    this.lastHover = false;
+  }
+  /**
+   * 设置日期
+   * @param {Object} date
+   */
+  (0, _createClass2.default)(Calendar, [{
+    key: "setDate",
+    value: function setDate(date) {
+      var selectDate = this.getDateObj(date);
+      this.getWeeks(selectDate.fullDate);
+    }
+
+    /**
+     * 清理多选状态
+     */
+  }, {
+    key: "cleanMultipleStatus",
+    value: function cleanMultipleStatus() {
+      this.multipleStatus = {
+        before: '',
+        after: '',
+        data: []
+      };
+    }
+  }, {
+    key: "setStartDate",
+    value: function setStartDate(startDate) {
+      this.startDate = startDate;
+    }
+  }, {
+    key: "setEndDate",
+    value: function setEndDate(endDate) {
+      this.endDate = endDate;
+    }
+  }, {
+    key: "getPreMonthObj",
+    value: function getPreMonthObj(date) {
+      date = fixIosDateFormat(date);
+      date = new Date(date);
+      var oldMonth = date.getMonth();
+      date.setMonth(oldMonth - 1);
+      var newMonth = date.getMonth();
+      if (oldMonth !== 0 && newMonth - oldMonth === 0) {
+        date.setMonth(newMonth - 1);
+      }
+      return this.getDateObj(date);
+    }
+  }, {
+    key: "getNextMonthObj",
+    value: function getNextMonthObj(date) {
+      date = fixIosDateFormat(date);
+      date = new Date(date);
+      var oldMonth = date.getMonth();
+      date.setMonth(oldMonth + 1);
+      var newMonth = date.getMonth();
+      if (newMonth - oldMonth > 1) {
+        date.setMonth(newMonth - 1);
+      }
+      return this.getDateObj(date);
+    }
+
+    /**
+     * 获取指定格式Date对象
+     */
+  }, {
+    key: "getDateObj",
+    value: function getDateObj(date) {
+      date = fixIosDateFormat(date);
+      date = new Date(date);
+      return {
+        fullDate: getDate(date),
+        year: date.getFullYear(),
+        month: addZero(date.getMonth() + 1),
+        date: addZero(date.getDate()),
+        day: date.getDay()
+      };
+    }
+
+    /**
+     * 获取上一个月日期集合
+     */
+  }, {
+    key: "getPreMonthDays",
+    value: function getPreMonthDays(amount, dateObj) {
+      var result = [];
+      for (var i = amount - 1; i >= 0; i--) {
+        var month = dateObj.month - 1;
+        result.push({
+          date: new Date(dateObj.year, month, -i).getDate(),
+          month: month,
+          disable: true
+        });
+      }
+      return result;
+    }
+    /**
+     * 获取本月日期集合
+     */
+  }, {
+    key: "getCurrentMonthDays",
+    value: function getCurrentMonthDays(amount, dateObj) {
+      var _this = this;
+      var result = [];
+      var fullDate = this.date.fullDate;
+      var _loop = function _loop(i) {
+        var currentDate = "".concat(dateObj.year, "-").concat(dateObj.month, "-").concat(addZero(i));
+        var isToday = fullDate === currentDate;
+        // 获取打点信息
+        var info = _this.selected && _this.selected.find(function (item) {
+          if (_this.dateEqual(currentDate, item.date)) {
+            return item;
+          }
+        });
+
+        // 日期禁用
+        var disableBefore = true;
+        var disableAfter = true;
+        if (_this.startDate) {
+          disableBefore = dateCompare(_this.startDate, currentDate);
+        }
+        if (_this.endDate) {
+          disableAfter = dateCompare(currentDate, _this.endDate);
+        }
+        var multiples = _this.multipleStatus.data;
+        var multiplesStatus = -1;
+        if (_this.range && multiples) {
+          multiplesStatus = multiples.findIndex(function (item) {
+            return _this.dateEqual(item, currentDate);
+          });
+        }
+        var checked = multiplesStatus !== -1;
+        result.push({
+          fullDate: currentDate,
+          year: dateObj.year,
+          date: i,
+          multiple: _this.range ? checked : false,
+          beforeMultiple: _this.isLogicBefore(currentDate, _this.multipleStatus.before, _this.multipleStatus.after),
+          afterMultiple: _this.isLogicAfter(currentDate, _this.multipleStatus.before, _this.multipleStatus.after),
+          month: dateObj.month,
+          disable: _this.startDate && !dateCompare(_this.startDate, currentDate) || _this.endDate && !dateCompare(currentDate, _this.endDate),
+          isToday: isToday,
+          userChecked: false,
+          extraInfo: info
+        });
+      };
+      for (var i = 1; i <= amount; i++) {
+        _loop(i);
+      }
+      return result;
+    }
+    /**
+     * 获取下一个月日期集合
+     */
+  }, {
+    key: "_getNextMonthDays",
+    value: function _getNextMonthDays(amount, dateObj) {
+      var result = [];
+      var month = dateObj.month + 1;
+      for (var i = 1; i <= amount; i++) {
+        result.push({
+          date: i,
+          month: month,
+          disable: true
+        });
+      }
+      return result;
+    }
+
+    /**
+     * 获取当前日期详情
+     * @param {Object} date
+     */
+  }, {
+    key: "getInfo",
+    value: function getInfo(date) {
+      var _this2 = this;
+      if (!date) {
+        date = new Date();
+      }
+      return this.calendar.find(function (item) {
+        return item.fullDate === _this2.getDateObj(date).fullDate;
+      });
+    }
+
+    /**
+     * 比较时间是否相等
+     */
+  }, {
+    key: "dateEqual",
+    value: function dateEqual(before, after) {
+      before = new Date(fixIosDateFormat(before));
+      after = new Date(fixIosDateFormat(after));
+      return before.valueOf() === after.valueOf();
+    }
+
+    /**
+     *  比较真实起始日期
+     */
+  }, {
+    key: "isLogicBefore",
+    value: function isLogicBefore(currentDate, before, after) {
+      var logicBefore = before;
+      if (before && after) {
+        logicBefore = dateCompare(before, after) ? before : after;
+      }
+      return this.dateEqual(logicBefore, currentDate);
+    }
+  }, {
+    key: "isLogicAfter",
+    value: function isLogicAfter(currentDate, before, after) {
+      var logicAfter = after;
+      if (before && after) {
+        logicAfter = dateCompare(before, after) ? after : before;
+      }
+      return this.dateEqual(logicAfter, currentDate);
+    }
+
+    /**
+     * 获取日期范围内所有日期
+     * @param {Object} begin
+     * @param {Object} end
+     */
+  }, {
+    key: "geDateAll",
+    value: function geDateAll(begin, end) {
+      var arr = [];
+      var ab = begin.split('-');
+      var ae = end.split('-');
+      var db = new Date();
+      db.setFullYear(ab[0], ab[1] - 1, ab[2]);
+      var de = new Date();
+      de.setFullYear(ae[0], ae[1] - 1, ae[2]);
+      var unixDb = db.getTime() - 24 * 60 * 60 * 1000;
+      var unixDe = de.getTime() - 24 * 60 * 60 * 1000;
+      for (var k = unixDb; k <= unixDe;) {
+        k = k + 24 * 60 * 60 * 1000;
+        arr.push(this.getDateObj(new Date(parseInt(k))).fullDate);
+      }
+      return arr;
+    }
+
+    /**
+     *  获取多选状态
+     */
+  }, {
+    key: "setMultiple",
+    value: function setMultiple(fullDate) {
+      if (!this.range) return;
+      var _this$multipleStatus = this.multipleStatus,
+        before = _this$multipleStatus.before,
+        after = _this$multipleStatus.after;
+      if (before && after) {
+        if (!this.lastHover) {
+          this.lastHover = true;
+          return;
+        }
+        this.multipleStatus.before = fullDate;
+        this.multipleStatus.after = '';
+        this.multipleStatus.data = [];
+        this.multipleStatus.fulldate = '';
+        this.lastHover = false;
+      } else {
+        if (!before) {
+          this.multipleStatus.before = fullDate;
+          this.multipleStatus.after = undefined;
+          this.lastHover = false;
+        } else {
+          this.multipleStatus.after = fullDate;
+          if (dateCompare(this.multipleStatus.before, this.multipleStatus.after)) {
+            this.multipleStatus.data = this.geDateAll(this.multipleStatus.before, this.multipleStatus.after);
+          } else {
+            this.multipleStatus.data = this.geDateAll(this.multipleStatus.after, this.multipleStatus.before);
+          }
+          this.lastHover = true;
+        }
+      }
+      this.getWeeks(fullDate);
+    }
+
+    /**
+     *  鼠标 hover 更新多选状态
+     */
+  }, {
+    key: "setHoverMultiple",
+    value: function setHoverMultiple(fullDate) {
+      //抖音小程序点击会触发hover事件，需要避免一下
+
+      if (!this.range || this.lastHover) return;
+      var before = this.multipleStatus.before;
+      if (!before) {
+        this.multipleStatus.before = fullDate;
+      } else {
+        this.multipleStatus.after = fullDate;
+        if (dateCompare(this.multipleStatus.before, this.multipleStatus.after)) {
+          this.multipleStatus.data = this.geDateAll(this.multipleStatus.before, this.multipleStatus.after);
+        } else {
+          this.multipleStatus.data = this.geDateAll(this.multipleStatus.after, this.multipleStatus.before);
+        }
+      }
+      this.getWeeks(fullDate);
+    }
+
+    /**
+     * 更新默认值多选状态
+     */
+  }, {
+    key: "setDefaultMultiple",
+    value: function setDefaultMultiple(before, after) {
+      this.multipleStatus.before = before;
+      this.multipleStatus.after = after;
+      if (before && after) {
+        if (dateCompare(before, after)) {
+          this.multipleStatus.data = this.geDateAll(before, after);
+          this.getWeeks(after);
+        } else {
+          this.multipleStatus.data = this.geDateAll(after, before);
+          this.getWeeks(before);
+        }
+      }
+    }
+
+    /**
+     * 获取每周数据
+     * @param {Object} dateData
+     */
+  }, {
+    key: "getWeeks",
+    value: function getWeeks(dateData) {
+      var _this$getDateObj = this.getDateObj(dateData),
+        year = _this$getDateObj.year,
+        month = _this$getDateObj.month;
+      var preMonthDayAmount = new Date(year, month - 1, 1).getDay();
+      var preMonthDays = this.getPreMonthDays(preMonthDayAmount, this.getDateObj(dateData));
+      var currentMonthDayAmount = new Date(year, month, 0).getDate();
+      var currentMonthDays = this.getCurrentMonthDays(currentMonthDayAmount, this.getDateObj(dateData));
+      var nextMonthDayAmount = 42 - preMonthDayAmount - currentMonthDayAmount;
+      var nextMonthDays = this._getNextMonthDays(nextMonthDayAmount, this.getDateObj(dateData));
+      var calendarDays = [].concat((0, _toConsumableArray2.default)(preMonthDays), (0, _toConsumableArray2.default)(currentMonthDays), (0, _toConsumableArray2.default)(nextMonthDays));
+      var weeks = new Array(6);
+      for (var i = 0; i < calendarDays.length; i++) {
+        var index = Math.floor(i / 7);
+        if (!weeks[index]) {
+          weeks[index] = new Array(7);
+        }
+        weeks[index][i % 7] = calendarDays[i];
+      }
+      this.calendar = calendarDays;
+      this.weeks = weeks;
+    }
+  }]);
+  return Calendar;
+}();
+exports.Calendar = Calendar;
+function getDateTime(date, hideSecond) {
+  return "".concat(getDate(date), " ").concat(getTime(date, hideSecond));
+}
+function getDate(date) {
+  date = fixIosDateFormat(date);
+  date = new Date(date);
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  return "".concat(year, "-").concat(addZero(month), "-").concat(addZero(day));
+}
+function getTime(date, hideSecond) {
+  date = fixIosDateFormat(date);
+  date = new Date(date);
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+  return hideSecond ? "".concat(addZero(hour), ":").concat(addZero(minute)) : "".concat(addZero(hour), ":").concat(addZero(minute), ":").concat(addZero(second));
+}
+function addZero(num) {
+  if (num < 10) {
+    num = "0".concat(num);
+  }
+  return num;
+}
+function getDefaultSecond(hideSecond) {
+  return hideSecond ? '00:00' : '00:00:00';
+}
+function dateCompare(startDate, endDate) {
+  startDate = new Date(fixIosDateFormat(startDate));
+  endDate = new Date(fixIosDateFormat(endDate));
+  return startDate <= endDate;
+}
+function checkDate(date) {
+  var dateReg = /((19|20)\d{2})(-|\/)\d{1,2}(-|\/)\d{1,2}/g;
+  return date.match(dateReg);
+}
+//ios低版本15及以下，无法匹配 没有 ’秒‘ 时的情况，所以需要在末尾 秒 加上 问号
+var dateTimeReg = /^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])( [0-5]?[0-9]:[0-5]?[0-9](:[0-5]?[0-9])?)?$/;
+function fixIosDateFormat(value) {
+  if (typeof value === 'string' && dateTimeReg.test(value)) {
+    value = value.replace(/-/g, '/');
+  }
+  return value;
+}
+
+/***/ }),
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */,
+/* 419 */,
+/* 420 */,
+/* 421 */,
+/* 422 */,
+/* 423 */,
+/* 424 */,
+/* 425 */,
+/* 426 */,
+/* 427 */,
+/* 428 */,
+/* 429 */
+/*!**************************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uni-icons/components/uni-icons/uniicons_file_vue.js ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29717,517 +29927,363 @@ var fontData = [{
 exports.fontData = fontData;
 
 /***/ }),
-/* 458 */,
-/* 459 */,
-/* 460 */,
-/* 461 */,
-/* 462 */,
-/* 463 */,
-/* 464 */,
-/* 465 */,
-/* 466 */
-/*!***********************************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/index.js ***!
-  \***********************************************************************************************************************/
+/* 430 */,
+/* 431 */,
+/* 432 */,
+/* 433 */,
+/* 434 */,
+/* 435 */,
+/* 436 */,
+/* 437 */,
+/* 438 */,
+/* 439 */,
+/* 440 */,
+/* 441 */,
+/* 442 */,
+/* 443 */,
+/* 444 */,
+/* 445 */,
+/* 446 */,
+/* 447 */,
+/* 448 */,
+/* 449 */,
+/* 450 */,
+/* 451 */
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/components/u-icon/icons.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 467));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 468));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 469));
 var _default = {
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default
+  'uicon-level': "\uE693",
+  'uicon-column-line': "\uE68E",
+  'uicon-checkbox-mark': "\uE807",
+  'uicon-folder': "\uE7F5",
+  'uicon-movie': "\uE7F6",
+  'uicon-star-fill': "\uE669",
+  'uicon-star': "\uE65F",
+  'uicon-phone-fill': "\uE64F",
+  'uicon-phone': "\uE622",
+  'uicon-apple-fill': "\uE881",
+  'uicon-chrome-circle-fill': "\uE885",
+  'uicon-backspace': "\uE67B",
+  'uicon-attach': "\uE632",
+  'uicon-cut': "\uE948",
+  'uicon-empty-car': "\uE602",
+  'uicon-empty-coupon': "\uE682",
+  'uicon-empty-address': "\uE646",
+  'uicon-empty-favor': "\uE67C",
+  'uicon-empty-permission': "\uE686",
+  'uicon-empty-news': "\uE687",
+  'uicon-empty-search': "\uE664",
+  'uicon-github-circle-fill': "\uE887",
+  'uicon-rmb': "\uE608",
+  'uicon-person-delete-fill': "\uE66A",
+  'uicon-reload': "\uE788",
+  'uicon-order': "\uE68F",
+  'uicon-server-man': "\uE6BC",
+  'uicon-search': "\uE62A",
+  'uicon-fingerprint': "\uE955",
+  'uicon-more-dot-fill': "\uE630",
+  'uicon-scan': "\uE662",
+  'uicon-share-square': "\uE60B",
+  'uicon-map': "\uE61D",
+  'uicon-map-fill': "\uE64E",
+  'uicon-tags': "\uE629",
+  'uicon-tags-fill': "\uE651",
+  'uicon-bookmark-fill': "\uE63B",
+  'uicon-bookmark': "\uE60A",
+  'uicon-eye': "\uE613",
+  'uicon-eye-fill': "\uE641",
+  'uicon-mic': "\uE64A",
+  'uicon-mic-off': "\uE649",
+  'uicon-calendar': "\uE66E",
+  'uicon-calendar-fill': "\uE634",
+  'uicon-trash': "\uE623",
+  'uicon-trash-fill': "\uE658",
+  'uicon-play-left': "\uE66D",
+  'uicon-play-right': "\uE610",
+  'uicon-minus': "\uE618",
+  'uicon-plus': "\uE62D",
+  'uicon-info': "\uE653",
+  'uicon-info-circle': "\uE7D2",
+  'uicon-info-circle-fill': "\uE64B",
+  'uicon-question': "\uE715",
+  'uicon-error': "\uE6D3",
+  'uicon-close': "\uE685",
+  'uicon-checkmark': "\uE6A8",
+  'uicon-android-circle-fill': "\uE67E",
+  'uicon-android-fill': "\uE67D",
+  'uicon-ie': "\uE87B",
+  'uicon-IE-circle-fill': "\uE889",
+  'uicon-google': "\uE87A",
+  'uicon-google-circle-fill': "\uE88A",
+  'uicon-setting-fill': "\uE872",
+  'uicon-setting': "\uE61F",
+  'uicon-minus-square-fill': "\uE855",
+  'uicon-plus-square-fill': "\uE856",
+  'uicon-heart': "\uE7DF",
+  'uicon-heart-fill': "\uE851",
+  'uicon-camera': "\uE7D7",
+  'uicon-camera-fill': "\uE870",
+  'uicon-more-circle': "\uE63E",
+  'uicon-more-circle-fill': "\uE645",
+  'uicon-chat': "\uE620",
+  'uicon-chat-fill': "\uE61E",
+  'uicon-bag-fill': "\uE617",
+  'uicon-bag': "\uE619",
+  'uicon-error-circle-fill': "\uE62C",
+  'uicon-error-circle': "\uE624",
+  'uicon-close-circle': "\uE63F",
+  'uicon-close-circle-fill': "\uE637",
+  'uicon-checkmark-circle': "\uE63D",
+  'uicon-checkmark-circle-fill': "\uE635",
+  'uicon-question-circle-fill': "\uE666",
+  'uicon-question-circle': "\uE625",
+  'uicon-share': "\uE631",
+  'uicon-share-fill': "\uE65E",
+  'uicon-shopping-cart': "\uE621",
+  'uicon-shopping-cart-fill': "\uE65D",
+  'uicon-bell': "\uE609",
+  'uicon-bell-fill': "\uE640",
+  'uicon-list': "\uE650",
+  'uicon-list-dot': "\uE616",
+  'uicon-zhihu': "\uE6BA",
+  'uicon-zhihu-circle-fill': "\uE709",
+  'uicon-zhifubao': "\uE6B9",
+  'uicon-zhifubao-circle-fill': "\uE6B8",
+  'uicon-weixin-circle-fill': "\uE6B1",
+  'uicon-weixin-fill': "\uE6B2",
+  'uicon-twitter-circle-fill': "\uE6AB",
+  'uicon-twitter': "\uE6AA",
+  'uicon-taobao-circle-fill': "\uE6A7",
+  'uicon-taobao': "\uE6A6",
+  'uicon-weibo-circle-fill': "\uE6A5",
+  'uicon-weibo': "\uE6A4",
+  'uicon-qq-fill': "\uE6A1",
+  'uicon-qq-circle-fill': "\uE6A0",
+  'uicon-moments-circel-fill': "\uE69A",
+  'uicon-moments': "\uE69B",
+  'uicon-qzone': "\uE695",
+  'uicon-qzone-circle-fill': "\uE696",
+  'uicon-baidu-circle-fill': "\uE680",
+  'uicon-baidu': "\uE681",
+  'uicon-facebook-circle-fill': "\uE68A",
+  'uicon-facebook': "\uE689",
+  'uicon-car': "\uE60C",
+  'uicon-car-fill': "\uE636",
+  'uicon-warning-fill': "\uE64D",
+  'uicon-warning': "\uE694",
+  'uicon-clock-fill': "\uE638",
+  'uicon-clock': "\uE60F",
+  'uicon-edit-pen': "\uE612",
+  'uicon-edit-pen-fill': "\uE66B",
+  'uicon-email': "\uE611",
+  'uicon-email-fill': "\uE642",
+  'uicon-minus-circle': "\uE61B",
+  'uicon-minus-circle-fill': "\uE652",
+  'uicon-plus-circle': "\uE62E",
+  'uicon-plus-circle-fill': "\uE661",
+  'uicon-file-text': "\uE663",
+  'uicon-file-text-fill': "\uE665",
+  'uicon-pushpin': "\uE7E3",
+  'uicon-pushpin-fill': "\uE86E",
+  'uicon-grid': "\uE673",
+  'uicon-grid-fill': "\uE678",
+  'uicon-play-circle': "\uE647",
+  'uicon-play-circle-fill': "\uE655",
+  'uicon-pause-circle-fill': "\uE654",
+  'uicon-pause': "\uE8FA",
+  'uicon-pause-circle': "\uE643",
+  'uicon-eye-off': "\uE648",
+  'uicon-eye-off-outline': "\uE62B",
+  'uicon-gift-fill': "\uE65C",
+  'uicon-gift': "\uE65B",
+  'uicon-rmb-circle-fill': "\uE657",
+  'uicon-rmb-circle': "\uE677",
+  'uicon-kefu-ermai': "\uE656",
+  'uicon-server-fill': "\uE751",
+  'uicon-coupon-fill': "\uE8C4",
+  'uicon-coupon': "\uE8AE",
+  'uicon-integral': "\uE704",
+  'uicon-integral-fill': "\uE703",
+  'uicon-home-fill': "\uE964",
+  'uicon-home': "\uE965",
+  'uicon-hourglass-half-fill': "\uE966",
+  'uicon-hourglass': "\uE967",
+  'uicon-account': "\uE628",
+  'uicon-plus-people-fill': "\uE626",
+  'uicon-minus-people-fill': "\uE615",
+  'uicon-account-fill': "\uE614",
+  'uicon-thumb-down-fill': "\uE726",
+  'uicon-thumb-down': "\uE727",
+  'uicon-thumb-up': "\uE733",
+  'uicon-thumb-up-fill': "\uE72F",
+  'uicon-lock-fill': "\uE979",
+  'uicon-lock-open': "\uE973",
+  'uicon-lock-opened-fill': "\uE974",
+  'uicon-lock': "\uE97A",
+  'uicon-red-packet-fill': "\uE690",
+  'uicon-photo-fill': "\uE98B",
+  'uicon-photo': "\uE98D",
+  'uicon-volume-off-fill': "\uE659",
+  'uicon-volume-off': "\uE644",
+  'uicon-volume-fill': "\uE670",
+  'uicon-volume': "\uE633",
+  'uicon-red-packet': "\uE691",
+  'uicon-download': "\uE63C",
+  'uicon-arrow-up-fill': "\uE6B0",
+  'uicon-arrow-down-fill': "\uE600",
+  'uicon-play-left-fill': "\uE675",
+  'uicon-play-right-fill': "\uE676",
+  'uicon-rewind-left-fill': "\uE679",
+  'uicon-rewind-right-fill': "\uE67A",
+  'uicon-arrow-downward': "\uE604",
+  'uicon-arrow-leftward': "\uE601",
+  'uicon-arrow-rightward': "\uE603",
+  'uicon-arrow-upward': "\uE607",
+  'uicon-arrow-down': "\uE60D",
+  'uicon-arrow-right': "\uE605",
+  'uicon-arrow-left': "\uE60E",
+  'uicon-arrow-up': "\uE606",
+  'uicon-skip-back-left': "\uE674",
+  'uicon-skip-forward-right': "\uE672",
+  'uicon-rewind-right': "\uE66F",
+  'uicon-rewind-left': "\uE671",
+  'uicon-arrow-right-double': "\uE68D",
+  'uicon-arrow-left-double': "\uE68C",
+  'uicon-wifi-off': "\uE668",
+  'uicon-wifi': "\uE667",
+  'uicon-empty-data': "\uE62F",
+  'uicon-empty-history': "\uE684",
+  'uicon-empty-list': "\uE68B",
+  'uicon-empty-page': "\uE627",
+  'uicon-empty-order': "\uE639",
+  'uicon-man': "\uE697",
+  'uicon-woman': "\uE69C",
+  'uicon-man-add': "\uE61C",
+  'uicon-man-add-fill': "\uE64C",
+  'uicon-man-delete': "\uE61A",
+  'uicon-man-delete-fill': "\uE66A",
+  'uicon-zh': "\uE70A",
+  'uicon-en': "\uE692"
 };
 exports.default = _default;
 
 /***/ }),
-/* 467 */
-/*!**********************************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/en.json ***!
-  \**********************************************************************************************************************/
-/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-datetime-picker.year, uni-datetime-picker.month, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, uni-calender.SUN, uni-calender.confirm, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"select date\",\"uni-datetime-picker.selectTime\":\"select time\",\"uni-datetime-picker.selectDateTime\":\"select date and time\",\"uni-datetime-picker.startDate\":\"start date\",\"uni-datetime-picker.endDate\":\"end date\",\"uni-datetime-picker.startTime\":\"start time\",\"uni-datetime-picker.endTime\":\"end time\",\"uni-datetime-picker.ok\":\"ok\",\"uni-datetime-picker.clear\":\"clear\",\"uni-datetime-picker.cancel\":\"cancel\",\"uni-datetime-picker.year\":\"-\",\"uni-datetime-picker.month\":\"\",\"uni-calender.MON\":\"MON\",\"uni-calender.TUE\":\"TUE\",\"uni-calender.WED\":\"WED\",\"uni-calender.THU\":\"THU\",\"uni-calender.FRI\":\"FRI\",\"uni-calender.SAT\":\"SAT\",\"uni-calender.SUN\":\"SUN\",\"uni-calender.confirm\":\"confirm\"}");
-
-/***/ }),
-/* 468 */
-/*!***************************************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hans.json ***!
-  \***************************************************************************************************************************/
-/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-datetime-picker.year, uni-datetime-picker.month, uni-calender.SUN, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, uni-calender.confirm, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"选择日期\",\"uni-datetime-picker.selectTime\":\"选择时间\",\"uni-datetime-picker.selectDateTime\":\"选择日期时间\",\"uni-datetime-picker.startDate\":\"开始日期\",\"uni-datetime-picker.endDate\":\"结束日期\",\"uni-datetime-picker.startTime\":\"开始时间\",\"uni-datetime-picker.endTime\":\"结束时间\",\"uni-datetime-picker.ok\":\"确定\",\"uni-datetime-picker.clear\":\"清除\",\"uni-datetime-picker.cancel\":\"取消\",\"uni-datetime-picker.year\":\"年\",\"uni-datetime-picker.month\":\"月\",\"uni-calender.SUN\":\"日\",\"uni-calender.MON\":\"一\",\"uni-calender.TUE\":\"二\",\"uni-calender.WED\":\"三\",\"uni-calender.THU\":\"四\",\"uni-calender.FRI\":\"五\",\"uni-calender.SAT\":\"六\",\"uni-calender.confirm\":\"确认\"}");
-
-/***/ }),
-/* 469 */
-/*!***************************************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hant.json ***!
-  \***************************************************************************************************************************/
-/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-datetime-picker.year, uni-datetime-picker.month, uni-calender.SUN, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, uni-calender.confirm, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"選擇日期\",\"uni-datetime-picker.selectTime\":\"選擇時間\",\"uni-datetime-picker.selectDateTime\":\"選擇日期時間\",\"uni-datetime-picker.startDate\":\"開始日期\",\"uni-datetime-picker.endDate\":\"結束日期\",\"uni-datetime-picker.startTime\":\"開始时间\",\"uni-datetime-picker.endTime\":\"結束时间\",\"uni-datetime-picker.ok\":\"確定\",\"uni-datetime-picker.clear\":\"清除\",\"uni-datetime-picker.cancel\":\"取消\",\"uni-datetime-picker.year\":\"年\",\"uni-datetime-picker.month\":\"月\",\"uni-calender.SUN\":\"日\",\"uni-calender.MON\":\"一\",\"uni-calender.TUE\":\"二\",\"uni-calender.WED\":\"三\",\"uni-calender.THU\":\"四\",\"uni-calender.FRI\":\"五\",\"uni-calender.SAT\":\"六\",\"uni-calender.confirm\":\"確認\"}");
-
-/***/ }),
-/* 470 */
-/*!*****************************************************************************************************************!*\
-  !*** D:/project/mwc/wangchao/xgj-applet/uni_modules/uni-datetime-picker/components/uni-datetime-picker/util.js ***!
-  \*****************************************************************************************************************/
+/* 452 */
+/*!**********************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/components/u-icon/props.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
 
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Calendar = void 0;
-exports.addZero = addZero;
-exports.checkDate = checkDate;
-exports.dateCompare = dateCompare;
-exports.fixIosDateFormat = fixIosDateFormat;
-exports.getDate = getDate;
-exports.getDateTime = getDateTime;
-exports.getDefaultSecond = getDefaultSecond;
-exports.getTime = getTime;
-var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
-var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
-var Calendar = /*#__PURE__*/function () {
-  function Calendar() {
-    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-      selected = _ref.selected,
-      startDate = _ref.startDate,
-      endDate = _ref.endDate,
-      range = _ref.range;
-    (0, _classCallCheck2.default)(this, Calendar);
-    // 当前日期
-    this.date = this.getDateObj(new Date()); // 当前初入日期
-    // 打点信息
-    this.selected = selected || [];
-    // 起始时间
-    this.startDate = startDate;
-    // 终止时间
-    this.endDate = endDate;
-    // 是否范围选择
-    this.range = range;
-    // 多选状态
-    this.cleanMultipleStatus();
-    // 每周日期
-    this.weeks = {};
-    this.lastHover = false;
+exports.default = void 0;
+var _default = {
+  props: {
+    // 图标类名
+    name: {
+      type: String,
+      default: uni.$u.props.icon.name
+    },
+    // 图标颜色，可接受主题色
+    color: {
+      type: String,
+      default: uni.$u.props.icon.color
+    },
+    // 字体大小，单位px
+    size: {
+      type: [String, Number],
+      default: uni.$u.props.icon.size
+    },
+    // 是否显示粗体
+    bold: {
+      type: Boolean,
+      default: uni.$u.props.icon.bold
+    },
+    // 点击图标的时候传递事件出去的index（用于区分点击了哪一个）
+    index: {
+      type: [String, Number],
+      default: uni.$u.props.icon.index
+    },
+    // 触摸图标时的类名
+    hoverClass: {
+      type: String,
+      default: uni.$u.props.icon.hoverClass
+    },
+    // 自定义扩展前缀，方便用户扩展自己的图标库
+    customPrefix: {
+      type: String,
+      default: uni.$u.props.icon.customPrefix
+    },
+    // 图标右边或者下面的文字
+    label: {
+      type: [String, Number],
+      default: uni.$u.props.icon.label
+    },
+    // label的位置，只能右边或者下边
+    labelPos: {
+      type: String,
+      default: uni.$u.props.icon.labelPos
+    },
+    // label的大小
+    labelSize: {
+      type: [String, Number],
+      default: uni.$u.props.icon.labelSize
+    },
+    // label的颜色
+    labelColor: {
+      type: String,
+      default: uni.$u.props.icon.labelColor
+    },
+    // label与图标的距离
+    space: {
+      type: [String, Number],
+      default: uni.$u.props.icon.space
+    },
+    // 图片的mode
+    imgMode: {
+      type: String,
+      default: uni.$u.props.icon.imgMode
+    },
+    // 用于显示图片小图标时，图片的宽度
+    width: {
+      type: [String, Number],
+      default: uni.$u.props.icon.width
+    },
+    // 用于显示图片小图标时，图片的高度
+    height: {
+      type: [String, Number],
+      default: uni.$u.props.icon.height
+    },
+    // 用于解决某些情况下，让图标垂直居中的用途
+    top: {
+      type: [String, Number],
+      default: uni.$u.props.icon.top
+    },
+    // 是否阻止事件传播
+    stop: {
+      type: Boolean,
+      default: uni.$u.props.icon.stop
+    }
   }
-  /**
-   * 设置日期
-   * @param {Object} date
-   */
-  (0, _createClass2.default)(Calendar, [{
-    key: "setDate",
-    value: function setDate(date) {
-      var selectDate = this.getDateObj(date);
-      this.getWeeks(selectDate.fullDate);
-    }
-
-    /**
-     * 清理多选状态
-     */
-  }, {
-    key: "cleanMultipleStatus",
-    value: function cleanMultipleStatus() {
-      this.multipleStatus = {
-        before: '',
-        after: '',
-        data: []
-      };
-    }
-  }, {
-    key: "setStartDate",
-    value: function setStartDate(startDate) {
-      this.startDate = startDate;
-    }
-  }, {
-    key: "setEndDate",
-    value: function setEndDate(endDate) {
-      this.endDate = endDate;
-    }
-  }, {
-    key: "getPreMonthObj",
-    value: function getPreMonthObj(date) {
-      date = fixIosDateFormat(date);
-      date = new Date(date);
-      var oldMonth = date.getMonth();
-      date.setMonth(oldMonth - 1);
-      var newMonth = date.getMonth();
-      if (oldMonth !== 0 && newMonth - oldMonth === 0) {
-        date.setMonth(newMonth - 1);
-      }
-      return this.getDateObj(date);
-    }
-  }, {
-    key: "getNextMonthObj",
-    value: function getNextMonthObj(date) {
-      date = fixIosDateFormat(date);
-      date = new Date(date);
-      var oldMonth = date.getMonth();
-      date.setMonth(oldMonth + 1);
-      var newMonth = date.getMonth();
-      if (newMonth - oldMonth > 1) {
-        date.setMonth(newMonth - 1);
-      }
-      return this.getDateObj(date);
-    }
-
-    /**
-     * 获取指定格式Date对象
-     */
-  }, {
-    key: "getDateObj",
-    value: function getDateObj(date) {
-      date = fixIosDateFormat(date);
-      date = new Date(date);
-      return {
-        fullDate: getDate(date),
-        year: date.getFullYear(),
-        month: addZero(date.getMonth() + 1),
-        date: addZero(date.getDate()),
-        day: date.getDay()
-      };
-    }
-
-    /**
-     * 获取上一个月日期集合
-     */
-  }, {
-    key: "getPreMonthDays",
-    value: function getPreMonthDays(amount, dateObj) {
-      var result = [];
-      for (var i = amount - 1; i >= 0; i--) {
-        var month = dateObj.month - 1;
-        result.push({
-          date: new Date(dateObj.year, month, -i).getDate(),
-          month: month,
-          disable: true
-        });
-      }
-      return result;
-    }
-    /**
-     * 获取本月日期集合
-     */
-  }, {
-    key: "getCurrentMonthDays",
-    value: function getCurrentMonthDays(amount, dateObj) {
-      var _this = this;
-      var result = [];
-      var fullDate = this.date.fullDate;
-      var _loop = function _loop(i) {
-        var currentDate = "".concat(dateObj.year, "-").concat(dateObj.month, "-").concat(addZero(i));
-        var isToday = fullDate === currentDate;
-        // 获取打点信息
-        var info = _this.selected && _this.selected.find(function (item) {
-          if (_this.dateEqual(currentDate, item.date)) {
-            return item;
-          }
-        });
-
-        // 日期禁用
-        var disableBefore = true;
-        var disableAfter = true;
-        if (_this.startDate) {
-          disableBefore = dateCompare(_this.startDate, currentDate);
-        }
-        if (_this.endDate) {
-          disableAfter = dateCompare(currentDate, _this.endDate);
-        }
-        var multiples = _this.multipleStatus.data;
-        var multiplesStatus = -1;
-        if (_this.range && multiples) {
-          multiplesStatus = multiples.findIndex(function (item) {
-            return _this.dateEqual(item, currentDate);
-          });
-        }
-        var checked = multiplesStatus !== -1;
-        result.push({
-          fullDate: currentDate,
-          year: dateObj.year,
-          date: i,
-          multiple: _this.range ? checked : false,
-          beforeMultiple: _this.isLogicBefore(currentDate, _this.multipleStatus.before, _this.multipleStatus.after),
-          afterMultiple: _this.isLogicAfter(currentDate, _this.multipleStatus.before, _this.multipleStatus.after),
-          month: dateObj.month,
-          disable: _this.startDate && !dateCompare(_this.startDate, currentDate) || _this.endDate && !dateCompare(currentDate, _this.endDate),
-          isToday: isToday,
-          userChecked: false,
-          extraInfo: info
-        });
-      };
-      for (var i = 1; i <= amount; i++) {
-        _loop(i);
-      }
-      return result;
-    }
-    /**
-     * 获取下一个月日期集合
-     */
-  }, {
-    key: "_getNextMonthDays",
-    value: function _getNextMonthDays(amount, dateObj) {
-      var result = [];
-      var month = dateObj.month + 1;
-      for (var i = 1; i <= amount; i++) {
-        result.push({
-          date: i,
-          month: month,
-          disable: true
-        });
-      }
-      return result;
-    }
-
-    /**
-     * 获取当前日期详情
-     * @param {Object} date
-     */
-  }, {
-    key: "getInfo",
-    value: function getInfo(date) {
-      var _this2 = this;
-      if (!date) {
-        date = new Date();
-      }
-      return this.calendar.find(function (item) {
-        return item.fullDate === _this2.getDateObj(date).fullDate;
-      });
-    }
-
-    /**
-     * 比较时间是否相等
-     */
-  }, {
-    key: "dateEqual",
-    value: function dateEqual(before, after) {
-      before = new Date(fixIosDateFormat(before));
-      after = new Date(fixIosDateFormat(after));
-      return before.valueOf() === after.valueOf();
-    }
-
-    /**
-     *  比较真实起始日期
-     */
-  }, {
-    key: "isLogicBefore",
-    value: function isLogicBefore(currentDate, before, after) {
-      var logicBefore = before;
-      if (before && after) {
-        logicBefore = dateCompare(before, after) ? before : after;
-      }
-      return this.dateEqual(logicBefore, currentDate);
-    }
-  }, {
-    key: "isLogicAfter",
-    value: function isLogicAfter(currentDate, before, after) {
-      var logicAfter = after;
-      if (before && after) {
-        logicAfter = dateCompare(before, after) ? after : before;
-      }
-      return this.dateEqual(logicAfter, currentDate);
-    }
-
-    /**
-     * 获取日期范围内所有日期
-     * @param {Object} begin
-     * @param {Object} end
-     */
-  }, {
-    key: "geDateAll",
-    value: function geDateAll(begin, end) {
-      var arr = [];
-      var ab = begin.split('-');
-      var ae = end.split('-');
-      var db = new Date();
-      db.setFullYear(ab[0], ab[1] - 1, ab[2]);
-      var de = new Date();
-      de.setFullYear(ae[0], ae[1] - 1, ae[2]);
-      var unixDb = db.getTime() - 24 * 60 * 60 * 1000;
-      var unixDe = de.getTime() - 24 * 60 * 60 * 1000;
-      for (var k = unixDb; k <= unixDe;) {
-        k = k + 24 * 60 * 60 * 1000;
-        arr.push(this.getDateObj(new Date(parseInt(k))).fullDate);
-      }
-      return arr;
-    }
-
-    /**
-     *  获取多选状态
-     */
-  }, {
-    key: "setMultiple",
-    value: function setMultiple(fullDate) {
-      if (!this.range) return;
-      var _this$multipleStatus = this.multipleStatus,
-        before = _this$multipleStatus.before,
-        after = _this$multipleStatus.after;
-      if (before && after) {
-        if (!this.lastHover) {
-          this.lastHover = true;
-          return;
-        }
-        this.multipleStatus.before = fullDate;
-        this.multipleStatus.after = '';
-        this.multipleStatus.data = [];
-        this.multipleStatus.fulldate = '';
-        this.lastHover = false;
-      } else {
-        if (!before) {
-          this.multipleStatus.before = fullDate;
-          this.multipleStatus.after = undefined;
-          this.lastHover = false;
-        } else {
-          this.multipleStatus.after = fullDate;
-          if (dateCompare(this.multipleStatus.before, this.multipleStatus.after)) {
-            this.multipleStatus.data = this.geDateAll(this.multipleStatus.before, this.multipleStatus.after);
-          } else {
-            this.multipleStatus.data = this.geDateAll(this.multipleStatus.after, this.multipleStatus.before);
-          }
-          this.lastHover = true;
-        }
-      }
-      this.getWeeks(fullDate);
-    }
-
-    /**
-     *  鼠标 hover 更新多选状态
-     */
-  }, {
-    key: "setHoverMultiple",
-    value: function setHoverMultiple(fullDate) {
-      //抖音小程序点击会触发hover事件，需要避免一下
-
-      if (!this.range || this.lastHover) return;
-      var before = this.multipleStatus.before;
-      if (!before) {
-        this.multipleStatus.before = fullDate;
-      } else {
-        this.multipleStatus.after = fullDate;
-        if (dateCompare(this.multipleStatus.before, this.multipleStatus.after)) {
-          this.multipleStatus.data = this.geDateAll(this.multipleStatus.before, this.multipleStatus.after);
-        } else {
-          this.multipleStatus.data = this.geDateAll(this.multipleStatus.after, this.multipleStatus.before);
-        }
-      }
-      this.getWeeks(fullDate);
-    }
-
-    /**
-     * 更新默认值多选状态
-     */
-  }, {
-    key: "setDefaultMultiple",
-    value: function setDefaultMultiple(before, after) {
-      this.multipleStatus.before = before;
-      this.multipleStatus.after = after;
-      if (before && after) {
-        if (dateCompare(before, after)) {
-          this.multipleStatus.data = this.geDateAll(before, after);
-          this.getWeeks(after);
-        } else {
-          this.multipleStatus.data = this.geDateAll(after, before);
-          this.getWeeks(before);
-        }
-      }
-    }
-
-    /**
-     * 获取每周数据
-     * @param {Object} dateData
-     */
-  }, {
-    key: "getWeeks",
-    value: function getWeeks(dateData) {
-      var _this$getDateObj = this.getDateObj(dateData),
-        year = _this$getDateObj.year,
-        month = _this$getDateObj.month;
-      var preMonthDayAmount = new Date(year, month - 1, 1).getDay();
-      var preMonthDays = this.getPreMonthDays(preMonthDayAmount, this.getDateObj(dateData));
-      var currentMonthDayAmount = new Date(year, month, 0).getDate();
-      var currentMonthDays = this.getCurrentMonthDays(currentMonthDayAmount, this.getDateObj(dateData));
-      var nextMonthDayAmount = 42 - preMonthDayAmount - currentMonthDayAmount;
-      var nextMonthDays = this._getNextMonthDays(nextMonthDayAmount, this.getDateObj(dateData));
-      var calendarDays = [].concat((0, _toConsumableArray2.default)(preMonthDays), (0, _toConsumableArray2.default)(currentMonthDays), (0, _toConsumableArray2.default)(nextMonthDays));
-      var weeks = new Array(6);
-      for (var i = 0; i < calendarDays.length; i++) {
-        var index = Math.floor(i / 7);
-        if (!weeks[index]) {
-          weeks[index] = new Array(7);
-        }
-        weeks[index][i % 7] = calendarDays[i];
-      }
-      this.calendar = calendarDays;
-      this.weeks = weeks;
-    }
-  }]);
-  return Calendar;
-}();
-exports.Calendar = Calendar;
-function getDateTime(date, hideSecond) {
-  return "".concat(getDate(date), " ").concat(getTime(date, hideSecond));
-}
-function getDate(date) {
-  date = fixIosDateFormat(date);
-  date = new Date(date);
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-  return "".concat(year, "-").concat(addZero(month), "-").concat(addZero(day));
-}
-function getTime(date, hideSecond) {
-  date = fixIosDateFormat(date);
-  date = new Date(date);
-  var hour = date.getHours();
-  var minute = date.getMinutes();
-  var second = date.getSeconds();
-  return hideSecond ? "".concat(addZero(hour), ":").concat(addZero(minute)) : "".concat(addZero(hour), ":").concat(addZero(minute), ":").concat(addZero(second));
-}
-function addZero(num) {
-  if (num < 10) {
-    num = "0".concat(num);
-  }
-  return num;
-}
-function getDefaultSecond(hideSecond) {
-  return hideSecond ? '00:00' : '00:00:00';
-}
-function dateCompare(startDate, endDate) {
-  startDate = new Date(fixIosDateFormat(startDate));
-  endDate = new Date(fixIosDateFormat(endDate));
-  return startDate <= endDate;
-}
-function checkDate(date) {
-  var dateReg = /((19|20)\d{2})(-|\/)\d{1,2}(-|\/)\d{1,2}/g;
-  return date.match(dateReg);
-}
-//ios低版本15及以下，无法匹配 没有 ’秒‘ 时的情况，所以需要在末尾 秒 加上 问号
-var dateTimeReg = /^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])( [0-5]?[0-9]:[0-5]?[0-9](:[0-5]?[0-9])?)?$/;
-function fixIosDateFormat(value) {
-  if (typeof value === 'string' && dateTimeReg.test(value)) {
-    value = value.replace(/-/g, '/');
-  }
-  return value;
-}
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ })
 ]]);

@@ -132,3 +132,71 @@ export function getSnowOrderDetailById(data) {
 		data
 	})
 }
+
+
+
+//食材检验列表
+export function getInspectionList(data) {
+	return request({
+		url:'/api/wms/test/list',
+		method: 'POST',
+		data
+	})
+}
+//食材检验详情
+export function getInspectionInfo(data) {
+	return request({
+		url:'/api/wms/test/info',
+		method: 'GET',
+		data
+	})
+}
+//新增检验
+export function getInspectionSave(data) {
+	return request({
+		url:'/api/wms/test/save',
+		method: 'POST',
+		data
+	})
+}
+//更新检验
+export function getInspectionUpdate(data) {
+	return request({
+		url:'/api/wms/test/update',
+		method: 'PUT',
+		data
+	})
+}
+
+//食品留样列表
+export function getKeepSampleList(data) {
+	return request({
+		url:'/api/wms/sampleretention/list',
+		method: 'POST',
+		data
+	})
+}
+//留样详情
+export function getKeepSampleInfo(data) {
+	return request({
+		url:'/api/wms/sampleretention/info',
+		method: 'GET',
+		data
+	})
+}
+//新增留样
+export function getKeepSampleSave(data) {
+	return request({
+		url:'/api/wms/sampleretention/save',
+		method: 'POST',
+		data
+	})
+}
+//更新留样
+export function getKeepSampleUpdate(data) {
+	return request({
+		url:'/api/wms/sampleretention/update',
+		method: 'PUT',
+		data
+	})
+}
