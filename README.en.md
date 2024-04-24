@@ -1,7 +1,5 @@
-# write-off
-
 #### Description
-非雪季核销端小程序
+小程序
 
 #### Software Architecture
 Software architecture description
