@@ -130,6 +130,8 @@
   border-radius: 42rpx;
   display: flex;
   justify-content: center;
+  color: #fff;
+  font-size: 26rpx;
   align-items: center;
   margin-top: 50rpx;
 }

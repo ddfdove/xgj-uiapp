@@ -81,9 +81,7 @@
           ></textarea>
         </view>
       </view>
-      <div class="write_info_content_button" @click="suer">
-        <span>提交</span>
-      </div>
+	  <button class="write_info_content_button" :disabled="disabled" @click="suer">提交</button>
     </div>
   </view>
 </template>
@@ -108,12 +106,13 @@ export default {
       deptOptions: [],
       userOptions: [],
       materialOptions: [],
+	  disabled:false,
       form: {
         department: "",
         materialId: "",
         planManager: "",
         updateTime: "",
-        quantity: 0,
+        quantity: "",
         unit: "",
         remark: "",
 		purchaseId:"",
@@ -183,7 +182,6 @@ export default {
     getOptionsData() {
       Promise.all([deptList(), mxMaterialInfoList(), userList()]).then(
         (res) => {
-          console.log("所有下拉数据", res);
           let dp = res[0];
           let mt = res[1];
           let user = res[2];
@@ -202,18 +200,19 @@ export default {
         }
       );
     },
-    suer() {
+   
+	suer() {
       let method = this.queryParam.purchaseId ? purchaseUpdate : purchaseSave;
       let checkRes = validateForm.validation(this.form, this.rules);
       if (checkRes) {
         this.$mvc.alert(checkRes, "error");
       } else {
+		  this.disabled=true;
         method(this.form).then((res) => {
           if (res.code == 0) {
             this.$mvc.alert("提交成功!", "success");
-            setTimeout(() => {
-              this.goToPage("/pages/canteen/purchase/list");
-            }, 2000);
+			this.disabled=false;
+			this.goToPage("/pages/canteen/purchase/list");
           }
         });
       }
@@ -368,6 +367,8 @@ export default {
       border-radius: 42rpx;
       display: flex;
       justify-content: center;
+	  color:#fff;
+	  font-size:26rpx;
       align-items: center;
       margin-top: 50rpx;
 

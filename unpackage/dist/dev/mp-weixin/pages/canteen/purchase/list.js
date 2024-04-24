@@ -125,15 +125,6 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var g0 = _vm.list.length
-  _vm.$mp.data = Object.assign(
-    {},
-    {
-      $root: {
-        g0: g0,
-      },
-    }
-  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -254,11 +245,10 @@ var _default = {
         "status": "",
         "unit": "",
         "updateBy": "",
-        "updateTime": ""
-        // pageNum: 1,
-        // pageLimit:10,
+        "updateTime": "",
+        pageNum: 1,
+        pageSize: 10
       },
-
       list: [],
       totalPages: 0,
       //总页数
@@ -271,13 +261,13 @@ var _default = {
     this.asyncGetList(); //列表
   },
 
-  // onReachBottom(res) {
-  // 	// console.log(this.listParam.pageNum, this.totalPages);
-  // 	if (this.listParam.pageNum < this.totalPages) {
-  // 		this.listParam.pageNum = this.listParam.pageNum + 1;
-  // 		this.getList();
-  // 	}
-  // },
+  /* 	onReachBottom(res) {
+  		// console.log(this.listParam.pageNum, this.totalPages);
+  		if (this.listParam.pageNum < this.totalPages) {
+  			this.listParam.pageNum = this.listParam.pageNum + 1;
+  			this.getList();
+  		}
+  	}, */
   methods: {
     checkedDate: function checkedDate() {
       this.goToPage("/pages/canteen/purchase/info");
@@ -305,12 +295,12 @@ var _default = {
     asyncGetList: function asyncGetList() {
       var _this = this;
       (0, _index.purchaseList)(this.listParam).then(function (res) {
-        console.log(res);
         if (res.code == 0) {
-          var data = res.data;
-          _this.totalPages = data.totalPages; //总页数
-          _this.count = data.count;
-          _this.list = data || [];
+          _this.totalPages = Math.ceil(res.total / res.pageSize); //总页数
+          _this.count = res.total;
+          _this.listParam.pageNum = res.pageNum;
+          _this.listParam.pageSize = res.pageSize;
+          _this.list = res.data || [];
         }
       });
     }

@@ -258,8 +258,6 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
-//
-//
 
 var validateForm = __webpack_require__(/*! @/utils/validation.js */ 196);
 var _default = {
@@ -270,12 +268,13 @@ var _default = {
       deptOptions: [],
       userOptions: [],
       materialOptions: [],
+      disabled: false,
       form: {
         department: "",
         materialId: "",
         planManager: "",
         updateTime: "",
-        quantity: 0,
+        quantity: "",
         unit: "",
         remark: "",
         purchaseId: ""
@@ -340,7 +339,6 @@ var _default = {
     getOptionsData: function getOptionsData() {
       var _this = this;
       Promise.all([(0, _index.deptList)(), (0, _index.mxMaterialInfoList)(), (0, _index.userList)()]).then(function (res) {
-        console.log("所有下拉数据", res);
         var dp = res[0];
         var mt = res[1];
         var user = res[2];
@@ -371,12 +369,12 @@ var _default = {
       if (checkRes) {
         this.$mvc.alert(checkRes, "error");
       } else {
+        this.disabled = true;
         method(this.form).then(function (res) {
           if (res.code == 0) {
             _this2.$mvc.alert("提交成功!", "success");
-            setTimeout(function () {
-              _this2.goToPage("/pages/canteen/purchase/list");
-            }, 2000);
+            _this2.disabled = false;
+            _this2.goToPage("/pages/canteen/purchase/list");
           }
         });
       }
