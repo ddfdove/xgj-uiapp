@@ -148,7 +148,7 @@ export function warehousingList(data) {
 //采购列表
 export function purchaseList(data) {
 	return request({
-		url:'/api/wms/purchase/list',
+		url:'/api/wms/purchase/list?pageNum='+data.pageNum,
 		method: 'POST',
 		data
 	})
