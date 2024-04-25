@@ -5,6 +5,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/index-scan/index",
+          "pathName": "pages/index-scan/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/canteen/purchase/info",
           "pathName": "pages/canteen/purchase/info",
           "query": "",

@@ -13,9 +13,9 @@
 		data() {
 			return {
 				 navigator:[
-				   {title:"食材入库",href:"/pages/iniventory/warehousing/list",icon:"/static/canteen.png",},
-				   {title:"食材盘点",href:"/pages/iniventory/check/list",icon:"/static/inventory.png",},
-				   {title:"食材出库",href:"/pages/iniventory/outbound/list",icon:"/static/vehicle.png",}
+				   {title:"食材入库",href:"/pages/inventory/warehousing/list",icon:"/static/canteen.png",},
+				   {title:"食材盘点",href:"/pages/inventory/check/list",icon:"/static/inventory.png",},
+				   {title:"食材出库",href:"/pages/inventory/outbound/list",icon:"/static/vehicle.png",}
 				 ]
 			};
 		},

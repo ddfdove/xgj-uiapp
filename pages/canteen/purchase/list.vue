@@ -4,7 +4,7 @@
 			<div class="write_list_nav_view" v-if="menuButtonInfo" :style="{height:menuButtonInfo.height+'px',top:menuButtonInfo.top+'px'}">
 				<image src="../../../static/back.png" mode="" @click="back"></image>
 				<div :style="{height:menuButtonInfo.height+'px'}">
-					<u--input placeholder="搜索" prefixIcon="search" placeholderStyle="background-color:#F0F5FF;" prefixIconStyle="font-size: 26px;color: #6C7B92" shape="circle"></u--input>
+					<u--input v-model="listParam.department" placeholder="搜索" prefixIcon="search" placeholderStyle="background-color:#F0F5FF;" prefixIconStyle="font-size: 26px;color: #6C7B92" shape="circle"></u--input>
 				</div>
 			</div>
 		</div>
@@ -15,7 +15,7 @@
 						<span style="color:#FE5BA4"  @click="checkedDate()">添加采购计划</span>
 					</div> 
 				</div>
-				<span class="write_list_content_top_r">共计：{{list.length}}条</span>
+				<span class="write_list_content_top_r">共计：{{count}}条</span>
 			</div>
 			<div class="write_list_content_item" v-for="(item,index) in list" :key="index" @click="goToPage(`/pages/canteen/purchase/info?id=${item.purchaseId}`)">
 				<div class="write_list_content_item_top" >
@@ -33,7 +33,7 @@
 							<text v-text="item.materialName"></text>
 							<text v-text="'x'+item.quantity"></text>
 						</div>
-						<span>日期 {{item.planDate}}</span>
+						<span>日期 {{item.updateTime}}</span>
 					</div>
 				</div>
 			</div>
@@ -43,7 +43,7 @@
 				<image src="../../../static/write_list_left.png" mode="" @click="changePage(0)"></image>
 				<div>
 					<p><span>{{listParam.pageNum}}</span>/{{totalPages}}</p>
-					<text>当前共{{count}}条，每页显示{{listParam.pageLimit}}条</text>
+					<text>当前共{{count}}条，每页显示{{listParam.pageSize}}条</text>
 				</div>
 				<image src="../../../static/write_list_right.png" mode="" @click="changePage(1)"></image>
 			</div>
@@ -78,28 +78,26 @@
 					  "status": "",
 					  "unit": "",
 					  "updateBy": "",
-					  "updateTime": ""
-					// pageNum: 1,
-					// pageLimit:10,
+					  "updateTime": "",
+					   pageNum: 1,
+					   pageSize:10,
 				},
 				list: [],
 				totalPages:0,//总页数
 				count:"0",//总条数
-				
 			};
 		},
 		onLoad({}) {
-			 
 			this.menuButtonInfo = uni.getMenuButtonBoundingClientRect(); 
 			this.asyncGetList();//列表
 		},
-		// onReachBottom(res) {
-		// 	// console.log(this.listParam.pageNum, this.totalPages);
-		// 	if (this.listParam.pageNum < this.totalPages) {
-		// 		this.listParam.pageNum = this.listParam.pageNum + 1;
-		// 		this.getList();
-		// 	}
-		// },
+	/* 	onReachBottom(res) {
+			// console.log(this.listParam.pageNum, this.totalPages);
+			if (this.listParam.pageNum < this.totalPages) {
+				this.listParam.pageNum = this.listParam.pageNum + 1;
+				this.getList();
+			}
+		}, */
 		methods:{
 			checkedDate(){
 				 this.goToPage(`/pages/canteen/purchase/info`)
@@ -126,12 +124,13 @@
 			},
 			asyncGetList(){
 				purchaseList(this.listParam).then(res=>{
-					console.log(res);
 					if(res.code==0){
-						let data = res.data; 
-						this.totalPages = data.totalPages; //总页数
-						this.count=data.count;  
-						this.list = data||[];
+						console.log(res)
+						this.totalPages =Math.ceil(res.total/res.pageSize) ; //总页数
+						this.count=res.total;  //总条数 
+						this.listParam.pageNum=res.pageNum;  //第几页
+						this.listParam.pageSize=res.pageSize;  //每页几条数据
+						this.list = res.data||[];
 					}
 				})
 			}

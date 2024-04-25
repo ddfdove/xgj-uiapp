@@ -33,8 +33,14 @@
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">检测人</view>
-					<input class="input" type="text" v-model="form.testByName" />
+					<uni-data-select class="select" v-model="form.testBy"
+						:localdata="userOptions"></uni-data-select>
 				</view>
+				<!-- <view class="flex-row-start formItem">
+					<view class="label">负责人</view>
+					<uni-data-select class="select" v-model="form.testBy"
+						:localdata="userOptions"></uni-data-select>
+				</view> -->
 				<view class="flex-row-start formItem">
 					<view class="label">备注</view>
 					<textarea class="textare" v-model="form.remark" placeholder="请输入备注..."></textarea>
@@ -78,7 +84,8 @@
 					testData:'',
 					testResults:'',
 					testTime:'',
-					testByName:'',
+					testBy:'',
+					// testByName:'',
 					remark:''
 					
 					
@@ -112,7 +119,7 @@
 						msg: ["请输入时间"],
 					},
 					{
-						name: "testByName",
+						name: "testBy",
 						rule: ["required"],
 						msg: ["请输入检测人姓名"],
 					},
@@ -149,7 +156,8 @@
 						let user = res[2];
 						this.deptOptions = dp.data.map((item) => ({
 							text: item.deptName,
-							value: String(item.deptId),
+							value: item.deptId,
+							// value: String(item.deptId),
 						}));
 						this.materialOptions = mt.data.map((item) => ({
 							text: item.materialName,
@@ -157,7 +165,8 @@
 						}));
 						this.userOptions = user.data.map((item) => ({
 							text: item.userName,
-							value: String(item.userId),
+							value: item.userId,
+							// value: String(item.userId),
 						}));
 					}
 				);

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index-scan/index",
     "pages/canteen/index",
     "pages/canteen/inspection/list",
     "pages/canteen/inspection/info",

@@ -9,7 +9,7 @@ export function auth(data) {
 		method: 'GET'
 	})
 }
-
+//登录
 export function login(data) {
 	return request({
 		url:'/api/wms/user/login',
@@ -17,8 +17,6 @@ export function login(data) {
 		data
 	})
 } 
-
-//
 export function verification(data) {
 	return request({
 		url:'/api/vma/order/ticket/verification',
@@ -26,70 +24,6 @@ export function verification(data) {
 		data
 	})
 }
-
-//采购列表
-export function purchaseList(data) {
-	return request({
-		url:'/api/wms/purchase/list',
-		method: 'POST',
-		data
-	})
-}
-//采购详情
-export function purchaseInfo(data) {
-	return request({
-		url:'/api/wms/purchase/info',
-		method: 'GET',
-		data
-	})
-}
-//新增采购
-export function purchaseSave(data) {
-	return request({
-		url:'/api/wms/purchase/save',
-		method: 'POST',
-		data
-	})
-}
-//更新采购
-export function purchaseUpdate(data) {
-	return request({
-		url:'/api/wms/purchase/update',
-		method: 'PUT',
-		data
-	})
-}
-
-//部门列表 
-export function deptList(data) {
-	return request({
-		url:'/api/wms/list/deptList',
-		method: 'POST',
-		data
-	})
-}
-//食材列表
-export function mxMaterialInfoList(data) {
-	return request({
-		url:'/api/wms/list/mxMaterialInfoList',
-		method: 'POST',
-		data
-	})
-}
-//用户列表
-export function userList(data) {
-	return request({
-		url:'/api/wms/list/userList',
-		method: 'POST',
-		data
-	})
-}
-
-
-
-
-
-
 //所有核销详细
 export function getOrderDetail(data) {
 	return request({
@@ -98,8 +32,6 @@ export function getOrderDetail(data) {
 		data
 	})
 }
-
-
 //套票核销 
 export function snowVerification(data) {
 	return request({
@@ -134,7 +66,117 @@ export function getSnowOrderDetailById(data) {
 }
 
 
+// ***********************************************************//
+//下拉列表接口
 
+//部门列表 
+export function deptList(data) {
+	return request({
+		url:'/api/wms/list/deptList',
+		method: 'POST',
+		data
+	})
+}
+//食材列表
+export function mxMaterialInfoList(data) {
+	return request({
+		url:'/api/wms/list/mxMaterialInfoList',
+		method: 'POST',
+		data
+	})
+}
+//用户列表
+export function userList(data) {
+	return request({
+		url:'/api/wms/list/userList',
+		method: 'POST',
+		data
+	})
+}
+//食堂列表
+export function canteenList(data) {
+	return request({
+		url:'/api/wms/list/mxCanteenInfoList',
+		method: 'POST',
+		data
+	})
+}
+//餐别列表
+export function mealList(data) {
+	return request({
+		url:'/api/wms/list/mxMealInfoList',
+		method: 'POST',
+		data
+	})
+}
+//菜品列表
+export function dishList(data) {
+	return request({
+		url:'/api/wms/list/mxDishInfoList',
+		method: 'POST',
+		data
+	})
+}
+//台账下拉列表
+export function productList(data) {
+	return request({
+		url:'/api/wms/list/mxPurchasingRecordList',
+		method: 'POST',
+		data
+	})
+}
+//库房下拉列表
+export function warehouseList(data) {
+	return request({
+		url:'/api/wms/list/mxWarehouseInfoList',
+		method: 'POST',
+		data
+	})
+}
+//入库下拉列表
+export function warehousingList(data) {
+	return request({
+		url:'/api/wms/list/mxWarehousingRecordList',
+		method: 'POST',
+		data
+	})
+}
+
+// ***********************************************************//
+//食堂管理接口
+
+//采购列表
+export function purchaseList(data) {
+	return request({
+		url:'/api/wms/purchase/list',
+		method: 'POST',
+		data
+	})
+}
+//采购详情
+export function purchaseInfo(data) {
+	return request({
+		url:'/api/wms/purchase/info',
+		method: 'GET',
+		data
+	})
+}
+//新增采购
+export function purchaseSave(data) {
+	return request({
+		url:'/api/wms/purchase/save',
+		method: 'POST',
+		data
+	})
+}
+//更新采购
+export function purchaseUpdate(data) {
+	return request({
+		url:'/api/wms/purchase/update',
+		method: 'PUT',
+		data
+	})
+}
 //食材检验列表
 export function getInspectionList(data) {
 	return request({
@@ -196,6 +238,108 @@ export function getKeepSampleSave(data) {
 export function getKeepSampleUpdate(data) {
 	return request({
 		url:'/api/wms/sampleretention/update',
+		method: 'PUT',
+		data
+	})
+}
+
+// ***********************************************************//
+//库存管理接口
+
+//获取入库记录列表
+export function getWarehousingList(data) {
+	return request({
+		url:'/api/wms/warehousing/list',
+		method: 'POST',
+		data
+	})
+}
+//获取入库记录详情
+export function getWarehousingInfo(data) {
+	return request({
+		url:'/api/wms/warehousing/info',
+		method: 'GET',
+		data
+	})
+}
+//新增入库记录
+export function getWarehousingSave(data) {
+	return request({
+		url:'/api/wms/warehousing/save',
+		method: 'POST',
+		data
+	})
+}
+//更新入库记录
+export function getWarehousingUpdate(data) {
+	return request({
+		url:'/api/wms/warehousing/update',
+		method: 'PUT',
+		data
+	})
+}
+
+//获取盘点记录列表
+export function getCheckList(data) {
+	return request({
+		url:'/api/wms/inventory/list',
+		method: 'POST',
+		data
+	})
+}
+//获取盘点记录详情
+export function getCheckInfo(data) {
+	return request({
+		url:'/api/wms/inventory/info',
+		method: 'GET',
+		data
+	})
+}
+//新增盘点记录
+export function getCheckSave(data) {
+	return request({
+		url:'/api/wms/inventory/save',
+		method: 'POST',
+		data
+	})
+}
+//更新盘点记录
+export function getCheckUpdate(data) {
+	return request({
+		url:'/api/wms/inventory/update',
+		method: 'PUT',
+		data
+	})
+}
+
+//获取出库记录列表
+export function getOutboundList(data) {
+	return request({
+		url:'/api/wms/outbound/list',
+		method: 'POST',
+		data
+	})
+}
+//获取出库记录详情
+export function getOutboundInfo(data) {
+	return request({
+		url:'/api/wms/outbound/info',
+		method: 'GET',
+		data
+	})
+}
+//新增出库记录
+export function getOutboundSave(data) {
+	return request({
+		url:'/api/wms/outbound/save',
+		method: 'POST',
+		data
+	})
+}
+//更新出库记录
+export function getOutboundUpdate(data) {
+	return request({
+		url:'/api/wms/outbound/update',
 		method: 'PUT',
 		data
 	})

@@ -12,7 +12,7 @@
 			<div class="write_list_content_top">
 				<div class="write_list_content_top_l">
 					<div>
-						<span style="color:#FE5BA4"  @click="checkedDate()">添加采购计划</span>
+						<span style="color:#FE5BA4"  @click="checkedDate()">添加食品留样</span>
 					</div> 
 				</div>
 				<span class="write_list_content_top_r">共计：{{count}}条</span>
@@ -60,31 +60,8 @@
 			return {
 					menuButtonInfo:null,
 					listParam: {
-						  "createBy": "1",
-						             "createTime": "2024-04-10 17:00:04",
-						             "updateBy": "1",
-						             "updateTime": "2024-04-11 18:23:22",
-						             "remark": "测试",
-						             "isSelected": false,
-						             "srId": 1,
-						             "canteenId": 1,
-						             "canteenName": "食堂1222",
-						             "mealId": 9,
-						             "mealName": "早餐",
-						             "dishId": 6,
-						             "dishName": "4444",
-						             "srResult": "312",
-						             "srTime": "2024-04-10",
-						             "servingQuantity": 321,
-						             "srBy": 1,
-						             "srByName": "超管",
-						             "destructionBy": 1,
-						             "destructionByName": "超管",
-						             "danwei": "123",
-						             "fuzeBy": 1,
-						             "fuzeByName": "超管",
-						             "status": null,
-						             "delFlag": null
+					pageNum: 1,
+					pageSize:10,	 
 					},
 					list: [],
 					totalPages:0,//总页数
@@ -132,10 +109,11 @@
 							getKeepSampleList(this.listParam).then(res=>{
 								console.log(res);
 								if(res.code==0){
-									let data = res.data; 
-									this.totalPages = data.totalPages; //总页数
-									this.count=data.count;  
-									this.list = data||[];
+									this.totalPages =Math.ceil(res.total/res.pageSize) ; //总页数
+									this.count=res.total;  
+									this.listParam.pageNum=res.pageNum;
+									this.listParam.pageSize=res.pageSize;
+									this.list = res.data||[];
 								}
 							})
 						}

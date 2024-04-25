@@ -10,22 +10,22 @@
 		<div class="write_info_content">
 			<view class="personForm">
 
-				<!-- <view class="flex-row-start formItem">
+				<view class="flex-row-start formItem">
 					<view class="label">食堂</view>
 					<uni-data-select class="select" v-model="form.canteenId"
-						:localdata="materialOptions"></uni-data-select>
+						:localdata="canteenOptions"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">餐别</view>
 					<uni-data-select class="select" v-model="form.mealId"
-						:localdata="materialOptions"></uni-data-select>
+						:localdata="mealOptions"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">菜品</view>
 					<uni-data-select class="select" v-model="form.dishId"
-						:localdata="materialOptions"></uni-data-select>
-				</view> -->
-				<view class="flex-row-start formItem">
+						:localdata="dishOptions"></uni-data-select>
+				</view>
+				<!-- <view class="flex-row-start formItem">
 					<view class="label">食堂</view>
 					<input class="input" type="text" v-model="form.canteenName" />
 				</view>
@@ -36,7 +36,7 @@
 				<view class="flex-row-start formItem">
 					<view class="label">菜品</view>
 					<input class="input" type="text" v-model="form.dishName" />
-				</view>
+				</view> -->
 				<view class="flex-row-start formItem">
 					<view class="label">留样结果</view>
 					<input class="input" type="text" v-model="form.srResult" />
@@ -49,23 +49,37 @@
 					<view class="label">数量</view>
 					<input class="input" type="text" v-model="form.servingQuantity" placeholder="请输入数量" />
 				</view>
-				<view class="flex-row-start formItem">
+				<!-- <view class="flex-row-start formItem">
 					<view class="label">留样人</view>
 					<input class="input" type="text" v-model="form.srByName" placeholder="请输入留样人" />
-				</view>
+				</view> -->
 				<view class="flex-row-start formItem">
+					<view class="label">留样人</view>
+					<uni-data-select class="select" v-model="form.srBy"
+						:localdata="userOptions"></uni-data-select>
+				</view>
+				<!-- <view class="flex-row-start formItem">
 					<view class="label">销毁人</view>
 					<input class="input" type="text" v-model="form.destructionByName" placeholder="请输入销毁人" />
+				</view> -->
+				<view class="flex-row-start formItem">
+					<view class="label">销毁人</view>
+					<uni-data-select class="select" v-model="form.destructionBy"
+						:localdata="userOptions"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">单位名</view>
 					<input class="input" type="text" v-model="form.danwei" placeholder="请输入单位名" />
 				</view>
-				<view class="flex-row-start formItem">
+				<!-- <view class="flex-row-start formItem">
 					<view class="label">负责人</view>
 					<input class="input" type="text" v-model="form.fuzeByName" placeholder="请输入负责人" />
+				</view> -->
+				<view class="flex-row-start formItem">
+					<view class="label">负责人</view>
+					<uni-data-select class="select" v-model="form.fuzeBy"
+						:localdata="userOptions"></uni-data-select>
 				</view>
-				
 				<view class="flex-row-start formItem">
 					<view class="label">备注</view>
 					<textarea class="textare" v-model="form.remark" placeholder="请输入备注..."></textarea>
@@ -89,6 +103,9 @@
 		deptList,
 		mxMaterialInfoList,
 		userList,
+		canteenList,
+		dishList,
+		mealList,
 		getKeepSampleUpdate,
 	} from "@/api/index.js";
 	import {
@@ -103,24 +120,27 @@
 				deptOptions: [],
 				userOptions: [],
 				materialOptions: [],
+				canteenOptions:[],
+				mealOptions:[],
+				dishOptions:[],
 				form: {
 					
-					        "canteenName": "",
-					        // "canteenId": '',
-							// "mealId": '',
-							"mealName": "",
-							// "dishId": '',
-							"dishName": "",
+					        // "canteenName": "",
+					        "canteenId": '',
+							"mealId": '',
+							// "mealName": "",
+							"dishId": '',
+							// "dishName": "",
 							"srResult": "",
 							"srTime": "",
 							"servingQuantity": "",
-							// "srBy": 1,
-							"srByName": "",
-							// "destructionBy": 1,
-							"destructionByName": "",
+							"srBy": '',
+							// "srByName": "",
+							"destructionBy": '',
+							// "destructionByName": "",
 							"danwei": "",
-							// "fuzeBy": '',
-							"fuzeByName": "",
+							"fuzeBy": '',
+							// "fuzeByName": "",
 					        "remark": "",
 					        "srId": "",
 					        
@@ -129,17 +149,17 @@
 					srId: "",
 				},
 				rules: [{
-						name: "canteenName",
+						name: "canteenId",
 						rule: ["required"],
 						msg: ["请食堂名"],
 					},
 					{
-						name: "mealName",
+						name: "mealId",
 						rule: ["required"],
 						msg: ["请输入餐别"],
 					},
 					{
-						name: "dishName",
+						name: "dishId",
 						rule: ["required"],
 						msg: ["请输入菜品"],
 					},
@@ -159,12 +179,12 @@
 						msg: ["请输入数量"],
 					},
 					{
-						name: "srByName",
+						name: "srBy",
 						rule: ["required"],
 						msg: ["请输入留样人"],
 					},
 					{
-						name: "destructionByName",
+						name: "destructionBy",
 						rule: ["required"],
 						msg: ["请输入销毁人"],
 					},
@@ -174,7 +194,7 @@
 						msg: ["请输入单位名"],
 					},
 					{
-						name: "fuzeByName",
+						name: "fuzeBy",
 						rule: ["required"],
 						msg: ["请输入负责人姓名"],
 					},
@@ -203,23 +223,44 @@
 			},
 			//所有下拉列表数据
 			getOptionsData() {
-				Promise.all([deptList(), mxMaterialInfoList(), userList()]).then(
+				Promise.all([deptList(), mxMaterialInfoList(), userList(),canteenList(),mealList(),dishList()]).then(
 					(res) => {
 						console.log("所有下拉数据", res);
 						let dp = res[0];
 						let mt = res[1];
 						let user = res[2];
+						let canteen=res[3];
+						let meal=res[4];
+						let dish=res[5];
 						this.deptOptions = dp.data.map((item) => ({
 							text: item.deptName,
-							value: String(item.deptId),
+							value: item.deptId,
+							// value: String(item.deptId),
 						}));
 						this.materialOptions = mt.data.map((item) => ({
 							text: item.materialName,
 							value: item.materialId,
+							// value: item.materialId,
 						}));
 						this.userOptions = user.data.map((item) => ({
 							text: item.userName,
-							value: String(item.userId),
+							value: item.userId,
+							// value: String(item.userId),
+						}));
+						this.canteenOptions = canteen.data.map((item) => ({
+							text: item.canteenName,
+							value: item.canteenId,
+							// value: String(item.canteenId),
+						}));
+						this.mealOptions = meal.data.map((item) => ({
+							text: item.mealPeriodName,
+							value: item.mealId,
+							// value: String(item.mealId),
+						}));
+						this.dishOptions = dish.data.map((item) => ({
+							text: item.dishName,
+							value: item.dishId,
+							// value: String(item.dishId),
 						}));
 					}
 				);

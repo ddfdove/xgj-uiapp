@@ -8,6 +8,10 @@
 			"style": {}
 		},
 		{
+				"path": "pages/index-scan/index",
+				"style": {}
+			},
+		{
 			"path": "pages/canteen/index",
 			"style": {
 				"navigationBarTitleText": "",

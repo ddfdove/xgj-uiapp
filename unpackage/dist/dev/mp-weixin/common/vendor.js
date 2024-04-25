@@ -1557,7 +1557,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"核销端非雪季","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"核销端非雪季","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -8923,7 +8923,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"核销端非雪季","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"核销端非雪季","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8944,14 +8944,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"核销端非雪季","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"核销端非雪季","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"核销端非雪季","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"核销端非雪季","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9047,7 +9047,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"核销端非雪季","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"核销端非雪季","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9727,7 +9727,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.auth = auth;
+exports.canteenList = canteenList;
 exports.deptList = deptList;
+exports.dishList = dishList;
+exports.getCheckInfo = getCheckInfo;
+exports.getCheckList = getCheckList;
+exports.getCheckSave = getCheckSave;
+exports.getCheckUpdate = getCheckUpdate;
 exports.getInspectionInfo = getInspectionInfo;
 exports.getInspectionList = getInspectionList;
 exports.getInspectionSave = getInspectionSave;
@@ -9737,11 +9743,21 @@ exports.getKeepSampleList = getKeepSampleList;
 exports.getKeepSampleSave = getKeepSampleSave;
 exports.getKeepSampleUpdate = getKeepSampleUpdate;
 exports.getOrderDetail = getOrderDetail;
+exports.getOutboundInfo = getOutboundInfo;
+exports.getOutboundList = getOutboundList;
+exports.getOutboundSave = getOutboundSave;
+exports.getOutboundUpdate = getOutboundUpdate;
 exports.getSnowOrderDetail = getSnowOrderDetail;
 exports.getSnowOrderDetailById = getSnowOrderDetailById;
+exports.getWarehousingInfo = getWarehousingInfo;
+exports.getWarehousingList = getWarehousingList;
+exports.getWarehousingSave = getWarehousingSave;
+exports.getWarehousingUpdate = getWarehousingUpdate;
 exports.login = login;
+exports.mealList = mealList;
 exports.mineSnowOrderList = mineSnowOrderList;
 exports.mxMaterialInfoList = mxMaterialInfoList;
+exports.productList = productList;
 exports.purchaseInfo = purchaseInfo;
 exports.purchaseList = purchaseList;
 exports.purchaseSave = purchaseSave;
@@ -9749,6 +9765,8 @@ exports.purchaseUpdate = purchaseUpdate;
 exports.snowVerification = snowVerification;
 exports.userList = userList;
 exports.verification = verification;
+exports.warehouseList = warehouseList;
+exports.warehousingList = warehousingList;
 var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 32));
 var _baseUrl = _interopRequireDefault(__webpack_require__(/*! @/utils/baseUrl.js */ 33));
 var _util = __webpack_require__(/*! @/utils/util.js */ 30);
@@ -9759,6 +9777,7 @@ function auth(data) {
     method: 'GET'
   });
 }
+//登录
 function login(data) {
   return (0, _request.default)({
     url: '/api/wms/user/login',
@@ -9766,8 +9785,6 @@ function login(data) {
     data: data
   });
 }
-
-//
 function verification(data) {
   return (0, _request.default)({
     url: '/api/vma/order/ticket/verification',
@@ -9775,65 +9792,6 @@ function verification(data) {
     data: data
   });
 }
-
-//采购列表
-function purchaseList(data) {
-  return (0, _request.default)({
-    url: '/api/wms/purchase/list',
-    method: 'POST',
-    data: data
-  });
-}
-//采购详情
-function purchaseInfo(data) {
-  return (0, _request.default)({
-    url: '/api/wms/purchase/info',
-    method: 'GET',
-    data: data
-  });
-}
-//新增采购
-function purchaseSave(data) {
-  return (0, _request.default)({
-    url: '/api/wms/purchase/save',
-    method: 'POST',
-    data: data
-  });
-}
-//更新采购
-function purchaseUpdate(data) {
-  return (0, _request.default)({
-    url: '/api/wms/purchase/update',
-    method: 'PUT',
-    data: data
-  });
-}
-
-//部门列表 
-function deptList(data) {
-  return (0, _request.default)({
-    url: '/api/wms/list/deptList',
-    method: 'POST',
-    data: data
-  });
-}
-//食材列表
-function mxMaterialInfoList(data) {
-  return (0, _request.default)({
-    url: '/api/wms/list/mxMaterialInfoList',
-    method: 'POST',
-    data: data
-  });
-}
-//用户列表
-function userList(data) {
-  return (0, _request.default)({
-    url: '/api/wms/list/userList',
-    method: 'POST',
-    data: data
-  });
-}
-
 //所有核销详细
 function getOrderDetail(data) {
   return (0, _request.default)({
@@ -9842,7 +9800,6 @@ function getOrderDetail(data) {
     data: data
   });
 }
-
 //套票核销 
 function snowVerification(data) {
   return (0, _request.default)({
@@ -9876,6 +9833,117 @@ function getSnowOrderDetailById(data) {
   });
 }
 
+// ***********************************************************//
+//下拉列表接口
+
+//部门列表 
+function deptList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/list/deptList',
+    method: 'POST',
+    data: data
+  });
+}
+//食材列表
+function mxMaterialInfoList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/list/mxMaterialInfoList',
+    method: 'POST',
+    data: data
+  });
+}
+//用户列表
+function userList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/list/userList',
+    method: 'POST',
+    data: data
+  });
+}
+//食堂列表
+function canteenList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/list/mxCanteenInfoList',
+    method: 'POST',
+    data: data
+  });
+}
+//餐别列表
+function mealList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/list/mxMealInfoList',
+    method: 'POST',
+    data: data
+  });
+}
+//菜品列表
+function dishList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/list/mxDishInfoList',
+    method: 'POST',
+    data: data
+  });
+}
+//台账下拉列表
+function productList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/list/mxPurchasingRecordList',
+    method: 'POST',
+    data: data
+  });
+}
+//库房下拉列表
+function warehouseList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/list/mxWarehouseInfoList',
+    method: 'POST',
+    data: data
+  });
+}
+//入库下拉列表
+function warehousingList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/list/mxWarehousingRecordList',
+    method: 'POST',
+    data: data
+  });
+}
+
+// ***********************************************************//
+//食堂管理接口
+
+//采购列表
+function purchaseList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/purchase/list',
+    method: 'POST',
+    data: data
+  });
+}
+//采购详情
+function purchaseInfo(data) {
+  return (0, _request.default)({
+    url: '/api/wms/purchase/info',
+    method: 'GET',
+    data: data
+  });
+}
+//新增采购
+function purchaseSave(data) {
+  return (0, _request.default)({
+    url: '/api/wms/purchase/save',
+    method: 'POST',
+    data: data
+  });
+}
+//更新采购
+function purchaseUpdate(data) {
+  return (0, _request.default)({
+    url: '/api/wms/purchase/update',
+    method: 'PUT',
+    data: data
+  });
+}
 //食材检验列表
 function getInspectionList(data) {
   return (0, _request.default)({
@@ -9937,6 +10005,108 @@ function getKeepSampleSave(data) {
 function getKeepSampleUpdate(data) {
   return (0, _request.default)({
     url: '/api/wms/sampleretention/update',
+    method: 'PUT',
+    data: data
+  });
+}
+
+// ***********************************************************//
+//库存管理接口
+
+//获取入库记录列表
+function getWarehousingList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/warehousing/list',
+    method: 'POST',
+    data: data
+  });
+}
+//获取入库记录详情
+function getWarehousingInfo(data) {
+  return (0, _request.default)({
+    url: '/api/wms/warehousing/info',
+    method: 'GET',
+    data: data
+  });
+}
+//新增入库记录
+function getWarehousingSave(data) {
+  return (0, _request.default)({
+    url: '/api/wms/warehousing/save',
+    method: 'POST',
+    data: data
+  });
+}
+//更新入库记录
+function getWarehousingUpdate(data) {
+  return (0, _request.default)({
+    url: '/api/wms/warehousing/update',
+    method: 'PUT',
+    data: data
+  });
+}
+
+//获取盘点记录列表
+function getCheckList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/inventory/list',
+    method: 'POST',
+    data: data
+  });
+}
+//获取盘点记录详情
+function getCheckInfo(data) {
+  return (0, _request.default)({
+    url: '/api/wms/inventory/info',
+    method: 'GET',
+    data: data
+  });
+}
+//新增盘点记录
+function getCheckSave(data) {
+  return (0, _request.default)({
+    url: '/api/wms/inventory/save',
+    method: 'POST',
+    data: data
+  });
+}
+//更新盘点记录
+function getCheckUpdate(data) {
+  return (0, _request.default)({
+    url: '/api/wms/inventory/update',
+    method: 'PUT',
+    data: data
+  });
+}
+
+//获取出库记录列表
+function getOutboundList(data) {
+  return (0, _request.default)({
+    url: '/api/wms/outbound/list',
+    method: 'POST',
+    data: data
+  });
+}
+//获取出库记录详情
+function getOutboundInfo(data) {
+  return (0, _request.default)({
+    url: '/api/wms/outbound/info',
+    method: 'GET',
+    data: data
+  });
+}
+//新增出库记录
+function getOutboundSave(data) {
+  return (0, _request.default)({
+    url: '/api/wms/outbound/save',
+    method: 'POST',
+    data: data
+  });
+}
+//更新出库记录
+function getOutboundUpdate(data) {
+  return (0, _request.default)({
+    url: '/api/wms/outbound/update',
     method: 'PUT',
     data: data
   });
@@ -19991,36 +20161,7 @@ exports.publicMixin = publicMixin;
 /* 176 */,
 /* 177 */,
 /* 178 */,
-/* 179 */,
-/* 180 */,
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */
-/*!*************************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/objectDestructuringEmpty.js ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _objectDestructuringEmpty(obj) {
-  if (obj == null) throw new TypeError("Cannot destructure " + obj);
-}
-module.exports = _objectDestructuringEmpty, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */
+/* 179 */
 /*!******************************************!*\
   !*** E:/xgj-app-let/utils/validation.js ***!
   \******************************************/
@@ -20306,6 +20447,35 @@ module.exports = {
 };
 
 /***/ }),
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */
+/*!*************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/objectDestructuringEmpty.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _objectDestructuringEmpty(obj) {
+  if (obj == null) throw new TypeError("Cannot destructure " + obj);
+}
+module.exports = _objectDestructuringEmpty, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
 /* 197 */,
 /* 198 */,
 /* 199 */,
@@ -20497,7 +20667,15 @@ module.exports = {
 /* 385 */,
 /* 386 */,
 /* 387 */,
-/* 388 */
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */,
+/* 393 */,
+/* 394 */,
+/* 395 */,
+/* 396 */
 /*!***********************************************************************!*\
   !*** E:/xgj-app-let/uni_modules/uview-ui/components/u-input/props.js ***!
   \***********************************************************************/
@@ -20702,12 +20880,12 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 389 */,
-/* 390 */,
-/* 391 */,
-/* 392 */,
-/* 393 */,
-/* 394 */
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */
 /*!************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js ***!
   \************************************************************************************/
@@ -20723,19 +20901,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 59));
-var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ 395));
+var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ 403));
 var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ 5));
 var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 61));
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
-var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ 396));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ 397));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ 398));
-var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/wrapNativeSuper */ 399));
+var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ 404));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ 405));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ 406));
+var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/wrapNativeSuper */ 407));
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
 var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
-var _pages = _interopRequireDefault(__webpack_require__(/*! @/pages.json */ 401));
+var _pages = _interopRequireDefault(__webpack_require__(/*! @/pages.json */ 409));
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e34) { throw _e34; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e35) { didErr = true; err = _e35; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
@@ -21188,7 +21366,7 @@ var S = "development" === "development",
   x = true;
 var O = "";
 try {
-  O = (__webpack_require__(/*! uni-stat-config */ 402).default || __webpack_require__(/*! uni-stat-config */ 402)).appid;
+  O = (__webpack_require__(/*! uni-stat-config */ 410).default || __webpack_require__(/*! uni-stat-config */ 410)).appid;
 } catch (e) {}
 var E = {};
 function L(e) {
@@ -28531,7 +28709,7 @@ exports.default = Bs;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3), __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
 
 /***/ }),
-/* 395 */
+/* 403 */
 /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/assertThisInitialized.js ***!
   \**********************************************************************/
@@ -28547,7 +28725,7 @@ function _assertThisInitialized(self) {
 module.exports = _assertThisInitialized, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 396 */
+/* 404 */
 /*!*********************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/inherits.js ***!
   \*********************************************************/
@@ -28574,7 +28752,7 @@ function _inherits(subClass, superClass) {
 module.exports = _inherits, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 397 */
+/* 405 */
 /*!**************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js ***!
   \**************************************************************************/
@@ -28582,7 +28760,7 @@ module.exports = _inherits, module.exports.__esModule = true, module.exports["de
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = __webpack_require__(/*! ./typeof.js */ 13)["default"];
-var assertThisInitialized = __webpack_require__(/*! ./assertThisInitialized.js */ 395);
+var assertThisInitialized = __webpack_require__(/*! ./assertThisInitialized.js */ 403);
 function _possibleConstructorReturn(self, call) {
   if (call && (_typeof(call) === "object" || typeof call === "function")) {
     return call;
@@ -28594,7 +28772,7 @@ function _possibleConstructorReturn(self, call) {
 module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 398 */
+/* 406 */
 /*!***************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/getPrototypeOf.js ***!
   \***************************************************************/
@@ -28610,16 +28788,16 @@ function _getPrototypeOf(o) {
 module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 399 */
+/* 407 */
 /*!****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/wrapNativeSuper.js ***!
   \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getPrototypeOf = __webpack_require__(/*! ./getPrototypeOf.js */ 398);
+var getPrototypeOf = __webpack_require__(/*! ./getPrototypeOf.js */ 406);
 var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf.js */ 16);
-var isNativeFunction = __webpack_require__(/*! ./isNativeFunction.js */ 400);
+var isNativeFunction = __webpack_require__(/*! ./isNativeFunction.js */ 408);
 var construct = __webpack_require__(/*! ./construct.js */ 15);
 function _wrapNativeSuper(Class) {
   var _cache = typeof Map === "function" ? new Map() : undefined;
@@ -28650,7 +28828,7 @@ function _wrapNativeSuper(Class) {
 module.exports = _wrapNativeSuper, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 400 */
+/* 408 */
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/isNativeFunction.js ***!
   \*****************************************************************/
@@ -28667,7 +28845,7 @@ function _isNativeFunction(fn) {
 module.exports = _isNativeFunction, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 401 */
+/* 409 */
 /*!**************************************************************!*\
   !*** E:/xgj-app-let/pages.json?{"type":"origin-pages-json"} ***!
   \**************************************************************/
@@ -28688,6 +28866,9 @@ var _default = {
   "lazyCodeLoading": "requiredComponents",
   "pages": [{
     "path": "pages/index/index",
+    "style": {}
+  }, {
+    "path": "pages/index-scan/index",
     "style": {}
   }, {
     "path": "pages/canteen/index",
@@ -28878,7 +29059,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 402 */
+/* 410 */
 /*!*************************************************!*\
   !*** E:/xgj-app-let/pages.json?{"type":"stat"} ***!
   \*************************************************/
@@ -28898,14 +29079,14 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 403 */,
-/* 404 */,
-/* 405 */,
-/* 406 */,
-/* 407 */,
-/* 408 */,
-/* 409 */,
-/* 410 */
+/* 411 */,
+/* 412 */,
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */
 /*!***************************************************************************************************!*\
   !*** E:/xgj-app-let/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/index.js ***!
   \***************************************************************************************************/
@@ -28920,9 +29101,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 411));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 412));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 413));
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 419));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 420));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 421));
 var _default = {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -28931,7 +29112,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 411 */
+/* 419 */
 /*!**************************************************************************************************!*\
   !*** E:/xgj-app-let/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/en.json ***!
   \**************************************************************************************************/
@@ -28941,7 +29122,7 @@ exports.default = _default;
 module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"select date\",\"uni-datetime-picker.selectTime\":\"select time\",\"uni-datetime-picker.selectDateTime\":\"select date and time\",\"uni-datetime-picker.startDate\":\"start date\",\"uni-datetime-picker.endDate\":\"end date\",\"uni-datetime-picker.startTime\":\"start time\",\"uni-datetime-picker.endTime\":\"end time\",\"uni-datetime-picker.ok\":\"ok\",\"uni-datetime-picker.clear\":\"clear\",\"uni-datetime-picker.cancel\":\"cancel\",\"uni-datetime-picker.year\":\"-\",\"uni-datetime-picker.month\":\"\",\"uni-calender.MON\":\"MON\",\"uni-calender.TUE\":\"TUE\",\"uni-calender.WED\":\"WED\",\"uni-calender.THU\":\"THU\",\"uni-calender.FRI\":\"FRI\",\"uni-calender.SAT\":\"SAT\",\"uni-calender.SUN\":\"SUN\",\"uni-calender.confirm\":\"confirm\"}");
 
 /***/ }),
-/* 412 */
+/* 420 */
 /*!*******************************************************************************************************!*\
   !*** E:/xgj-app-let/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hans.json ***!
   \*******************************************************************************************************/
@@ -28951,7 +29132,7 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"select date\"
 module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"选择日期\",\"uni-datetime-picker.selectTime\":\"选择时间\",\"uni-datetime-picker.selectDateTime\":\"选择日期时间\",\"uni-datetime-picker.startDate\":\"开始日期\",\"uni-datetime-picker.endDate\":\"结束日期\",\"uni-datetime-picker.startTime\":\"开始时间\",\"uni-datetime-picker.endTime\":\"结束时间\",\"uni-datetime-picker.ok\":\"确定\",\"uni-datetime-picker.clear\":\"清除\",\"uni-datetime-picker.cancel\":\"取消\",\"uni-datetime-picker.year\":\"年\",\"uni-datetime-picker.month\":\"月\",\"uni-calender.SUN\":\"日\",\"uni-calender.MON\":\"一\",\"uni-calender.TUE\":\"二\",\"uni-calender.WED\":\"三\",\"uni-calender.THU\":\"四\",\"uni-calender.FRI\":\"五\",\"uni-calender.SAT\":\"六\",\"uni-calender.confirm\":\"确认\"}");
 
 /***/ }),
-/* 413 */
+/* 421 */
 /*!*******************************************************************************************************!*\
   !*** E:/xgj-app-let/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hant.json ***!
   \*******************************************************************************************************/
@@ -28961,7 +29142,7 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"选择日期\
 module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"選擇日期\",\"uni-datetime-picker.selectTime\":\"選擇時間\",\"uni-datetime-picker.selectDateTime\":\"選擇日期時間\",\"uni-datetime-picker.startDate\":\"開始日期\",\"uni-datetime-picker.endDate\":\"結束日期\",\"uni-datetime-picker.startTime\":\"開始时间\",\"uni-datetime-picker.endTime\":\"結束时间\",\"uni-datetime-picker.ok\":\"確定\",\"uni-datetime-picker.clear\":\"清除\",\"uni-datetime-picker.cancel\":\"取消\",\"uni-datetime-picker.year\":\"年\",\"uni-datetime-picker.month\":\"月\",\"uni-calender.SUN\":\"日\",\"uni-calender.MON\":\"一\",\"uni-calender.TUE\":\"二\",\"uni-calender.WED\":\"三\",\"uni-calender.THU\":\"四\",\"uni-calender.FRI\":\"五\",\"uni-calender.SAT\":\"六\",\"uni-calender.confirm\":\"確認\"}");
 
 /***/ }),
-/* 414 */
+/* 422 */
 /*!*********************************************************************************************!*\
   !*** E:/xgj-app-let/uni_modules/uni-datetime-picker/components/uni-datetime-picker/util.js ***!
   \*********************************************************************************************/
@@ -29410,21 +29591,21 @@ function fixIosDateFormat(value) {
 }
 
 /***/ }),
-/* 415 */,
-/* 416 */,
-/* 417 */,
-/* 418 */,
-/* 419 */,
-/* 420 */,
-/* 421 */,
-/* 422 */,
 /* 423 */,
 /* 424 */,
 /* 425 */,
 /* 426 */,
 /* 427 */,
 /* 428 */,
-/* 429 */
+/* 429 */,
+/* 430 */,
+/* 431 */,
+/* 432 */,
+/* 433 */,
+/* 434 */,
+/* 435 */,
+/* 436 */,
+/* 437 */
 /*!**************************************************************************************!*\
   !*** E:/xgj-app-let/uni_modules/uni-icons/components/uni-icons/uniicons_file_vue.js ***!
   \**************************************************************************************/
@@ -29927,14 +30108,6 @@ var fontData = [{
 exports.fontData = fontData;
 
 /***/ }),
-/* 430 */,
-/* 431 */,
-/* 432 */,
-/* 433 */,
-/* 434 */,
-/* 435 */,
-/* 436 */,
-/* 437 */,
 /* 438 */,
 /* 439 */,
 /* 440 */,
@@ -29948,7 +30121,15 @@ exports.fontData = fontData;
 /* 448 */,
 /* 449 */,
 /* 450 */,
-/* 451 */
+/* 451 */,
+/* 452 */,
+/* 453 */,
+/* 454 */,
+/* 455 */,
+/* 456 */,
+/* 457 */,
+/* 458 */,
+/* 459 */
 /*!**********************************************************************!*\
   !*** E:/xgj-app-let/uni_modules/uview-ui/components/u-icon/icons.js ***!
   \**********************************************************************/
@@ -30179,7 +30360,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 452 */
+/* 460 */
 /*!**********************************************************************!*\
   !*** E:/xgj-app-let/uni_modules/uview-ui/components/u-icon/props.js ***!
   \**********************************************************************/

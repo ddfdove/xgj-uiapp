@@ -14,7 +14,7 @@
 			return {
 				 navigator:[
 				   {title:"食堂管理",href:"/pages/canteen/index",icon:"/static/canteen.png",},
-				   {title:"库存管理",href:"/pages/iniventory/index",icon:"/static/inventory.png",},
+				   {title:"库存管理",href:"/pages/inventory/index",icon:"/static/inventory.png",},
 				   {title:"车辆管理",href:"/pages/vehicle/index",icon:"/static/vehicle.png",}
 				 ]
 			};
