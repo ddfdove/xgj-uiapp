@@ -171,22 +171,35 @@
 				],
 			};
 		},
-		onLoad({info}) {
-			this.getOptionsData(); //获取所有下拉数据
+		onLoad({
+			id,
+			info
+		   
+		}) {
 			this.menuButtonInfo = uni.getMenuButtonBoundingClientRect();
-			this.form=Object.assign({},this.form,JSON.parse(info),{"quantity": 121});
+			if (info) {
+				console.log(info)
+				this.form=Object.assign({},this.form,JSON.parse(info));
+					console.log(this.form.warehouseId)
+					console.log(this.form.materialId)
+				// this.asyncGetDetail();
+			}
+			// if (matId) {
+			// 	console.log('matId=' + matId)
+			// 	this.form.materialId = matId;
+				
+			// }
 			// if (wareId) {
 			// 	console.log('wareId=' + wareId)
 			// 	this.form.warehouseId = wareId;
 			// }
-			// if (matId) {
-			// 	console.log('matId=' + matId)
-			// 	this.form.materialId = matId;
-			// }
-			// if (id) {
-			// 	this.queryParam.outboundId = id;
-			// 	this.asyncGetDetail();
-			// }
+			this.getOptionsData(); //获取所有下拉数据
+			if (id) {
+				console.log(id)
+				this.queryParam.outboundId = id;
+				this.asyncGetDetail();
+			}
+		
 		},
 		methods: {
 			back() {

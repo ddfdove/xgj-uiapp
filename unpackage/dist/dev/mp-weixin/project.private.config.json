@@ -5,6 +5,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/inventory/warehousing/info",
+          "pathName": "pages/inventory/warehousing/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "出库详情",
           "pathName": "pages/inventory/outbound/info",
           "query": "",

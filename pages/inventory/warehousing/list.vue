@@ -114,8 +114,41 @@
 				}
 			}, */
 		methods: {
+			scanCode() {
+				let me = this;
+				uni.scanCode({
+					success(res) {
+						// console.log("扫码成功",res);
+						if (res.errMsg == "scanCode:ok") {
+							// me.goOderInfo(res.result);
+							// me.goToPage("/pages/order/info?ticketNumber="+res.result);
+							uni.request({
+								url: res.result,
+								success: (res2) => {
+									console.log(res2.data.data);
+									this.materialId = res2.data.data.materialId
+									this.warehouseId = res2.data.data.warehouseId
+									let data=res2.data.data;
+									// console.log(this.materialId);
+									// console.log(this.warehouseId);
+									// me.goToPage(
+									// 	`${item.href}?wareId=${this.warehouseId}&matId=${this.materialId}`
+									// 	);
+										me.goToPage(`/pages/inventory/warehousing/info?info=${JSON.stringify(data)}`);
+								}
+							})
+						} else {
+							me.$mvc.alert("扫码失败", "error");
+						}
+					},
+					fail(e) {
+						me.$mvc.alert("扫码失败", "error");
+					}
+				})
+			},
 			checkedDate() {
-				this.goToPage(`/pages/inventory/warehousing/info`)
+				// this.goToPage(`/pages/inventory/warehousing/info`)
+				this.scanCode()
 			},
 			changePage(args) {
 				if (args) {
