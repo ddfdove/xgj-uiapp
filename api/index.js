@@ -148,7 +148,7 @@ export function warehousingList(data) {
 //采购列表
 export function purchaseList(data) {
 	return request({
-		url:'/api/wms/purchase/list',
+		url:'/api/wms/purchase/list?pageNum='+data.pageNum,
 		method: 'POST',
 		data
 	})
@@ -180,7 +180,7 @@ export function purchaseUpdate(data) {
 //食材检验列表
 export function getInspectionList(data) {
 	return request({
-		url:'/api/wms/test/list',
+		url:'/api/wms/test/list?pageNum='+data.pageNum,
 		method: 'POST',
 		data
 	})
@@ -213,7 +213,7 @@ export function getInspectionUpdate(data) {
 //食品留样列表
 export function getKeepSampleList(data) {
 	return request({
-		url:'/api/wms/sampleretention/list',
+		url:'/api/wms/sampleretention/list?pageNum='+data.pageNum,
 		method: 'POST',
 		data
 	})
@@ -249,7 +249,7 @@ export function getKeepSampleUpdate(data) {
 //获取入库记录列表
 export function getWarehousingList(data) {
 	return request({
-		url:'/api/wms/warehousing/list',
+		url:'/api/wms/warehousing/list?pageNum='+data.pageNum,
 		method: 'POST',
 		data
 	})
@@ -282,7 +282,7 @@ export function getWarehousingUpdate(data) {
 //获取盘点记录列表
 export function getCheckList(data) {
 	return request({
-		url:'/api/wms/inventory/list',
+		url:'/api/wms/inventory/list?pageNum='+data.pageNum,
 		method: 'POST',
 		data
 	})
@@ -315,7 +315,7 @@ export function getCheckUpdate(data) {
 //获取出库记录列表
 export function getOutboundList(data) {
 	return request({
-		url:'/api/wms/outbound/list',
+		url:'/api/wms/outbound/list?pageNum='+data.pageNum,
 		method: 'POST',
 		data
 	})

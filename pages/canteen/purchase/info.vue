@@ -85,7 +85,7 @@
 					materialId: "",
 					planManager: "",
 					updateTime: "",
-					quantity: 0,
+					quantity: '',
 					unit: "",
 					remark: "",
 					purchaseId: "",

@@ -40,12 +40,12 @@
 		</div>
 		<div class="write_list_botttom">
 			<div class="write_list_botttom_content">
-				<image src="../../static/write_list_left.png" mode="" @click="changePage(0)"></image>
+				<image src="../../../static/write_list_left.png" mode="" @click="changePage(0)"></image>
 				<div>
 					<p><span>{{listParam.pageNum}}</span>/{{totalPages}}</p>
-					<text>当前共{{count}}条，每页显示{{listParam.pageLimit}}条</text>
+					<text>当前共{{count}}条，每页显示{{listParam.pageSize}}条</text>
 				</div>
-				<image src="../../static/write_list_right.png" mode="" @click="changePage(1)"></image>
+				<image src="../../../static/write_list_right.png" mode="" @click="changePage(1)"></image>
 			</div>
 		</div>
 	</view>

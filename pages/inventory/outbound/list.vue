@@ -50,7 +50,7 @@
 					<p><span>{{listParam.pageNum}}</span>/{{totalPages}}</p>
 					<text>当前共{{count}}条，每页显示{{listParam.pageSize}}条</text>
 				</div>
-				<image src="../../../static/write_list_right.png" mode="" @click="changePage(pageNum)"></image>
+				<image src="../../../static/write_list_right.png" mode="" @click="changePage(1)"></image>
 			</div>
 		</div>
 	</view>

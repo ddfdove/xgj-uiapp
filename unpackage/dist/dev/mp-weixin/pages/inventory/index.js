@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -150,13 +150,14 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
+// import request from '@/utils/request.js'
 var _default = {
   mixins: [_mixin.publicMixin],
   data: function data() {
     return {
       navigator: [{
         title: "食材入库",
-        href: "/pages/inventory/warehousing/list",
+        href: "/pages/inventory/warehousing/info",
         icon: "/static/canteen.png"
       }, {
         title: "食材盘点",
@@ -164,23 +165,57 @@ var _default = {
         icon: "/static/inventory.png"
       }, {
         title: "食材出库",
-        href: "/pages/inventory/outbound/list",
+        href: "/pages/inventory/outbound/info",
         icon: "/static/vehicle.png"
-      }]
+      }],
+      materialId: '',
+      warehouseId: ''
     };
   },
-  onLoad: function onLoad() {
-    // this.menuButtonInfo = uni.getMenuButtonBoundingClientRect()
-  },
+  onLoad: function onLoad() {},
   onShow: function onShow() {},
   methods: {
-    jumpPage: function jumpPage(item) {
-      this.goToPage(item.href);
+    scanCode: function scanCode(index, item) {
+      var me = this;
+      uni.scanCode({
+        success: function success(res) {
+          var _this = this;
+          // console.log("扫码成功",res);
+          if (res.errMsg == "scanCode:ok") {
+            // me.goOderInfo(res.result);
+            // me.goToPage("/pages/order/info?ticketNumber="+res.result);
+            uni.request({
+              url: res.result,
+              success: function success(res2) {
+                console.log(res2.data.data);
+                _this.materialId = res2.data.data.materialId;
+                _this.warehouseId = res2.data.data.warehouseId;
+                // console.log(this.materialId);
+                // console.log(this.warehouseId);
+                me.goToPage("".concat(item.href, "?wareId=").concat(_this.warehouseId, "?matId=").concat(_this.materialId));
+              }
+            });
+          } else {
+            me.$mvc.alert("扫码失败", "error");
+          }
+        },
+        fail: function fail(e) {
+          me.$mvc.alert("扫码失败", "error");
+        }
+      });
+    },
+    jumpPage: function jumpPage(item, index) {
+      if (index == 0 | index == 2) {
+        this.scanCode(index, item);
+      } else {
+        this.goToPage(item.href);
+      }
     },
     changeStatus: function changeStatus() {}
   }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

@@ -11,7 +11,7 @@
 			<view class="login_content_title">欢迎来到西供局</view>
 			<view class="login_content_input">
 				<view style="margin-bottom: 40rpx;">
-					<u--input placeholder="请输入手机号" v-model="form.username" placeholderStyle="background-color:#F0F5FF;"
+					<u--input placeholder="请输入用户名" v-model="form.username" placeholderStyle="background-color:#F0F5FF;"
 						shape="circle"></u--input>
 				</view>
 				<view>

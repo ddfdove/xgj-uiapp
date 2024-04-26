@@ -80,7 +80,7 @@
 				materialOptions: [],
 				form: {
 					materialId:'',
-					nationalStandard:'',
+					nationalStandard:'GB 2760—2014',
 					testData:'',
 					testResults:'',
 					testTime:'',

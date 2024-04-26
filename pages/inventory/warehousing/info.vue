@@ -87,11 +87,16 @@
 				deptOptions: [],
 				userOptions: [],
 				materialOptions: [],
-				productOptions:[],
-				warehouseOptions:[],
-				mark:[
-					{value:'2',text:'已入库'},
-					{value:'3',text:'未入库'},
+				productOptions: [],
+				warehouseOptions: [],
+				mark: [{
+						value: '2',
+						text: '已入库'
+					},
+					{
+						value: '3',
+						text: '未入库'
+					},
 				],
 				form: {
 					"productId": '', //采购台账单id
@@ -108,8 +113,8 @@
 					// "keeperReinspectionName": "王青利", //库管员复检关联库管
 					"status": "",
 					"remark": "",
-					
-					
+
+
 					// "createBy": "1",
 					// "createTime": "2024-04-10 09:56:34",
 					// "updateBy": "1",
@@ -162,14 +167,28 @@
 			};
 		},
 		onLoad({
-			id
+			id,
+			matId,
+			wareId,
+
 		}) {
 			this.menuButtonInfo = uni.getMenuButtonBoundingClientRect();
+			if (matId) {
+				console.log('matId=' + matId)
+				this.form.materialId = matId;
+				
+			}
+			if (wareId) {
+				console.log('wareId=' + wareId)
+				this.form.warehouseId = wareId;
+			}
 			this.getOptionsData(); //获取所有下拉数据
 			if (id) {
+				console.log(id)
 				this.queryParam.warehousingId = id;
 				this.asyncGetDetail();
 			}
+
 		},
 		methods: {
 			back() {
@@ -177,13 +196,13 @@
 			},
 			//所有下拉列表数据
 			getOptionsData() {
-				Promise.all([deptList(), mxMaterialInfoList(), userList(),productList(),warehouseList()]).then(
+				Promise.all([deptList(), mxMaterialInfoList(), userList(), productList(), warehouseList()]).then(
 					(res) => {
 						console.log("所有下拉数据", res);
 						let dp = res[0];
 						let mt = res[1];
 						let user = res[2];
-						let pro =res[3];
+						let pro = res[3];
 						let warehouse = res[4];
 						this.deptOptions = dp.data.map((item) => ({
 							text: item.deptName,
@@ -208,7 +227,7 @@
 							text: item.warehouseName,
 							// value: String(item.warehouseId),
 							value: item.warehouseId,
-							
+
 						}));
 					}
 				);

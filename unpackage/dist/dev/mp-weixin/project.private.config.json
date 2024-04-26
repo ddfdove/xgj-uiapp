@@ -5,6 +5,34 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/inventory/warehousing/info",
+          "pathName": "pages/inventory/warehousing/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/inventory/warehousing/info",
+          "pathName": "pages/inventory/warehousing/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/login/index",
+          "pathName": "pages/login/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/index-scan/index",
+          "pathName": "pages/index-scan/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/index-scan/index",
           "pathName": "pages/index-scan/index",
           "query": "",

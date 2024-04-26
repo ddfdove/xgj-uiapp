@@ -232,15 +232,15 @@ var _default = {
         "delFlag": "",
         "department": "",
         "isSelected": true,
-        "materialId": 0,
+        "materialId": '',
         "materialName": "",
         "params": {},
         "planDate": "",
         "planManager": "",
         "planManagerName": "",
-        "purchaseId": 0,
+        "purchaseId": '',
         "purchaseNumber": "",
-        "quantity": 0,
+        "quantity": '',
         "remark": "",
         "status": "",
         "unit": "",
@@ -273,7 +273,7 @@ var _default = {
       this.goToPage("/pages/canteen/purchase/info");
     },
     changePage: function changePage(args) {
-      if (args) {
+      if (args == 1) {
         if (this.listParam.pageNum >= this.totalPages) {
           this.$mvc.alert("已经是最后页了", "error");
         } else {

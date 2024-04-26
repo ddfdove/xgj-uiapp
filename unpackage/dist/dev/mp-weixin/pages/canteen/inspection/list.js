@@ -221,6 +221,10 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
+//
+//
+//
+//
 var _default = {
   mixins: [_mixin.publicMixin],
   data: function data() {
@@ -232,24 +236,23 @@ var _default = {
         "delFlag": "",
         "department": "",
         "isSelected": true,
-        "materialId": 0,
+        "materialId": '',
         "materialName": "",
         "params": {},
         "planDate": "",
         "planManager": "",
         "planManagerName": "",
-        "purchaseId": 0,
+        "purchaseId": '',
         "purchaseNumber": "",
-        "quantity": 0,
+        "quantity": '',
         "remark": "",
         "status": "",
         "unit": "",
         "updateBy": "",
-        "updateTime": ""
-        // pageNum: 1,
-        // pageLimit:10,
+        "updateTime": "",
+        pageNum: 1,
+        pageSize: 10
       },
-
       list: [],
       totalPages: 0,
       //总页数

@@ -318,10 +318,21 @@ var _default = {
     };
   },
   onLoad: function onLoad(_ref) {
-    var id = _ref.id;
+    var id = _ref.id,
+      matId = _ref.matId,
+      wareId = _ref.wareId;
     this.menuButtonInfo = uni.getMenuButtonBoundingClientRect();
+    if (matId) {
+      console.log('matId=' + matId);
+      this.form.materialId = matId;
+    }
+    if (wareId) {
+      console.log('wareId=' + wareId);
+      this.form.warehouseId = wareId;
+    }
     this.getOptionsData(); //获取所有下拉数据
     if (id) {
+      console.log(id);
       this.queryParam.warehousingId = id;
       this.asyncGetDetail();
     }
