@@ -118,9 +118,7 @@
 					"keeperReinspection": '', //库管员复检关联库管id
 					// "keeperReinspectionName": "王青利", //库管员复检关联库管
 					"status": "",
-					"remark": "",
-
-
+					"remark": "",  
 					// "createBy": "1",
 					// "createTime": "2024-04-10 09:56:34",
 					// "updateBy": "1",
@@ -173,29 +171,22 @@
 				],
 			};
 		},
-		onLoad({
-			id,
-			wareId,
-			matId
-		}) {
-
-			this.menuButtonInfo = uni.getMenuButtonBoundingClientRect();
-			if (wareId) {
-				console.log('wareId=' + wareId)
-				this.form.warehouseId = wareId;
-
-			}
-			if (matId) {
-				console.log('matId=' + matId)
-				this.form.materialId = matId;
-
-			}
+		onLoad({info}) {
 			this.getOptionsData(); //获取所有下拉数据
-			if (id) {
-				this.queryParam.outboundId = id;
-				this.asyncGetDetail();
-			}
-
+			this.menuButtonInfo = uni.getMenuButtonBoundingClientRect();
+			this.form=Object.assign({},this.form,JSON.parse(info),{"quantity": 121});
+			// if (wareId) {
+			// 	console.log('wareId=' + wareId)
+			// 	this.form.warehouseId = wareId;
+			// }
+			// if (matId) {
+			// 	console.log('matId=' + matId)
+			// 	this.form.materialId = matId;
+			// }
+			// if (id) {
+			// 	this.queryParam.outboundId = id;
+			// 	this.asyncGetDetail();
+			// }
 		},
 		methods: {
 			back() {
@@ -217,7 +208,7 @@
 						}));
 						this.materialOptions = mt.data.map((item) => ({
 							text: item.materialName,
-							value: item.materialId,
+							value: Number(item.materialId), 
 						}));
 						this.userOptions = user.data.map((item) => ({
 							text: item.userName,
@@ -232,7 +223,7 @@
 						this.warehouseOptions = warehouse.data.map((item) => ({
 							text: item.warehouseName,
 							// value: String(item.warehouseId),
-							value: item.warehouseId,
+							value: Number(item.warehouseId),
 						}));
 					}
 				);

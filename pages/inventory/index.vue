@@ -59,11 +59,13 @@
 									console.log(res2.data.data);
 									this.materialId = res2.data.data.materialId
 									this.warehouseId = res2.data.data.warehouseId
+									let data=res2.data.data;
 									// console.log(this.materialId);
 									// console.log(this.warehouseId);
-									me.goToPage(
-										`${item.href}?wareId=${this.warehouseId}?matId=${this.materialId}`
-										);
+									// me.goToPage(
+									// 	`${item.href}?wareId=${this.warehouseId}&matId=${this.materialId}`
+									// 	);
+										me.goToPage(`${item.href}?info=${JSON.stringify(data)}`);
 								}
 							})
 						} else {

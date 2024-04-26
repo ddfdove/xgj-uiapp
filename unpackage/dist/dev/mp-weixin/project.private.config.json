@@ -5,78 +5,15 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/inventory/warehousing/info",
-          "pathName": "pages/inventory/warehousing/info",
+          "name": "出库详情",
+          "pathName": "pages/inventory/outbound/info",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
-          "name": "pages/inventory/warehousing/info",
-          "pathName": "pages/inventory/warehousing/info",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/login/index",
-          "pathName": "pages/login/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/index-scan/index",
-          "pathName": "pages/index-scan/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/index-scan/index",
-          "pathName": "pages/index-scan/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/canteen/purchase/info",
-          "pathName": "pages/canteen/purchase/info",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "采购详情",
-          "pathName": "pages/canteen/purchase/info",
-          "query": "id=2",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/canteen/purchase/list",
-          "pathName": "pages/canteen/purchase/list",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/canteen/purchase/list",
-          "pathName": "pages/canteen/purchase/list",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/login/index",
-          "pathName": "pages/login/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
+          "name": "库存首页",
+          "pathName": "pages/inventory/index",
           "query": "",
           "launchMode": "default",
           "scene": null
