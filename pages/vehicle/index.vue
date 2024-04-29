@@ -13,9 +13,9 @@
 		data() {
 			return {
 				 navigator:[
-				   {title:"加油",href:"/pages/vehicle/refuel/list",icon:"/static/canteen.png",},
-				   {title:"修理",href:"/pages/vehicle/repair/list",icon:"/static/inventory.png",},
-				   {title:"报修",href:"/pages/vehicle/reportRepair/list",icon:"/static/vehicle.png",}
+				   {title:"加油",href:"/pages/vehicle/refuel/list",icon:"/static/canteen.png",type:'1'},
+				   {title:"修理",href:"/pages/vehicle/repair/list",icon:"/static/inventory.png",type:'2'},
+				   {title:"报修",href:"/pages/vehicle/reportRepair/list",icon:"/static/vehicle.png",type:'3'}
 				 ]
 			};
 		},
@@ -25,7 +25,7 @@
 		onShow(){},
 		methods:{ 
 			jumpPage(item){
-				this.goToPage(item.href);
+				this.goToPage(`${item.href}?type=${item.type}`);
 				// if(type=="1")this.$router.push("/pages/order/list?activityType="+type);
 				// else this.$router.push("/pages/packageTicket/orderList?activityType="+type);
 			}, 

@@ -12,7 +12,7 @@
 				<view class="flex-row-start formItem">
 					<view class="label">入库单号</view>
 					<uni-data-select class="select" v-model="form.warehousingId" :localdata="wearhousingOptions"
-						 clear></uni-data-select>
+						placeholder="请选择入库单号" clear></uni-data-select>
 					<!-- <uni-icons type="right" size="20"></uni-icons> -->
 				</view>
 				<view class="flex-row-start formItem">
@@ -22,7 +22,7 @@
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">日期</view>
-					<uni-datetime-picker class="picker" type="datetime" v-model="form.recordDate" />
+					<uni-datetime-picker class="picker" type="datetime" v-model="form.recordDate" placeholder="请选择日期"/>
 				</view>
 				
 				<view class="flex-row-start formItem">

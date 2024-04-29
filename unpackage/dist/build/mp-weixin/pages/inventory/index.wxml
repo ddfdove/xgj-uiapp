@@ -1,0 +1,1 @@
+<view class="index_page"><block wx:for="{{navigator}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['jumpPage',['$0',index],[[['navigator','',index]]]]]]]}}" class="nav-btn _div" bindtap="__e"><image class="icon-img _img" src="{{item.icon}}" alt></image><label class="_span">{{item.title}}</label></view></block></view>

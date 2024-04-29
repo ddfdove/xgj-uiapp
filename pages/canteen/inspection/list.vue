@@ -14,7 +14,7 @@
 			<div class="write_list_content_top">
 				<div class="write_list_content_top_l">
 					<div>
-						<span style="color:#FE5BA4" @click="checkedDate()">添加食材</span>
+						<span style="color:#FE5BA4" @click="checkedDate()">添加检验食材</span>
 					</div>
 				</div>
 				<span class="write_list_content_top_r">共计：{{count}}条</span>

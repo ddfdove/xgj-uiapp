@@ -1,10 +1,12 @@
 <template>
 	<view class="write_list_page">
 		<div class="write_list_nav">
-			<div class="write_list_nav_view" v-if="menuButtonInfo" :style="{height:menuButtonInfo.height+'px',top:menuButtonInfo.top+'px'}">
+			<div class="write_list_nav_view" v-if="menuButtonInfo"
+				:style="{height:menuButtonInfo.height+'px',top:menuButtonInfo.top+'px'}">
 				<image src="/static/back.png" mode="" @click="back"></image>
 				<div :style="{height:menuButtonInfo.height+'px'}">
-					<u--input placeholder="搜索" prefixIcon="search" placeholderStyle="background-color:#F0F5FF;" prefixIconStyle="font-size: 26px;color: #6C7B92" shape="circle"></u--input>
+					<u--input placeholder="搜索" prefixIcon="search" placeholderStyle="background-color:#F0F5FF;"
+						prefixIconStyle="font-size: 26px;color: #6C7B92" shape="circle"></u--input>
 				</div>
 			</div>
 		</div>
@@ -12,13 +14,14 @@
 			<div class="write_list_content_top">
 				<div class="write_list_content_top_l">
 					<div>
-						<span style="color:#FE5BA4"  @click="checkedDate()">添加保修</span>
-					</div> 
+						<span style="color:#FE5BA4" @click="checkedDate()">添加报修</span>
+					</div>
 				</div>
 				<span class="write_list_content_top_r">共计：{{list.length}}条</span>
 			</div>
-			<div class="write_list_content_item" v-for="(item,index) in list" :key="index" @click="goToPage(`/pages/vehicle/reportRepair/info?id=${item. drivingId}`)">
-				<div class="write_list_content_item_top" >
+			<div class="write_list_content_item" v-for="(item,index) in list" :key="index"
+				@click="goToPage(`/pages/vehicle/reportRepair/info?id=${item. drivingId}`)">
+				<div class="write_list_content_item_top">
 					<span>加油单号：{{item.reportRepairNumber}}</span>
 					<text v-text="item.planManagerName">查看详情</text>
 				</div>
@@ -40,53 +43,62 @@
 		</div>
 		<div class="write_list_botttom">
 			<div class="write_list_botttom_content">
-				<image src="/static/write_list_left.png" mode="" @click="changePage(0)"></image>
+				<image src="../../../static/write_list_left.png" mode="" @click="changePage(0)"></image>
 				<div>
 					<p><span>{{listParam.pageNum}}</span>/{{totalPages}}</p>
-					<text>当前共{{count}}条，每页显示{{listParam.pageLimit}}条</text>
+					<text>当前共{{count}}条，每页显示{{listParam.pageSize}}条</text>
 				</div>
-				<image src="/static/write_list_right.png" mode="" @click="changePage(1)"></image>
+				<image src="../../../static/write_list_right.png" mode="" @click="changePage(1)"></image>
 			</div>
 		</div>
 	</view>
-</template> 
+</template>
 <script>
-	import {publicMixin} from "@/pages/mixin/mixin.js"
-	import { reportRepairList} from "@/api/index.js" 
-	import { util,router} from "@/utils/util.js"
+	import {
+		publicMixin
+	} from "@/pages/mixin/mixin.js"
+	import {
+		reportRepairList
+	} from "@/api/index.js"
+	import {
+		util,
+		router
+	} from "@/utils/util.js"
 	export default {
 		mixins: [publicMixin],
 		data() {
 			return {
-				menuButtonInfo:null,
+				menuButtonInfo: null,
 				listParam: {
-					"createBy": "1",
-					            "createTime": "2024-04-24 13:45:35",
-					            "updateBy": null,
-					            "updateTime": null,
-					            "remark": null,
-					            "isSelected": false,
-					            "drivingId": 1,
-					            "orderNumber": null,
-					            "oilNumber": null,
-					            "kilometreNumber": null,
-					            "peopleNumber": null,
-					            "address": null,
-					            "type": null,
-					            "status": null,
-					            "delFlag": null,
-					            "mxDrivingSupplementList": null
+					"createBy": "",
+					"createTime": "",
+					"updateBy": null,
+					"updateTime": null,
+					"remark": null,
+					"isSelected": false,
+					"drivingId": '',
+					"orderNumber": null,
+					"oilNumber": null,
+					"kilometreNumber": null,
+					"peopleNumber": null,
+					"address": null,
+					"type": 3,
+					"status": null,
+					"delFlag": null,
+					"mxDrivingSupplementList": null
 				},
 				list: [],
-				totalPages:0,//总页数
-				count:"0",//总条数
-				
+				totalPages: 0, //总页数
+				count: "0", //总条数
+
 			};
 		},
-		onLoad({}) {
-			 
-			this.menuButtonInfo = uni.getMenuButtonBoundingClientRect(); 
-			this.asyncGetList();//列表
+		onLoad({
+			type
+		}) {
+			this.listParam.type = type
+			this.menuButtonInfo = uni.getMenuButtonBoundingClientRect();
+			this.asyncGetList(); //列表
 		},
 		// onReachBottom(res) {
 		// 	// console.log(this.listParam.pageNum, this.totalPages);
@@ -95,38 +107,40 @@
 		// 		this.getList();
 		// 	}
 		// },
-		methods:{
-			checkedDate(){
-				 this.goToPage(`/pages/vehicle/reportRepair/info`)
+		methods: {
+			checkedDate() {
+				this.goToPage(`/pages/vehicle/reportRepair/info`)
 			},
-			changePage(args){
-				if(args){
-					if(this.listParam.pageNum>=this.totalPages){
-						this.$mvc.alert("已经是最后页了","error");
-					}else{
-						++this.listParam.pageNum 
+			changePage(args) {
+				if (args) {
+					if (this.listParam.pageNum >= this.totalPages) {
+						this.$mvc.alert("已经是最后页了", "error");
+					} else {
+						++this.listParam.pageNum
 						this.asyncGetList()
 					}
-				}else{
-					if(this.listParam.pageNum<=1){
-						this.$mvc.alert("已经是第一页了","error");
-					}else{
+				} else {
+					if (this.listParam.pageNum <= 1) {
+						this.$mvc.alert("已经是第一页了", "error");
+					} else {
 						--this.listParam.pageNum
 						this.asyncGetList()
 					}
 				}
 			},
-			back(){
+			back() {
 				uni.navigateBack()
 			},
-			asyncGetList(){
-				reportRepairList(this.listParam).then(res=>{
+			asyncGetList() {
+				reportRepairList(this.listParam).then(res => {
 					console.log(res);
-					if(res.code==0){
-						let data = res.data; 
-						this.totalPages = data.totalPages; //总页数
-						this.count=data.count;  
-						this.list = data||[];
+					if (res.code == 0) {
+						console.log(res)
+						this.totalPages = Math.ceil(res.total / res.pageSize); //总页数
+						this.count = res.total; //总条数 
+						this.listParam.pageNum = res.pageNum; //第几页
+						this.listParam.pageSize = res.pageSize; //每页几条数据
+						this.list = res.data || [];
 					}
 				})
 			}
@@ -135,7 +149,7 @@
 </script>
 
 <style lang="scss">
-	.write_list_page{
+	.write_list_page {
 		width: 750rpx;
 		height: 100vh;
 		background-color: #F5F8FE;
@@ -143,31 +157,37 @@
 		flex-direction: column;
 		align-items: center;
 		overflow-y: hidden;
-		.write_list_nav{
+
+		.write_list_nav {
 			width: 750rpx;
 			height: 176rpx;
 			background-color: #fff;
 			position: relative;
-			.write_list_nav_view{
+
+			.write_list_nav_view {
 				width: 750rpx;
 				position: absolute;
 				display: flex;
 				flex-direction: row;
 				align-items: center;
-				>div{
+
+				>div {
 					width: 440rpx;
 					height: 64rpx;
-					>/deep/.u-input{
+
+					>/deep/.u-input {
 						background-color: #F0F5FF;
-						padding-top: 3px!important;
-						padding-bottom: 3px!important;
+						padding-top: 3px !important;
+						padding-bottom: 3px !important;
 					}
-					>/deep/.u-border{
-						border-color: #F0F5FF!important;
-						   
+
+					>/deep/.u-border {
+						border-color: #F0F5FF !important;
+
 					}
 				}
-				image{
+
+				image {
 					width: 44rpx;
 					height: 44rpx;
 					margin-left: 24rpx;
@@ -175,7 +195,8 @@
 				}
 			}
 		}
-		.write_list_content{
+
+		.write_list_content {
 			width: 750rpx;
 			height: calc(100vh - 176rpx - 132rpx);
 			padding-bottom: 50rpx;
@@ -185,21 +206,24 @@
 			flex-direction: column;
 			align-items: center;
 			overflow-y: scroll;
-			.write_list_content_top{
+
+			.write_list_content_top {
 				width: 702rpx;
 				display: flex;
 				flex-direction: row;
 				align-items: center;
 				justify-content: space-between;
 				margin-top: 20rpx;
-				.write_list_content_top_l{
+
+				.write_list_content_top_l {
 					width: 384rpx;
 					height: 62rpx;
 					display: flex;
 					flex-direction: row;
 					justify-content: space-between;
 					align-items: center;
-					>div{
+
+					>div {
 						// width: 180rpx;
 						height: 62rpx;
 						background: #FFFFFF;
@@ -208,17 +232,19 @@
 						flex-direction: row;
 						justify-content: center;
 						align-items: center;
-						span{
+
+						span {
 							display: inline-block;
 							font-size: 26rpx;
 							font-weight: 600;
-							color: #6C7B92 ;
-							padding:5rpx 15rpx;
+							color: #6C7B92;
+							padding: 5rpx 15rpx;
 							line-height: 26rpx;
 						}
 					}
 				}
-				.write_list_content_top_r{
+
+				.write_list_content_top_r {
 					font-size: 28rpx;
 					font-family: PingFangSC-Regular, PingFang SC;
 					font-weight: 400;
@@ -226,32 +252,36 @@
 					line-height: 28rpx;
 				}
 			}
-			.write_list_content_item{
+
+			.write_list_content_item {
 				margin-top: 20rpx;
 				width: 702rpx;
 				height: 278rpx;
 				background: #FFFFFF;
-				box-shadow: 0px 14rpx 20rpx 0px rgba(246,246,249,0.75);
+				box-shadow: 0px 14rpx 20rpx 0px rgba(246, 246, 249, 0.75);
 				border-radius: 16rpx;
 				display: flex;
 				padding: 30rpx 20rpx;
 				box-sizing: border-box;
 				flex-direction: column;
-				.write_list_content_item_top{
+
+				.write_list_content_item_top {
 					width: 662rpx;
 					display: flex;
 					flex-direction: row;
 					align-items: center;
 					justify-content: space-between;
 					margin-bottom: 30rpx;
-					span{
+
+					span {
 						font-size: 28rpx;
 						font-family: PingFangSC-Regular, PingFang SC;
 						font-weight: 400;
 						color: #333333;
 						line-height: 28rpx;
 					}
-					text{
+
+					text {
 						font-size: 28rpx;
 						font-family: PingFangSC-Regular, PingFang SC;
 						font-weight: 400;
@@ -259,56 +289,65 @@
 						line-height: 28rpx;
 					}
 				}
-				.write_list_content_item_content{
+
+				.write_list_content_item_content {
 					display: flex;
 					flex-direction: row;
 					align-items: center;
-					.content_left{
+
+					.content_left {
 						width: 160rpx;
 						height: 160rpx;
 						border-radius: 12rpx;
 						margin-right: 20rpx;
-						background-color:aliceblue;
+						background-color: aliceblue;
 						// border:1px solid grey;
 					}
-					.content_right{
+
+					.content_right {
 						width: 472rpx;
 						height: 160rpx;
 						display: flex;
 						flex-direction: column;
 						justify-content: space-between;
-						p{
+
+						p {
 							font-size: 30rpx;
 							font-family: PingFangSC-Medium, PingFang SC;
 							font-weight: bold;
 							color: #333333;
 							line-height: 30rpx;
 						}
-						div{
+
+						div {
 							width: 472rpx;
 							display: flex;
 							flex-direction: row;
 							justify-content: space-between;
 							align-items: center;
-							p{
+
+							p {
 								font-size: 22rpx;
 								color: #FE5BA4;
 								line-height: 22rpx;
-								span{
+
+								span {
 									font-size: 34rpx;
 									font-weight: bold;
 									color: #FE5BA4;
 									line-height: 34rpx;
 								}
 							}
-							text{
+
+							text {
 								font-size: 26rpx;
 								font-weight: 400;
 								color: #979CB3;
 								line-height: 26rpx;
 							}
 						}
-						>span{
+
+						>span {
 							font-size: 24rpx;
 							font-family: PingFangSC-Regular, PingFang SC;
 							font-weight: 400;
@@ -319,7 +358,8 @@
 				}
 			}
 		}
-		.write_list_botttom{
+
+		.write_list_botttom {
 			width: 750rpx;
 			height: 132rpx;
 			background: #FFFFFF;
@@ -327,29 +367,34 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
-			.write_list_botttom_content{
+
+			.write_list_botttom_content {
 				margin-top: 21rpx;
 				width: 602rpx;
 				height: 58rpx;
 				display: flex;
 				flex-direction: row;
 				justify-content: space-between;
-				>div{
+
+				>div {
 					display: flex;
 					flex-direction: column;
 					justify-content: space-between;
 					align-items: center;
-					p{
+
+					p {
 						font-size: 26rpx;
 						font-family: PingFangSC-Regular, PingFang SC;
 						font-weight: 400;
 						color: #FE5BA4;
 						line-height: 26rpx;
-						span{
-							color:#FE5BA4;
+
+						span {
+							color: #FE5BA4;
 						}
 					}
-					text{
+
+					text {
 						font-size: 22rpx;
 						font-family: PingFangSC-Regular, PingFang SC;
 						font-weight: 400;
@@ -357,7 +402,8 @@
 						line-height: 22rpx;
 					}
 				}
-				image{
+
+				image {
 					width: 100rpx;
 					height: 58rpx;
 				}

@@ -5,6 +5,55 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/vehicle/refuel/info",
+          "pathName": "pages/vehicle/refuel/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/inventory/check/info",
+          "pathName": "pages/inventory/check/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/inventory/outbound/info",
+          "pathName": "pages/inventory/outbound/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/inventory/check/info",
+          "pathName": "pages/inventory/check/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/canteen/keepSample/info",
+          "pathName": "pages/canteen/keepSample/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/canteen/inspection/info",
+          "pathName": "pages/canteen/inspection/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/canteen/purchase/info",
+          "pathName": "pages/canteen/purchase/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/inventory/warehousing/info",
           "pathName": "pages/inventory/warehousing/info",
           "query": "",

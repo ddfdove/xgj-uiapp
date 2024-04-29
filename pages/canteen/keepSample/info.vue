@@ -13,63 +13,43 @@
 				<view class="flex-row-start formItem">
 					<view class="label">食堂</view>
 					<uni-data-select class="select" v-model="form.canteenId"
-						:localdata="canteenOptions"></uni-data-select>
+						:localdata="canteenOptions" placeholder="请选择食堂"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">餐别</view>
 					<uni-data-select class="select" v-model="form.mealId"
-						:localdata="mealOptions"></uni-data-select>
+						:localdata="mealOptions" placeholder="请选择餐别"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">菜品</view>
 					<uni-data-select class="select" v-model="form.dishId"
-						:localdata="dishOptions"></uni-data-select>
+						:localdata="dishOptions" placeholder="请选择菜品"></uni-data-select>
 				</view>
-				<!-- <view class="flex-row-start formItem">
-					<view class="label">食堂</view>
-					<input class="input" type="text" v-model="form.canteenName" />
-				</view>
-				<view class="flex-row-start formItem">
-					<view class="label">餐别</view>
-					<input class="input" type="text" v-model="form.mealName" />
-				</view>
-				<view class="flex-row-start formItem">
-					<view class="label">菜品</view>
-					<input class="input" type="text" v-model="form.dishName" />
-				</view> -->
 				<view class="flex-row-start formItem">
 					<view class="label">留样结果</view>
-					<input class="input" type="text" v-model="form.srResult" />
+					<input class="input" type="text" v-model="form.srResult" placeholder="请输入留样结果"/>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">留样时间</view>
-					<uni-datetime-picker class="picker" type="datetime" v-model="form.srTime" />
+					<uni-datetime-picker class="picker" type="datetime" v-model="form.srTime" placeholder="请选择留样时间" />
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">数量</view>
 					<input class="input" type="text" v-model="form.servingQuantity" placeholder="请输入数量" />
 				</view>
-				<!-- <view class="flex-row-start formItem">
-					<view class="label">留样人</view>
-					<input class="input" type="text" v-model="form.srByName" placeholder="请输入留样人" />
-				</view> -->
 				<view class="flex-row-start formItem">
 					<view class="label">留样人</view>
 					<uni-data-select class="select" v-model="form.srBy"
-						:localdata="userOptions"></uni-data-select>
+						:localdata="userOptions" placeholder="请选择留样人"></uni-data-select>
 				</view>
-				<!-- <view class="flex-row-start formItem">
-					<view class="label">销毁人</view>
-					<input class="input" type="text" v-model="form.destructionByName" placeholder="请输入销毁人" />
-				</view> -->
 				<view class="flex-row-start formItem">
 					<view class="label">销毁人</view>
 					<uni-data-select class="select" v-model="form.destructionBy"
-						:localdata="userOptions"></uni-data-select>
+						:localdata="userOptions" placeholder="请选择销毁人"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
-					<view class="label">单位名</view>
-					<input class="input" type="text" v-model="form.danwei" placeholder="请输入单位名" />
+					<view class="label">单位</view>
+					<input class="input" type="text" v-model="form.danwei" placeholder="请输入单位" />
 				</view>
 				<!-- <view class="flex-row-start formItem">
 					<view class="label">负责人</view>
@@ -78,7 +58,7 @@
 				<view class="flex-row-start formItem">
 					<view class="label">负责人</view>
 					<uni-data-select class="select" v-model="form.fuzeBy"
-						:localdata="userOptions"></uni-data-select>
+						:localdata="userOptions" placeholder="请选择负责人"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">备注</view>
@@ -151,17 +131,17 @@
 				rules: [{
 						name: "canteenId",
 						rule: ["required"],
-						msg: ["请食堂名"],
+						msg: ["请选择食堂"],
 					},
 					{
 						name: "mealId",
 						rule: ["required"],
-						msg: ["请输入餐别"],
+						msg: ["请选择餐别"],
 					},
 					{
 						name: "dishId",
 						rule: ["required"],
-						msg: ["请输入菜品"],
+						msg: ["请选择菜品"],
 					},
 					{
 						name: "srResult",
@@ -171,7 +151,7 @@
 					{
 						name: "srTime",
 						rule: ["required"],
-						msg: ["请输入留样时间"],
+						msg: ["请选择留样时间"],
 					},
 					{
 						name: "servingQuantity",
@@ -181,12 +161,12 @@
 					{
 						name: "srBy",
 						rule: ["required"],
-						msg: ["请输入留样人"],
+						msg: ["请选择留样人"],
 					},
 					{
 						name: "destructionBy",
 						rule: ["required"],
-						msg: ["请输入销毁人"],
+						msg: ["请选择销毁人"],
 					},
 					{
 						name: "danwei",
@@ -196,13 +176,9 @@
 					{
 						name: "fuzeBy",
 						rule: ["required"],
-						msg: ["请输入负责人姓名"],
+						msg: ["请选择负责人"],
 					},
-					{
-						name: "remark",
-						rule: ["required"],
-						msg: ["请输入备注"],
-					},
+					
 				],
 			};
 		},

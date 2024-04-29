@@ -13,7 +13,7 @@
 				<view class="flex-row-start formItem">
 					<view class="label">库房</view>
 					<uni-data-select class="select" v-model="form.warehouseId"
-						:localdata="warehouseOptions"></uni-data-select>
+						:localdata="warehouseOptions" placeholder="请选择库房"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">食材</view>
@@ -31,12 +31,12 @@
 				<view class="flex-row-start formItem">
 					<view class="label">库管员签字关联库管</view>
 					<uni-data-select class="select" v-model="form.keeperSignature"
-						:localdata="userOptions"></uni-data-select>
+						:localdata="userOptions" placeholder="请选择签字关联库管"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">库管员复检关联库管</view>
 					<uni-data-select class="select" v-model="form.keeperReinspection"
-						:localdata="userOptions"></uni-data-select>
+						:localdata="userOptions" placeholder="请选择复检关联库管"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">领取标志</view>
@@ -141,7 +141,7 @@
 					{
 						name: "warehouseId",
 						rule: ["required"],
-						msg: ["请输入库房"],
+						msg: ["请选择库房"],
 					},
 					{
 						name: "materialId",
@@ -151,22 +151,27 @@
 					{
 						name: "specification",
 						rule: ["required"],
-						msg: ["请选择规格"],
+						msg: ["请输入规格"],
 					},
 					{
 						name: "quantity",
 						rule: ["required"],
-						msg: ["请选择数量"],
+						msg: ["请输入数量"],
 					},
 					{
 						name: "keeperSignature",
 						rule: ["required"],
-						msg: ["库管员签字关联库管"],
+						msg: ["请选择关联库管"],
 					},
 					{
 						name: "keeperReinspection",
 						rule: ["required"],
-						msg: ["库管员复检关联库管"],
+						msg: ["请选择关联库管"],
+					},
+					{
+						name: "status",
+						rule: ["required"],
+						msg: ["请领取标志"],
 					},
 				],
 			};

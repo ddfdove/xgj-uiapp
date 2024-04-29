@@ -5,43 +5,42 @@
         top: menuButtonInfo.top + 'px',
       }">
 			<image src="/static/back.png" mode="" @click="back"></image>
-			<span>保修详情</span>
+			<span>报修详情</span>
 		</div>
 		<div class="write_info_content">
 			<view class="personForm">
 				<view class="flex-row-start formItem">
 					<view class="label">单号：</view>
-					<input class="input" type="text" v-model="form.orderNumber" placeholder="默认显示" />
+					<input class="input" type="text" v-model="form.orderNumber" placeholder="请输入单号" />
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">人数</view>
-					<input class="input" type="text" v-model="form.peopleNumber" placeholder="单行输入" />
+					<input class="input" type="text" v-model="form.peopleNumber" placeholder="请输入人数" />
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">公里数</view>
-					<input class="input" type="text" v-model="form.kilometreNumber" placeholder="单行输入" />
+					<input class="input" type="text" v-model="form.kilometreNumber" placeholder="请输入公里数" />
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">地点</view>
-					<input class="input" type="text" v-model="form.address" placeholder="单行输入" />
+					<input class="input" type="text" v-model="form.address" placeholder="请输入地点" />
 				</view>
-				<view>
-					<u-popup :show="show" @close="close" @open="open" mode="center">
-						<view class="flex-row-start formItem">
-							<view class="label">备注</view>
-							<input class="input" type="text" v-model="form.quantity" placeholder="请输入" />
-						</view>
-					</u-popup>
-					<u-button @click="show = true">新增行+</u-button>
-				</view>
+				<div>
+					<button @click="addInput">新增行</button>
+					<div class="u-input" v-for="(input, index) in inputs" :key="index" maxlength="100"><text class="label">备注：</text>
+						<input type="text" v-model="input.value" />
+					</div>
+				</div>
 				<text>驾驶员：账号登录默认姓名</text>
 				<view class="flex-row-start formItem">
 					<view class="label">出车日期</view>
-					<uni-datetime-picker class="picker" type="datetime" v-model="form.updateTime" />
+					<uni-datetime-picker class="picker" type="datetime" v-model="form.createTime"
+						placeholder="请选择出车日期" />
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">回车日期</view>
-					<uni-datetime-picker class="picker" type="datetime" v-model="form.updateTime" />
+					<uni-datetime-picker class="picker" type="datetime" v-model="form.updateTime"
+						placeholder="请选择回车日期" />
 				</view>
 
 			</view>
@@ -75,28 +74,40 @@
 		mixins: [publicMixin],
 		data() {
 			return {
+				inputs:[],
 				show: false,
 				menuButtonInfo: null,
 				deptOptions: [],
 				userOptions: [],
 				materialOptions: [],
 				form: {
-					// "createBy": "1",
-					//         "createTime": "2024-04-25 09:47:04",
-					//         "updateBy": null,
-					//         "updateTime": null,
-					//         "remark": null,
-					//         "isSelected": false,
-					//         "drivingId": 2,
-					//         "orderNumber": null,
-					//         "oilNumber": null,
-					//         "kilometreNumber": null,
-					//         "peopleNumber": null,
-					//         "address": null,
-					//         "type": null,
-					//         "status": null,
-					//         "delFlag": null,
-					//         "mxDrivingSupplementList": []
+					"orderNumber": "",
+					"peopleNumber": '',
+					"kilometreNumber": '',
+					"address": " ",
+					"remark": "",
+					"createTime": "",
+					"updateTime": '',
+					
+					// "createBy": "",
+					// "updateBy": '',
+					// "isSelected": '',
+					// "drivingId": '',
+					// "oilNumber": '',
+					// "type": "1",
+					// "status": '',
+					// "delFlag": "",
+					// "mxDrivingSupplementList": [{
+					// 	"createBy": '',
+					// 	"createTime": '',
+					// 	"updateBy": "",
+					// 	"updateTime": "",
+					// 	"remark": "",
+					// 	"isSelected": '',
+					// 	"supplementId": '',
+					// 	"drivingId": '',
+					// 	"orderNumber": ''
+					// }, ]
 				},
 				queryParam: {
 					drivingId: "",
@@ -107,25 +118,25 @@
 						msg: ["请选择单号"],
 					},
 					{
-						name: "oilNumber",
+						name: "peopleNumber",
 						rule: ["required"],
-						msg: ["人数"],
+						msg: ["请输入人数"],
 					},
 					{
 						name: "kilometreNumber",
 						rule: ["required"],
-						msg: ["公里数"],
+						msg: ["请输入公里数"],
 					},
 					{
-						name: "kilometreNumber",
+						name: "address",
 						rule: ["required"],
-						msg: ["地点"],
+						msg: ["请输入地点"],
 					},
-					{
-						name: "mxDrivingSupplementList",
-						rule: ["required"],
-						msg: ["新增行"],
-					},
+					// {
+					// 	name: "mxDrivingSupplementList",
+					// 	rule: ["required"],
+					// 	msg: ["新增行"],
+					// },
 					{
 						name: "updateTime",
 						rule: ["required"],
@@ -146,24 +157,17 @@
 			this.getOptionsData(); //获取所有下拉数据
 			if (id) {
 				this.queryParam.drivingId = id;
+				console.log(this.queryParam.drivingId)
 				this.asyncGetDetail();
 			}
 		},
 		methods: {
-			open() {
-				// console.log('open');
+			addInput() {
+				this.inputs.push({
+					value: ''
+				});
 			},
-			close() {
-				this.show = false
-				// console.log('close');
-			},
-			success: function(res) {
-				if (res.confirm) {
-					console.log('用户点击确定');
-				} else if (res.cancel) {
-					console.log('用户点击取消');
-				}
-			},
+			
 			back() {
 				uni.navigateBack();
 			},
@@ -238,6 +242,9 @@
 	};
 </script>
 <style lang="scss">
+	.u-input{
+			border: 1px solid #e5e5e5;
+		}
 	.write_info_page {
 		width: 750rpx;
 		height: 100vh;

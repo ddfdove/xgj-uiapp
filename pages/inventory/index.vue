@@ -60,6 +60,7 @@
 									this.materialId = res2.data.data.materialId
 									this.warehouseId = res2.data.data.warehouseId
 									let data=res2.data.data;
+									
 									// console.log(this.materialId);
 									// console.log(this.warehouseId);
 									// me.goToPage(

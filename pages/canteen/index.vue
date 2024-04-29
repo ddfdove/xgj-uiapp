@@ -15,7 +15,7 @@
 				 navigator:[
 				   {title:"采购计划",href:"/pages/canteen/purchase/list",icon:"/static/canteen.png",},
 				   {title:"食材检验",href:"/pages/canteen/inspection/list",icon:"/static/inventory.png",},
-				   {title:"视频留样",href:"/pages/canteen/keepSample/list",icon:"/static/vehicle.png",}
+				   {title:"食品留样",href:"/pages/canteen/keepSample/list",icon:"/static/vehicle.png",}
 				 ]
 			};
 		},

@@ -18,7 +18,7 @@
 				<view class="flex-row-start formItem">
 					<view class="label">负责人</view>
 					<uni-data-select class="select" v-model="form.planManager"
-						:localdata="userOptions"></uni-data-select>
+						:localdata="userOptions" placeholder="请选择负责人"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">日期</view>
@@ -27,13 +27,7 @@
 				<view class="flex-row-start formItem">
 					<view class="label">食材</view>
 					<uni-data-select class="select" v-model="form.materialId"
-						:localdata="materialOptions"></uni-data-select>
-					<!-- <input
-            class="input"
-            type="text"
-            v-model="form.materialId"
-            placeholder="请选择食材"
-          /> -->
+						:localdata="materialOptions" placeholder="请选择食材"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">数量</view>
@@ -99,11 +93,6 @@
 						msg: ["请选择部门"],
 					},
 					{
-						name: "materialId",
-						rule: ["required"],
-						msg: ["请选择材料"],
-					},
-					{
 						name: "planManager",
 						rule: ["required"],
 						msg: ["请选择负责人"],
@@ -113,6 +102,13 @@
 						rule: ["required"],
 						msg: ["请选择日期"],
 					},
+					{
+						name: "materialId",
+						rule: ["required"],
+						msg: ["请选择食材"],
+					},
+					
+					
 					{
 						name: "quantity",
 						rule: ["required"],

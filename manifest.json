@@ -1,6 +1,6 @@
 {
-    "name" : "核销端非雪季",
-    "appid" : "__UNI__E9019FC",
+    "name" : "西贡局",
+    "appid" : "__UNI__BDF888C",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -50,7 +50,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wxc528d9fa75339dcd",
+        "appid" : "wxce9a17798935cb65",
         "setting" : {
             "urlCheck" : false
         },

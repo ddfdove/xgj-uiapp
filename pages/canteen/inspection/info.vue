@@ -13,19 +13,19 @@
 				<view class="flex-row-start formItem">
 					<view class="label">食材</view>
 					<uni-data-select class="select" v-model="form.materialId"
-						:localdata="materialOptions"></uni-data-select>
+						:localdata="materialOptions" placeholder="请选择食材"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">国家标准</view>
-					<input class="input" type="text" v-model="form.nationalStandard" />
+					<input class="input" type="text" v-model="form.nationalStandard"  placeholder="请输入国家标准" />
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">检测数据</view>
-					<input class="input" type="text" v-model="form.testData" />
+					<input class="input" type="text" v-model="form.testData" placeholder="请输入检测数据" />
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">检测结果</view>
-					<input class="input" type="text" v-model="form.testResults" />
+					<input class="input" type="text" v-model="form.testResults" placeholder="请输入检测结果" />
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">日期</view>
@@ -34,7 +34,7 @@
 				<view class="flex-row-start formItem">
 					<view class="label">检测人</view>
 					<uni-data-select class="select" v-model="form.testBy"
-						:localdata="userOptions"></uni-data-select>
+						:localdata="userOptions" placeholder="请选择检测人"></uni-data-select>
 				</view>
 				<!-- <view class="flex-row-start formItem">
 					<view class="label">负责人</view>
@@ -96,7 +96,7 @@
 				rules: [{
 						name: "materialId",
 						rule: ["required"],
-						msg: ["请输入食材名"],
+						msg: ["请选择食材名"],
 					},
 					{
 						name: "nationalStandard",
@@ -116,18 +116,14 @@
 					{
 						name: "testTime",
 						rule: ["required"],
-						msg: ["请输入时间"],
+						msg: ["请选择时间"],
 					},
 					{
 						name: "testBy",
 						rule: ["required"],
-						msg: ["请输入检测人姓名"],
-					},
-					{
-						name: "remark",
-						rule: ["required"],
-						msg: ["请输入备注"],
-					},
+						msg: ["请选择检测人"],
+					}
+					
 				],
 			};
 		},

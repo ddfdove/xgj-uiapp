@@ -12,13 +12,13 @@
 				<view class="flex-row-start formItem">
 					<view class="label">采购台账单号</view>
 					<uni-data-select class="select" v-model="form.productId" :localdata="productOptions"
-						clear></uni-data-select>
+					placeholder="请选择账单号"	clear></uni-data-select>
 					<!-- <uni-icons type="right" size="20"></uni-icons> -->
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">库房</view>
 					<uni-data-select class="select" v-model="form.warehouseId"
-						:localdata="warehouseOptions"></uni-data-select>
+						:localdata="warehouseOptions" placeholder="请选择库房"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">食材</view>
@@ -36,12 +36,12 @@
 				<view class="flex-row-start formItem">
 					<view class="label">库管员签字关联库管</view>
 					<uni-data-select class="select" v-model="form.keeperSignature"
-						:localdata="userOptions"></uni-data-select>
+						:localdata="userOptions" placeholder="请选择签字关联库管"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">库管员复检关联库管</view>
 					<uni-data-select class="select" v-model="form.keeperReinspection"
-						:localdata="userOptions"></uni-data-select>
+						:localdata="userOptions" placeholder="请选择复检关联库管"></uni-data-select>
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">入库标志</view>
@@ -130,13 +130,13 @@
 				rules: [{
 						name: "productId",
 						rule: ["required"],
-						msg: ["请选择采购台账单号"],
+						msg: ["请选择账单号"],
 					},
 
 					{
 						name: "warehouseId",
 						rule: ["required"],
-						msg: ["请输入库房"],
+						msg: ["请选择库房"],
 					},
 					{
 						name: "materialId",
@@ -146,22 +146,27 @@
 					{
 						name: "specification",
 						rule: ["required"],
-						msg: ["请选择规格"],
+						msg: ["请输入规格"],
 					},
 					{
 						name: "quantity",
 						rule: ["required"],
-						msg: ["请选择数量"],
+						msg: ["请输入数量"],
 					},
 					{
 						name: "keeperSignature",
 						rule: ["required"],
-						msg: ["库管员签字关联库管"],
+						msg: ["请选择签字关联库管"],
 					},
 					{
 						name: "keeperReinspection",
 						rule: ["required"],
-						msg: ["库管员复检关联库管"],
+						msg: ["请选择复检关联库管"],
+					},
+					{
+						name: "status",
+						rule: ["required"],
+						msg: ["请选择入库标志"],
 					},
 				],
 			};

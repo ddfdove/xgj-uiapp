@@ -40,12 +40,12 @@
 		</div>
 		<div class="write_list_botttom">
 			<div class="write_list_botttom_content">
-				<image src="/static/write_list_left.png" mode="" @click="changePage(0)"></image>
+				<image src="../../../static/write_list_left.png" mode="" @click="changePage(0)"></image>
 				<div>
 					<p><span>{{listParam.pageNum}}</span>/{{totalPages}}</p>
-					<text>当前共{{count}}条，每页显示{{listParam.pageLimit}}条</text>
+					<text>当前共{{count}}条，每页显示{{listParam.pageSize}}条</text>
 				</div>
-				<image src="/static/write_list_right.png" mode="" @click="changePage(1)"></image>
+				<image src="../../../static/write_list_right.png" mode="" @click="changePage(1)"></image>
 			</div>
 		</div>
 	</view>
@@ -77,14 +77,19 @@
 					            "delFlag": null,
 					            "mxDrivingSupplementList": null
 				},
+				// params:{
+				// 	type:''
+				// },
 				list: [],
-				totalPages:0,//总页数
-				count:"0",//总条数
+				totalPages: 0, //总页数
+				count: "0", //总条数
 				
 			};
 		},
-		onLoad({}) {
-			 
+		onLoad({type}) {
+			 this.listParam.type=type
+			 console.log(this.type)
+			 console.log(type)
 			this.menuButtonInfo = uni.getMenuButtonBoundingClientRect(); 
 			this.asyncGetList();//列表
 		},
@@ -123,10 +128,12 @@
 				refuelList(this.listParam).then(res=>{
 					console.log(res);
 					if(res.code==0){
-						let data = res.data; 
-						this.totalPages = data.totalPages; //总页数
-						this.count=data.count;  
-						this.list = data||[];
+					console.log(res)
+					this.totalPages = Math.ceil(res.total / res.pageSize); //总页数
+					this.count = res.total; //总条数 
+					this.listParam.pageNum = res.pageNum; //第几页
+					this.listParam.pageSize = res.pageSize; //每页几条数据
+					this.list = res.data || [];
 					}
 				})
 			}
