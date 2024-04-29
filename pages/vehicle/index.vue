@@ -14,8 +14,8 @@
 			return {
 				 navigator:[
 				   {title:"加油",href:"/pages/vehicle/refuel/list",icon:"/static/canteen.png",},
-				   {title:"修理",href:"/pages/vehicle/repair",icon:"/static/inventory.png",},
-				   {title:"报修",href:"/pages/vehicle/reportRepair",icon:"/static/vehicle.png",}
+				   {title:"修理",href:"/pages/vehicle/repair/list",icon:"/static/inventory.png",},
+				   {title:"报修",href:"/pages/vehicle/reportRepair/list",icon:"/static/vehicle.png",}
 				 ]
 			};
 		},

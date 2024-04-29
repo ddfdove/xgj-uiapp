@@ -344,3 +344,108 @@ export function getOutboundUpdate(data) {
 		data
 	})
 }
+
+//加油列表
+export function refuelList(data) {
+	return request({
+		url:'/api/wms/driving/list',
+		method: 'POST',
+		data
+	})
+}
+//加油详情
+export function refuelInfo(data) {
+	return request({
+		url:'/api/wms/driving/info',
+		method: 'GET',
+		data
+	})
+}
+//新增加油
+export function refuelSave(data) {
+	return request({
+		url:'/api/wms/driving/save',
+		method: 'POST',
+		data
+	})
+}
+//更新加油
+export function refuelUpdate(data) {
+	return request({
+		url:'/api/wms/driving/update',
+		method: 'PUT',
+		data
+	})
+}
+
+
+
+
+//维修列表
+export function repairList(data) {
+	return request({
+		url:'/api/wms/driving/list',
+		method: 'POST',
+		data
+	})
+}
+//维修详情
+export function repairInfo(data) {
+	return request({
+		url:'/api/wms/driving/info',
+		method: 'GET',
+		data
+	})
+}
+//新增维修
+export function repairSave(data) {
+	return request({
+		url:'/api/wms/driving/save',
+		method: 'POST',
+		data
+	})
+}
+//更新维修
+export function repairUpdate(data) {
+	return request({
+		url:'/api/wms/driving/update',
+		method: 'PUT',
+		data
+	})
+}
+
+
+
+
+//保修列表
+export function reportRepairList(data) {
+	return request({
+		url:'/api/wms/driving/list',
+		method: 'POST',
+		data
+	})
+}
+//保修详情
+export function reportRepairInfo(data) {
+	return request({
+		url:'/api/wms/driving/info',
+		method: 'GET',
+		data
+	})
+}
+//新增保修
+export function reportRepairSave(data) {
+	return request({
+		url:'/api/wms/driving/save',
+		method: 'POST',
+		data
+	})
+}
+//更新保修
+export function reportRepairUpdate(data) {
+	return request({
+		url:'/api/wms/driving/update',
+		method: 'PUT',
+		data
+	})
+}

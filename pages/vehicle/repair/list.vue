@@ -2,7 +2,7 @@
 	<view class="write_list_page">
 		<div class="write_list_nav">
 			<div class="write_list_nav_view" v-if="menuButtonInfo" :style="{height:menuButtonInfo.height+'px',top:menuButtonInfo.top+'px'}">
-				<image src="../../../static/back.png" mode="" @click="back"></image>
+				<image src="/static/back.png" mode="" @click="back"></image>
 				<div :style="{height:menuButtonInfo.height+'px'}">
 					<u--input placeholder="搜索" prefixIcon="search" placeholderStyle="background-color:#F0F5FF;" prefixIconStyle="font-size: 26px;color: #6C7B92" shape="circle"></u--input>
 				</div>
@@ -12,46 +12,47 @@
 			<div class="write_list_content_top">
 				<div class="write_list_content_top_l">
 					<div>
-						<span style="color:#FE5BA4"  @click="checkedDate(index,item)">添加采购计划</span>
+						<span style="color:#FE5BA4"  @click="checkedDate()">添加修理</span>
 					</div> 
 				</div>
-				<span class="write_list_content_top_r">共计：{{count}}条</span>
+				<span class="write_list_content_top_r">共计：{{list.length}}条</span>
 			</div>
-			<div class="write_list_content_item" v-for="(item,index) in list" :key="index" @click="goToPage(`/pages/order/info?ticketNumber=${item.number}`)">
+			<div class="write_list_content_item" v-for="(item,index) in list" :key="index" @click="goToPage(`/pages/vehicle/repair/info?id=${item. drivingId}`)">
 				<div class="write_list_content_item_top" >
-					<span>核销码：{{item.number}}</span>
-					<text >购票详情</text>
+					<span>加油单号：{{item.repairNumber}}</span>
+					<text v-text="item.planManagerName">查看详情</text>
 				</div>
 				<div class="write_list_content_item_content">
 					<div class="content_left">
-						<image style="width:100%;height:100%;" :src="(item.orderExtActivity&&item.orderExtActivity.coverPath)?(baseUrl+item.orderExtActivity.coverPath):'../../wutu.png'" mode=""></image>
+						<image style="width:100%;height:100%;" :src="item.status?'':'/static/wutu.png'" mode=""></image>
 					</div>
 					<div class="content_right">
-						<p v-text="item.orderExtActivity&&item.orderExtActivity.name">2022年温泉镇第五届红楼迷马山…</p>
+						<p v-text="item.department">2022年温泉镇第五届红楼迷马山…</p>
 						<div>
-							<p>￥<span v-text="item.actualPay">358.00</span></p>
-							<text v-if="item.orderExtActivity">× {{item.orderExtActivity.ticketNum||0}}</text>
+							<!-- <p>订单号<span v-text="item.department">358.00</span></p> -->
+							<text v-text="item.materialName"></text>
+							<text v-text="'x'+item.quantity"></text>
 						</div>
-						<span>核销时间 {{item.verificationTime}}</span>
+						<span>日期 {{item.planDate}}</span>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="write_list_botttom">
 			<div class="write_list_botttom_content">
-				<image src="../../static/write_list_left.png" mode="" @click="changePage(0)"></image>
+				<image src="/static/write_list_left.png" mode="" @click="changePage(0)"></image>
 				<div>
 					<p><span>{{listParam.pageNum}}</span>/{{totalPages}}</p>
 					<text>当前共{{count}}条，每页显示{{listParam.pageLimit}}条</text>
 				</div>
-				<image src="../../static/write_list_right.png" mode="" @click="changePage(1)"></image>
+				<image src="/static/write_list_right.png" mode="" @click="changePage(1)"></image>
 			</div>
 		</div>
 	</view>
 </template> 
 <script>
 	import {publicMixin} from "@/pages/mixin/mixin.js"
-	import { purchaseList} from "@/api/index.js" 
+	import { repairList} from "@/api/index.js" 
 	import { util,router} from "@/utils/util.js"
 	export default {
 		mixins: [publicMixin],
@@ -59,25 +60,27 @@
 			return {
 				menuButtonInfo:null,
 				listParam: {
-				  "number": "",
-				  "orderType": "1",
-				  "verificationTime":util.formatDate("YYYY-MM-DD",new Date()),
-					pageNum: 1,
-					pageLimit:10,
+					"createBy": "1",
+					            "createTime": "2024-04-24 13:45:35",
+					            "updateBy": null,
+					            "updateTime": null,
+					            "remark": null,
+					            "isSelected": false,
+					            "drivingId": 1,
+					            "orderNumber": null,
+					            "oilNumber": null,
+					            "kilometreNumber": null,
+					            "peopleNumber": null,
+					            "address": null,
+					            "type": null,
+					            "status": null,
+					            "delFlag": null,
+					            "mxDrivingSupplementList": null
 				},
 				list: [],
 				totalPages:0,//总页数
 				count:"0",//总条数
-				tabs:[{
-					label:"今日核销",
-					value:util.formatDate("YYYY-MM-DD",new Date()),
-					checked:true,
-					 
-				},{
-					label:"全部",
-					value:"",
-					checked:false,
-				}]
+				
 			};
 		},
 		onLoad({}) {
@@ -93,14 +96,8 @@
 		// 	}
 		// },
 		methods:{
-			checkedDate(i,row){
-				this.tabs.forEach((item,index)=>{
-					if(i==index){
-						item.checked=true
-						this.listParam.verificationTime=item.value;
-						this.asyncGetList();
-					}else item.checked=false;
-				})
+			checkedDate(){
+				 this.goToPage(`/pages/vehicle/repair/info`)
 			},
 			changePage(args){
 				if(args){
@@ -123,12 +120,13 @@
 				uni.navigateBack()
 			},
 			asyncGetList(){
-				purchaseList(this.listParam).then(res=>{
-					if(res.code==200){
-						let data = res.data;
+				repairList(this.listParam).then(res=>{
+					console.log(res);
+					if(res.code==0){
+						let data = res.data; 
 						this.totalPages = data.totalPages; //总页数
 						this.count=data.count;  
-						this.list = data.list||[];
+						this.list = data||[];
 					}
 				})
 			}
@@ -202,7 +200,7 @@
 					justify-content: space-between;
 					align-items: center;
 					>div{
-						width: 180rpx;
+						// width: 180rpx;
 						height: 62rpx;
 						background: #FFFFFF;
 						border-radius: 34rpx;
@@ -211,10 +209,11 @@
 						justify-content: center;
 						align-items: center;
 						span{
+							display: inline-block;
 							font-size: 26rpx;
-							font-family: PingFangSC-Semibold, PingFang SC;
 							font-weight: 600;
 							color: #6C7B92 ;
+							padding:5rpx 15rpx;
 							line-height: 26rpx;
 						}
 					}
@@ -269,7 +268,8 @@
 						height: 160rpx;
 						border-radius: 12rpx;
 						margin-right: 20rpx;
-						background-color: #0a0;
+						background-color:aliceblue;
+						// border:1px solid grey;
 					}
 					.content_right{
 						width: 472rpx;
