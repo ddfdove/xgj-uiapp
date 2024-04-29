@@ -100,12 +100,6 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
-    uPopup: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-popup/u-popup */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-popup/u-popup")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-popup/u-popup.vue */ 425))
-    },
-    uButton: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-button/u-button */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-button/u-button")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-button/u-button.vue */ 433))
-    },
     uniDatetimePicker: function () {
       return Promise.all(/*! import() | uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.vue */ 413))
     },
@@ -131,11 +125,6 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  if (!_vm._isMounted) {
-    _vm.e0 = function ($event) {
-      _vm.show = true
-    }
-  }
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -229,9 +218,6 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
-//
-//
-//
 
 var validateForm = __webpack_require__(/*! @/utils/validation.js */ 179);
 var _default = {
@@ -243,6 +229,7 @@ var _default = {
       deptOptions: [],
       userOptions: [],
       materialOptions: [],
+      inputs: [],
       form: {
         // "createBy": "1",
         //         "createTime": "2024-04-25 09:47:04",
@@ -305,20 +292,10 @@ var _default = {
     }
   },
   methods: {
-    open: function open() {
-      // console.log('open');
-    },
-    close: function close() {
-      this.show = false;
-      // console.log('close');
-    },
-
-    success: function success(res) {
-      if (res.confirm) {
-        console.log('用户点击确定');
-      } else if (res.cancel) {
-        console.log('用户点击取消');
-      }
+    addInput: function addInput() {
+      this.inputs.push({
+        value: ''
+      });
     },
     back: function back() {
       uni.navigateBack();

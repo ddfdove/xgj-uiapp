@@ -25,15 +25,12 @@
 					<view class="label">地点</view>
 					<input class="input" type="text" v-model="form.address" placeholder="单行输入" />
 				</view>
-				<view>
-					<u-popup :show="show" @close="close" @open="open" mode="center">
-						<view class="flex-row-start formItem">
-							<view class="label">备注</view>
-							<input class="input" type="text" v-model="form.quantity" placeholder="请输入" />
-						</view>
-					</u-popup>
-					<u-button @click="show = true">新增行+</u-button>
-				</view>
+				<div>
+				        <button @click="addInput">新增行</button>
+				        <div    class="u-input" v-for="(input, index) in inputs" :key="index" maxlength="100"><text>备注：</text>
+				            <input type="text" v-model="input.value"/>
+				        </div>
+				    </div>
 				<text>驾驶员：账号登录默认姓名</text>
 				<view class="flex-row-start formItem">
 					<view class="label">出车日期</view>
@@ -80,6 +77,7 @@
 				deptOptions: [],
 				userOptions: [],
 				materialOptions: [],
+				inputs: [],
 				form: {
 					// "createBy": "1",
 					//         "createTime": "2024-04-25 09:47:04",
@@ -150,20 +148,9 @@
 			}
 		},
 		methods: {
-			open() {
-				// console.log('open');
-			},
-			close() {
-				this.show = false
-				// console.log('close');
-			},
-			success: function(res) {
-				if (res.confirm) {
-					console.log('用户点击确定');
-				} else if (res.cancel) {
-					console.log('用户点击取消');
-				}
-			},
+			addInput() {
+			            this.inputs.push({ value: '' });
+			        },
 			back() {
 				uni.navigateBack();
 			},
@@ -238,6 +225,9 @@
 	};
 </script>
 <style lang="scss">
+	.u-input{
+		border: 1px solid #e5e5e5;
+	}
 	.write_info_page {
 		width: 750rpx;
 		height: 100vh;

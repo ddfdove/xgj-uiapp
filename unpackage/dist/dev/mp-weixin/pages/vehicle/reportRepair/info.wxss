@@ -24,6 +24,9 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.u-input {
+  border: 1px solid #e5e5e5;
+}
 .write_info_page {
   width: 750rpx;
   height: 100vh;
