@@ -23,6 +23,7 @@
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">地点</view>
+<<<<<<< HEAD
 					<input class="input" type="text" v-model="form.address" placeholder="请输入地点" />
 				</view>
 				<div>
@@ -31,6 +32,16 @@
 						<input type="text" v-model="input.value" />
 					</div>
 				</div>
+=======
+					<input class="input" type="text" v-model="form.address" placeholder="单行输入" />
+				</view>
+				<div>
+				        <button @click="addInput">新增行</button>
+				        <div    class="u-input" v-for="(input, index) in inputs" :key="index" maxlength="100"><text>备注：</text>
+				            <input type="text" v-model="input.value"/>
+				        </div>
+				    </div>
+>>>>>>> f369b7b203f755badc2ecfb68a3f0bae7b2f1750
 				<text>驾驶员：账号登录默认姓名</text>
 				<view class="flex-row-start formItem">
 					<view class="label">出车日期</view>
@@ -80,6 +91,7 @@
 				deptOptions: [],
 				userOptions: [],
 				materialOptions: [],
+				inputs: [],
 				form: {
 					"orderNumber": "",
 					"peopleNumber": '',
@@ -163,11 +175,16 @@
 		},
 		methods: {
 			addInput() {
+<<<<<<< HEAD
 				this.inputs.push({
 					value: ''
 				});
 			},
 			
+=======
+			            this.inputs.push({ value: '' });
+			        },
+>>>>>>> f369b7b203f755badc2ecfb68a3f0bae7b2f1750
 			back() {
 				uni.navigateBack();
 			},
@@ -243,8 +260,13 @@
 </script>
 <style lang="scss">
 	.u-input{
+<<<<<<< HEAD
 			border: 1px solid #e5e5e5;
 		}
+=======
+		border: 1px solid #e5e5e5;
+	}
+>>>>>>> f369b7b203f755badc2ecfb68a3f0bae7b2f1750
 	.write_info_page {
 		width: 750rpx;
 		height: 100vh;

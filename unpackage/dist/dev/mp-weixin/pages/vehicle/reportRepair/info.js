@@ -218,8 +218,11 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
+<<<<<<< HEAD
 //
 //
+=======
+>>>>>>> f369b7b203f755badc2ecfb68a3f0bae7b2f1750
 
 var validateForm = __webpack_require__(/*! @/utils/validation.js */ 179);
 var _default = {
@@ -232,6 +235,7 @@ var _default = {
       deptOptions: [],
       userOptions: [],
       materialOptions: [],
+      inputs: [],
       form: {
         "orderNumber": "",
         "peopleNumber": '',
