@@ -22,7 +22,7 @@
 			<div class="write_list_content_item" v-for="(item,index) in list" :key="index"
 				@click="goToPage(`/pages/vehicle/repair/info?id=${item. drivingId}`)">
 				<div class="write_list_content_item_top">
-					<span>加油单号：{{item.reportRepairNumber}}</span>
+					<span>加油单号：{{item.orderNumber}}</span>
 					<text v-text="item.planManagerName">查看详情</text>
 				</div>
 				<div class="write_list_content_item_content">
@@ -30,13 +30,14 @@
 						<image style="width:100%;height:100%;" :src="item.status?'':'/static/wutu.png'" mode=""></image>
 					</div>
 					<div class="content_right">
-						<p v-text="item.department">2022年温泉镇第五届红楼迷马山…</p>
+						<span >备注：{{item.remark}}</span>
 						<div>
+							<!-- <div>公里数：{{item.kilometreNumber}}</div> -->
 							<!-- <p>订单号<span v-text="item.department">358.00</span></p> -->
-							<text v-text="item.materialName"></text>
-							<text v-text="'x'+item.quantity"></text>
+							<!-- <text v-text="item.materialName"></text>
+							<text v-text="'x'+item.quantity"></text> -->
 						</div>
-						<span>日期 {{item.planDate}}</span>
+						<span>日期 {{item.createTime}}</span>
 					</div>
 				</div>
 			</div>
@@ -82,7 +83,7 @@
 					"kilometreNumber": null,
 					"peopleNumber": null,
 					"address": null,
-					"type": null,
+					"type": 2,
 					"status": null,
 					"delFlag": null,
 					"mxDrivingSupplementList": null

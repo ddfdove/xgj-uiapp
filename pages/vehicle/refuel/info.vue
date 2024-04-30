@@ -97,7 +97,7 @@
 					"remark": "",
 					"createTime": "",
 					"updateTime": '',
-					
+					"type": "1",
 					
 					// "createBy": "",
 					// "updateBy": '',
@@ -105,7 +105,7 @@
 					// "drivingId": '',
 					// "peopleNumber": '',
 					// "address": " ",
-					// "type": "1",
+					
 					// "status": '',
 					// "delFlag": "",
 					// "mxDrivingSupplementList": [{
@@ -142,7 +142,7 @@
 						name: 'remark'
 					},
 					{
-						name: "updateTime",
+						name: "createTime",
 						rule: ["required"],
 						msg: ["请输入出车时间"],
 					},
@@ -211,7 +211,7 @@
 							console.log(res)
 							this.$mvc.alert("提交成功!", "success");
 							setTimeout(() => {
-								this.goToPage("/pages/vehicle/refuel/list");
+								this.goToPage(`/pages/vehicle/refuel/list?type=${this.form.type}`);
 							}, 2000);
 						}
 					});

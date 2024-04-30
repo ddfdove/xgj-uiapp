@@ -19,7 +19,7 @@
 			</div>
 			<div class="write_list_content_item" v-for="(item,index) in list" :key="index" @click="goToPage(`/pages/vehicle/refuel/info?id=${item. drivingId}`)">
 				<div class="write_list_content_item_top" >
-					<span>加油单号：{{item.refuelNumber}}</span>
+					<span>加油单号：{{item.oilNumber}}</span>
 					<text v-text="item.planManagerName">查看详情</text>
 				</div>
 				<div class="write_list_content_item_content">
@@ -27,13 +27,14 @@
 						<image style="width:100%;height:100%;" :src="item.status?'':'/static/wutu.png'" mode=""></image>
 					</div>
 					<div class="content_right">
-						<p v-text="item.department">2022年温泉镇第五届红楼迷马山…</p>
+						<span >备注：{{item.remark}}</span>
 						<div>
 							<!-- <p>订单号<span v-text="item.department">358.00</span></p> -->
-							<text v-text="item.materialName"></text>
-							<text v-text="'x'+item.quantity"></text>
+							<div>公里数：{{item.kilometreNumber}}</div>
+							<!-- <text v-text="item.updateBy"></text> -->
+							<!-- <text v-text="'x'+item.quantity"></text> -->
 						</div>
-						<span>日期 {{item.planDate}}</span>
+						<span>日期 {{item.createTime}}</span>
 					</div>
 				</div>
 			</div>
@@ -61,7 +62,7 @@
 				menuButtonInfo:null,
 				listParam: {
 					"createBy": "1",
-					            "createTime": "2024-04-24 13:45:35",
+					            "createTime": "",
 					            "updateBy": null,
 					            "updateTime": null,
 					            "remark": null,
@@ -72,7 +73,7 @@
 					            "kilometreNumber": null,
 					            "peopleNumber": null,
 					            "address": null,
-					            "type": null,
+					            "type": 1,
 					            "status": null,
 					            "delFlag": null,
 					            "mxDrivingSupplementList": null

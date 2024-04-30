@@ -231,6 +231,7 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
+//
 var _default = {
   mixins: [_mixin.publicMixin],
   data: function data() {
@@ -249,7 +250,7 @@ var _default = {
         "kilometreNumber": null,
         "peopleNumber": null,
         "address": null,
-        "type": null,
+        "type": 2,
         "status": null,
         "delFlag": null,
         "mxDrivingSupplementList": null

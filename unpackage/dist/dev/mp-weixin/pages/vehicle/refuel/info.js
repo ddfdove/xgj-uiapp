@@ -250,7 +250,8 @@ var _default = {
         "kilometreNumber": '',
         "remark": "",
         "createTime": "",
-        "updateTime": ''
+        "updateTime": '',
+        "type": "1"
 
         // "createBy": "",
         // "updateBy": '',
@@ -258,7 +259,7 @@ var _default = {
         // "drivingId": '',
         // "peopleNumber": '',
         // "address": " ",
-        // "type": "1",
+
         // "status": '',
         // "delFlag": "",
         // "mxDrivingSupplementList": [{
@@ -292,7 +293,7 @@ var _default = {
       }, {
         name: 'remark'
       }, {
-        name: "updateTime",
+        name: "createTime",
         rule: ["required"],
         msg: ["请输入出车时间"]
       }, {
@@ -361,7 +362,7 @@ var _default = {
             console.log(res);
             _this2.$mvc.alert("提交成功!", "success");
             setTimeout(function () {
-              _this2.goToPage("/pages/vehicle/refuel/list");
+              _this2.goToPage("/pages/vehicle/refuel/list?type=".concat(_this2.form.type));
             }, 2000);
           }
         });

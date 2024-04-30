@@ -218,18 +218,23 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
-<<<<<<< HEAD
 //
 //
-=======
->>>>>>> f369b7b203f755badc2ecfb68a3f0bae7b2f1750
+//
+//
+//
+//
+//
+//
+//
 
 var validateForm = __webpack_require__(/*! @/utils/validation.js */ 179);
 var _default = {
   mixins: [_mixin.publicMixin],
   data: function data() {
     return {
-      inputs: [],
+      // inputs:[],
+      isRemark: false,
       show: false,
       menuButtonInfo: null,
       deptOptions: [],
@@ -243,14 +248,14 @@ var _default = {
         "address": " ",
         "remark": "",
         "createTime": "",
-        "updateTime": ''
-
+        "updateTime": '',
+        "type": "3"
         // "createBy": "",
         // "updateBy": '',
         // "isSelected": '',
         // "drivingId": '',
         // "oilNumber": '',
-        // "type": "1",
+
         // "status": '',
         // "delFlag": "",
         // "mxDrivingSupplementList": [{
@@ -272,7 +277,7 @@ var _default = {
       rules: [{
         name: "orderNumber",
         rule: ["required"],
-        msg: ["请选择单号"]
+        msg: ["请输入单号"]
       }, {
         name: "peopleNumber",
         rule: ["required"],
@@ -313,11 +318,14 @@ var _default = {
     }
   },
   methods: {
-    addInput: function addInput() {
-      this.inputs.push({
-        value: ''
-      });
+    switchRemark: function switchRemark() {
+      this.isRemark = !this.isRemark;
     },
+    // addInput() {
+    // 	this.inputs.push({
+    // 		value: ''
+    // 	});
+    // },
     back: function back() {
       uni.navigateBack();
     },
@@ -362,7 +370,7 @@ var _default = {
             console.log(res);
             _this2.$mvc.alert("提交成功!", "success");
             setTimeout(function () {
-              _this2.goToPage("/pages/vehicle/reportRepair/list");
+              _this2.goToPage("/pages/vehicle/reportRepair/list?type=".concat(_this2.form.type));
             }, 2000);
           }
         });

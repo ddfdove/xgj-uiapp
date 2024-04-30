@@ -218,17 +218,17 @@ var _default = {
         "orderNumber": "",
         "createTime": "",
         "remark": "",
-        "updateTime": ''
-
+        "updateTime": '',
+        "type": "2",
+        "kilometreNumber": ''
         // "createBy": "",
         // "updateBy": '',
         // "isSelected": '',
         // "drivingId": '',
         // "oilNumber": '',
-        // "kilometreNumber": '',
         // "peopleNumber": '',
         // "address": " ",
-        // "type": "1",
+
         // "status": '',
         // "delFlag": "",
         // "mxDrivingSupplementList": [{
@@ -252,7 +252,7 @@ var _default = {
         rule: ["required"],
         msg: ["请输入单号"]
       }, {
-        name: "updateTime",
+        name: "createTime",
         rule: ["required"],
         msg: ["出车时间"]
       }, {
@@ -316,7 +316,7 @@ var _default = {
             console.log(res);
             _this2.$mvc.alert("提交成功!", "success");
             setTimeout(function () {
-              _this2.goToPage("/pages/vehicle/repair/list");
+              _this2.goToPage("/pages/vehicle/repair/list?type=".concat(_this2.form.type));
             }, 2000);
           }
         });

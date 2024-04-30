@@ -228,6 +228,7 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
+//
 var _default = {
   mixins: [_mixin.publicMixin],
   data: function data() {
@@ -235,7 +236,7 @@ var _default = {
       menuButtonInfo: null,
       listParam: {
         "createBy": "1",
-        "createTime": "2024-04-24 13:45:35",
+        "createTime": "",
         "updateBy": null,
         "updateTime": null,
         "remark": null,
@@ -246,7 +247,7 @@ var _default = {
         "kilometreNumber": null,
         "peopleNumber": null,
         "address": null,
-        "type": null,
+        "type": 1,
         "status": null,
         "delFlag": null,
         "mxDrivingSupplementList": null

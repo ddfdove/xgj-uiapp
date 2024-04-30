@@ -25,7 +25,7 @@
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">回车日期</view>
-					<uni-datetime-picker class="picker" type="datetime" v-model="form.updateTime" placeholder="请选择出车日期" />
+					<uni-datetime-picker class="picker" type="datetime" v-model="form.updateTime" placeholder="请选择回车日期" />
 				</view>
 			</view>
 			<div class="write_info_content_button" @click="suer">
@@ -65,16 +65,16 @@
 					"createTime": "",
 					"remark": "",
 					"updateTime": '',
-					
+					"type": "2",
+					"kilometreNumber": '',
 					// "createBy": "",
 					// "updateBy": '',
 					// "isSelected": '',
 					// "drivingId": '',
 					// "oilNumber": '',
-					// "kilometreNumber": '',
 					// "peopleNumber": '',
 					// "address": " ",
-					// "type": "1",
+					
 					// "status": '',
 					// "delFlag": "",
 					// "mxDrivingSupplementList": [{
@@ -99,7 +99,7 @@
 					},
 					
 					{
-						name: "updateTime",
+						name: "createTime",
 						rule: ["required"],
 						msg: ["出车时间"],
 					},
@@ -160,7 +160,7 @@
 							console.log(res)
 							this.$mvc.alert("提交成功!", "success");
 							setTimeout(() => {
-								this.goToPage("/pages/vehicle/repair/list");
+								this.goToPage(`/pages/vehicle/repair/list?type=${this.form.type}`);
 							}, 2000);
 						}
 					});

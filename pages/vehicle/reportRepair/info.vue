@@ -23,25 +23,21 @@
 				</view>
 				<view class="flex-row-start formItem">
 					<view class="label">地点</view>
-<<<<<<< HEAD
+
 					<input class="input" type="text" v-model="form.address" placeholder="请输入地点" />
 				</view>
 				<div>
-					<button @click="addInput">新增行</button>
-					<div class="u-input" v-for="(input, index) in inputs" :key="index" maxlength="100"><text class="label">备注：</text>
-						<input type="text" v-model="input.value" />
-					</div>
+					<button @click="switchRemark">{{queryParam.drivingId?'修改备注':'新增备注'}}</button>
+					<!-- <div class="u-input" v-for="(input, index) in inputs" :key="index" maxlength="100"> -->
+					<view class="flex-row-start formItem" v-if="isRemark">
+						<view class="label">备注</view>
+						<input class="input" type="text" v-model="form.remark" placeholder="请输入备注" />
+					</view>
+
+					<!-- <input type="text" v-model="form.remark" v-if="form.remark" /> -->
+					<!-- </div> -->
 				</div>
-=======
-					<input class="input" type="text" v-model="form.address" placeholder="单行输入" />
-				</view>
-				<div>
-				        <button @click="addInput">新增行</button>
-				        <div    class="u-input" v-for="(input, index) in inputs" :key="index" maxlength="100"><text>备注：</text>
-				            <input type="text" v-model="input.value"/>
-				        </div>
-				    </div>
->>>>>>> f369b7b203f755badc2ecfb68a3f0bae7b2f1750
+
 				<text>驾驶员：账号登录默认姓名</text>
 				<view class="flex-row-start formItem">
 					<view class="label">出车日期</view>
@@ -85,7 +81,8 @@
 		mixins: [publicMixin],
 		data() {
 			return {
-				inputs:[],
+				// inputs:[],
+				isRemark: false,
 				show: false,
 				menuButtonInfo: null,
 				deptOptions: [],
@@ -100,13 +97,13 @@
 					"remark": "",
 					"createTime": "",
 					"updateTime": '',
-					
+					"type": "3",
 					// "createBy": "",
 					// "updateBy": '',
 					// "isSelected": '',
 					// "drivingId": '',
 					// "oilNumber": '',
-					// "type": "1",
+
 					// "status": '',
 					// "delFlag": "",
 					// "mxDrivingSupplementList": [{
@@ -127,7 +124,7 @@
 				rules: [{
 						name: "orderNumber",
 						rule: ["required"],
-						msg: ["请选择单号"],
+						msg: ["请输入单号"],
 					},
 					{
 						name: "peopleNumber",
@@ -174,17 +171,16 @@
 			}
 		},
 		methods: {
-			addInput() {
-<<<<<<< HEAD
-				this.inputs.push({
-					value: ''
-				});
+			switchRemark() {
+				this.isRemark = !this.isRemark
 			},
-			
-=======
-			            this.inputs.push({ value: '' });
-			        },
->>>>>>> f369b7b203f755badc2ecfb68a3f0bae7b2f1750
+			// addInput() {
+
+			// 	this.inputs.push({
+			// 		value: ''
+			// 	});
+			// },
+
 			back() {
 				uni.navigateBack();
 			},
@@ -223,7 +219,7 @@
 							console.log(res)
 							this.$mvc.alert("提交成功!", "success");
 							setTimeout(() => {
-								this.goToPage("/pages/vehicle/reportRepair/list");
+								this.goToPage(`/pages/vehicle/reportRepair/list?type=${this.form.type}`);
 							}, 2000);
 						}
 					});
@@ -259,14 +255,11 @@
 	};
 </script>
 <style lang="scss">
-	.u-input{
-<<<<<<< HEAD
-			border: 1px solid #e5e5e5;
-		}
-=======
+	.u-input {
+
 		border: 1px solid #e5e5e5;
 	}
->>>>>>> f369b7b203f755badc2ecfb68a3f0bae7b2f1750
+
 	.write_info_page {
 		width: 750rpx;
 		height: 100vh;
