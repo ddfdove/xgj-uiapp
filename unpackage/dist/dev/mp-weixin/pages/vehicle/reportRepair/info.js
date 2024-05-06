@@ -227,6 +227,17 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var validateForm = __webpack_require__(/*! @/utils/validation.js */ 179);
 var _default = {
@@ -246,10 +257,10 @@ var _default = {
         "peopleNumber": '',
         "kilometreNumber": '',
         "address": " ",
-        "remark": "",
+        // "remark": [],
         "createTime": "",
         "updateTime": '',
-        "type": "3"
+        "type": "3",
         // "createBy": "",
         // "updateBy": '',
         // "isSelected": '',
@@ -258,17 +269,17 @@ var _default = {
 
         // "status": '',
         // "delFlag": "",
-        // "mxDrivingSupplementList": [{
-        // 	"createBy": '',
-        // 	"createTime": '',
-        // 	"updateBy": "",
-        // 	"updateTime": "",
-        // 	"remark": "",
-        // 	"isSelected": '',
-        // 	"supplementId": '',
-        // 	"drivingId": '',
-        // 	"orderNumber": ''
-        // }, ]
+        "mxDrivingSupplementList": [{
+          // 	"createBy": '',
+          // 	"createTime": '',
+          // 	"updateBy": "",
+          // 	"updateTime": "",
+          "remark": ""
+          // 	"isSelected": '',
+          // 	"supplementId": '',
+          // 	"drivingId": '',
+          // 	"orderNumber": ''
+        }]
       },
 
       queryParam: {
@@ -319,7 +330,12 @@ var _default = {
   },
   methods: {
     switchRemark: function switchRemark() {
-      this.isRemark = !this.isRemark;
+      this.form.mxDrivingSupplementList.push({
+        value: ''
+      });
+      this.inputs.push({
+        value: ''
+      });
     },
     // addInput() {
     // 	this.inputs.push({

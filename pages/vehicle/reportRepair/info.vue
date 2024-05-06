@@ -28,11 +28,22 @@
 				</view>
 				<div>
 					<button @click="switchRemark">{{queryParam.drivingId?'修改备注':'新增备注'}}</button>
+					<div class="u-input" v-for="(list, index) in form.mxDrivingSupplementList" :key="index">
+						<view class="flex-row-start formItem">
+							<view class="label">备注</view>
+						
+							<input class="input" type="text" v-model="list.remark" placeholder="请输入备注" />
+						</view>
+					</div>
 					<!-- <div class="u-input" v-for="(input, index) in inputs" :key="index" maxlength="100"> -->
-					<view class="flex-row-start formItem" v-if="isRemark">
+					<!-- <view class="flex-row-start formItem" v-if="isRemark">
 						<view class="label">备注</view>
 						<input class="input" type="text" v-model="form.remark" placeholder="请输入备注" />
-					</view>
+					</view> -->
+					 <!-- <button @click="addInput">点击添加输入框</button>
+					        <div v-for="(input, index) in inputs" :key="index">
+					            <input type="text" v-model="input.value"/>
+					        </div> -->
 
 					<!-- <input type="text" v-model="form.remark" v-if="form.remark" /> -->
 					<!-- </div> -->
@@ -94,7 +105,7 @@
 					"peopleNumber": '',
 					"kilometreNumber": '',
 					"address": " ",
-					"remark": "",
+					// "remark": [],
 					"createTime": "",
 					"updateTime": '',
 					"type": "3",
@@ -106,17 +117,17 @@
 
 					// "status": '',
 					// "delFlag": "",
-					// "mxDrivingSupplementList": [{
+					"mxDrivingSupplementList": [{
 					// 	"createBy": '',
 					// 	"createTime": '',
 					// 	"updateBy": "",
 					// 	"updateTime": "",
-					// 	"remark": "",
+						"remark": "",
 					// 	"isSelected": '',
 					// 	"supplementId": '',
 					// 	"drivingId": '',
 					// 	"orderNumber": ''
-					// }, ]
+					}, ]
 				},
 				queryParam: {
 					drivingId: "",
@@ -172,7 +183,8 @@
 		},
 		methods: {
 			switchRemark() {
-				this.isRemark = !this.isRemark
+				this.form.mxDrivingSupplementList.push({value:''});
+				this.inputs.push({ value: ''});
 			},
 			// addInput() {
 
