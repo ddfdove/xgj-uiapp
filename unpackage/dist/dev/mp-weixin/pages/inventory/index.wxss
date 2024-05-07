@@ -35,6 +35,73 @@
   overflow-y: scroll;
   position: relative;
 }
+.index_page .canteen_nav {
+  position: absolute;
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.index_page .canteen_nav image {
+  width: 44rpx;
+  height: 44rpx;
+  margin-left: 24rpx;
+  margin-right: 10rpx;
+}
+.index_page .canteen_nav view {
+  font-size: 48rpx;
+  color: #1A1A1A;
+  line-height: 32rpx;
+  margin: 28rpx 0 28rpx 32rpx;
+}
+.index_page .purchase {
+  position: absolute;
+  left: 20px;
+  top: 104px;
+  width: 336px;
+  height: 78px;
+  border-radius: 12px;
+  opacity: 1;
+  background: linear-gradient(180deg, #E6A733 0%, #E8AE39 100%);
+  display: flex;
+  align-items: center;
+}
+.index_page .purchase view > ._div {
+  color: #FFFFFF;
+  padding-left: 30rpx;
+}
+.index_page .inspection {
+  position: absolute;
+  left: 20px;
+  top: 197px;
+  width: 336px;
+  height: 78px;
+  border-radius: 12px;
+  opacity: 1;
+  background: linear-gradient(180deg, #0066FF 0%, #6786EE 100%);
+  display: flex;
+  align-items: center;
+}
+.index_page .inspection view > ._div {
+  color: #FFFFFF;
+  padding-left: 30rpx;
+}
+.index_page .keepSample {
+  position: absolute;
+  left: 20px;
+  top: 290px;
+  width: 336px;
+  height: 78px;
+  border-radius: 12px;
+  opacity: 1;
+  background: linear-gradient(180deg, #1DC36A 0%, #31C877 100%);
+  display: flex;
+  align-items: center;
+}
+.index_page .keepSample view > ._div {
+  color: #FFFFFF;
+  padding-left: 30rpx;
+}
 .index_page .nav-btn {
   width: 80%;
   line-height: 120rpx;

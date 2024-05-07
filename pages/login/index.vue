@@ -5,10 +5,14 @@
 			<view>西供局</view>
 		</view>
 		<view class="login_content">
-			<view class="login_content_top">
+			<!-- <view class="login_content_top"> -->
 				<!-- <image src="../../static/login_icon.png" mode=""></image> -->
+			<!-- </view> -->
+			
+			<view class="logo">
+				<image src="" mode=""></image>
+				<view class="login_content_title">欢迎来到西供局</view>
 			</view>
-			<view class="login_content_title">欢迎来到西供局</view>
 			<view class="login_content_input">
 				<view style="margin-bottom: 40rpx;">
 					<u--input placeholder="请输入用户名" v-model="form.username" placeholderStyle="background-color:#F0F5FF;"
@@ -61,7 +65,7 @@
 			}
 		},
 		onLoad() {
-			// this.menuButtonInfo = uni.getMenuButtonBoundingClientRect()
+			this.menuButtonInfo = uni.getMenuButtonBoundingClientRect()
 		},
 		methods: {
 			submit() {
@@ -167,30 +171,55 @@
 			flex-direction: column;
 			align-items: center;
 			align-items: center;
+			position:relative;
 
 			.login_content_top {
 				width: 140rpx;
 				height: 140rpx;
-				margin: -70rpx 0 70rpx 0;
-
+				margin: -70rpx 0 10rpx 0;
 				image {
 					width: 140rpx;
 					height: 140rpx;
 				}
 			}
 
-			.login_content_title {
-				font-size: 34rpx;
-				font-weight: 600;
-				color: #333333;
-				line-height: 34rpx;
-				margin-bottom: 140rpx;
-			}
-
+			// .login_content_title {
+			// 	 // position: absolute;
+			// 	  top: 240rpx;
+			// 	font-size: 34rpx;
+			// 	font-weight: 600;
+			// 	color: #333333;
+			// 	line-height: 34rpx;
+			// 	margin-bottom: 140rpx;
+			// }
+             .logo{
+				// position: absolute;
+				padding-left: 36px;
+				padding-top: 30px;
+				width: 144px;
+				height: 146px;
+				opacity: 1;
+				image{
+					// position: absolute;
+					left: 24px;
+					top: 0px;
+					width: 96px;
+					height: 96px;
+					opacity: 1;
+					border-radius: 50px;
+					background: #12B858;
+				}
+				.login_content_title {
+					 margin-left: -14px;
+					 margin-top: 6px;
+					 width: 269px;
+					 opacity: 1;
+					 font-size: 18px;
+				}
+			 }
 			.login_content_input {
 				>view {
 					width: 590rpx;
-
 					/deep/.u-input {
 						border-radius: 4px !important;
 						background-color: #F0F5FF;
@@ -198,10 +227,8 @@
 						padding-bottom: 3px !important;
 						height: 92rpx;
 					}
-
 					/deep/.u-border {
 						border-color: #F0F5FF !important;
-
 					}
 				}
 			}
@@ -210,7 +237,7 @@
 				margin-top: 60rpx;
 				width: 590rpx;
 				height: 84rpx;
-				background: #FE5BA4;
+				background: #12B858;
 				border-radius: 42rpx;
 				// opacity: 0.5;
 				display: flex;

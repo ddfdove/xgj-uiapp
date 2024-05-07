@@ -5,6 +5,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/login/index",
+          "pathName": "pages/login/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/vehicle/refuel/info",
           "pathName": "pages/vehicle/refuel/info",
           "query": "",

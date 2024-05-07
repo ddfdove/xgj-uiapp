@@ -42,6 +42,9 @@ export const publicMixin = {
 		},
 		goBack(args = 1) {
 			uni.navigateBack(args)
+		},
+		goTab(url){
+			if(url) this.$router.switchTab(url)
 		}
 	}
 }
