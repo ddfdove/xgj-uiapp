@@ -19,26 +19,9 @@
   },
   "compileType": "miniprogram",
   "libVersion": "3.3.4",
-  "appid": "wxce9a17798935cb65",
+  "appid": "wxd499546ae4350789",
   "projectname": "西贡局",
-  "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
-    "game": {
-      "current": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "current": -1,
-      "list": []
-    }
-  },
+  "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2

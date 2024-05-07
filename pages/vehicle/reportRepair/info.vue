@@ -92,7 +92,7 @@
 					"peopleNumber": '',
 					"kilometreNumber": '',
 					"address": " ",
-					"remark": "",
+					// "remark": [],
 					"createTime": "",
 					"updateTime": '',
 					"type": "3",
@@ -170,9 +170,7 @@
 		},
 		methods: {
 			switchRemark() {
-				this.form.mxDrivingSupplementList.push({
-					value: ''
-				});
+				this.form.mxDrivingSupplementList.push({value:''});
 			},
 			// addInput() {
 
