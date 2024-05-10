@@ -329,14 +329,15 @@ var _default = {
         //先清空展示的数据
         this.searchList = [];
         //然后开始循环全部数据
-        for (var i = 0; i < this.List.length; i++) {
+        for (var i = 0; i < this.list.length; i++) {
           //判断数据里面是否有符合输入的内容  不符合返回-1 只需要大于或等于0就是符合
           //（核心所在，其它都是根据需求来自己写）
-          if (this.List[i].pullTime.indexOf(value) >= 0) {
-            this.searchList.push(this.List[i]);
+          if (this.list[i].planManagerName.indexOf(value) >= 0 | this.list[i].materialName.indexOf(value) >= 0) {
+            this.searchList.push(this.list[i]);
           }
         }
       }
+      this.list = this.searchList;
     },
     // getList() {
     // 	//向后台发送请求，拿到所有的数据然后赋值给aList和bList

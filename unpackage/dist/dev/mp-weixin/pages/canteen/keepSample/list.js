@@ -317,6 +317,25 @@ var _default = {
     back: function back() {
       uni.navigateBack();
     },
+    searchHistory: function searchHistory(value) {
+      // value自动接收输入框中的内容
+      if (value == '') {
+        //如果输入的值为空则加载所有的列表
+        this.asyncGetList();
+      } else {
+        //先清空展示的数据
+        this.searchList = [];
+        //然后开始循环全部数据
+        for (var i = 0; i < this.list.length; i++) {
+          //判断数据里面是否有符合输入的内容  不符合返回-1 只需要大于或等于0就是符合
+          //（核心所在，其它都是根据需求来自己写）
+          if (this.list[i].dishName.indexOf(value) >= 0 | this.list[i].mealName.indexOf(value) >= 0) {
+            this.searchList.push(this.list[i]);
+          }
+        }
+      }
+      this.list = this.searchList;
+    },
     asyncGetList: function asyncGetList() {
       var _this = this;
       (0, _index.getKeepSampleList)(this.listParam).then(function (res) {

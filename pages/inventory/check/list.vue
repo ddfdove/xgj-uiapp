@@ -11,11 +11,10 @@
 		<div class="write_list_content">
 			<div>
 				<div class="write_list_content_top">
-					<u-search placeholder="请输入盘点人" prefixIcon="search" placeholderStyle=";color:#1A1A1A"
+					<u-search placeholder="请输入盘点人查询" prefixIcon="search" placeholderStyle=";color:#1A1A1A"
 						prefixIconStyle="font-size: 26px;color: #BFBFBF" bgColor="#FFFFFF" shape="square" height="76rpx"
-						searchIconSize="44" :showAction="false"></u-search>
-					<button
-						style="background-color:#1DC36A ;margin:0 10px 0 20px;height: 38px;line-height: 38px;color: #FFFFFF;font-size: 14px;">搜索</button>
+						searchIconSize="44" :showAction="true" v-model="keyword" @search="searchHistory"
+						:actionStyle="actionStyle"></u-search>
 				</div>
 				<div style="margin: 15px 0 10px 0px; color: #86909C;font-size: 13px;">共计：{{count}}条</div>
 			</div>
@@ -102,6 +101,18 @@
 					pageNum: 1,
 					pageSize: 10,
 				},
+				actionStyle: {
+					backgroundColor: '#1DC36A' ,
+					margin:'0 10px 0 20px',
+					padding:'10px',
+					width:'40px',
+					height: '18px',
+					lineHeight: '18px',
+					color: '#FFFFFF',
+					fontSize: '14px'
+				},
+				keyword: '',
+				searchList: [],
 				list: [],
 				totalPages: 0, //总页数
 				count: "0", //总条数
@@ -141,6 +152,25 @@
 			},
 			back() {
 				uni.navigateBack()
+			},
+			searchHistory(value) {
+				// value自动接收输入框中的内容
+				if (value == '') {
+					//如果输入的值为空则加载所有的列表
+					this.asyncGetList();
+				} else {
+					//先清空展示的数据
+					this.searchList = []
+					//然后开始循环全部数据
+					for (var i = 0; i < this.list.length; i++) {
+						//判断数据里面是否有符合输入的内容  不符合返回-1 只需要大于或等于0就是符合
+						//（核心所在，其它都是根据需求来自己写）
+						if (this.list[i].inventoryByName.indexOf(value) >= 0 |this.list[i].warehousingNumber.indexOf(value) >= 0) {
+							this.searchList.push(this.list[i])
+						}
+					}
+				}
+				this.list=this.searchList
 			},
 			asyncGetList() {
 				getCheckList(this.listParam).then(res => {

@@ -11,7 +11,7 @@
 		<div class="write_list_content">
 			<div>
 				<div class="write_list_content_top">
-					<u-search placeholder="请输入留样人" prefixIcon="search" placeholderStyle=";color:#1A1A1A"
+					<u-search placeholder="请输入菜品或餐别查询" prefixIcon="search" placeholderStyle=";color:#1A1A1A"
 						prefixIconStyle="font-size: 26px;color: #BFBFBF" bgColor="#FFFFFF" shape="square" height="76rpx"
 						searchIconSize="44" :showAction="true" v-model="keyword" @search="searchHistory"
 						:actionStyle="actionStyle"></u-search>
@@ -139,6 +139,25 @@
 			},
 			back() {
 				uni.navigateBack()
+			},
+			searchHistory(value) {
+				// value自动接收输入框中的内容
+				if (value == '') {
+					//如果输入的值为空则加载所有的列表
+					this.asyncGetList();
+				} else {
+					//先清空展示的数据
+					this.searchList = []
+					//然后开始循环全部数据
+					for (var i = 0; i < this.list.length; i++) {
+						//判断数据里面是否有符合输入的内容  不符合返回-1 只需要大于或等于0就是符合
+						//（核心所在，其它都是根据需求来自己写）
+						if (this.list[i].dishName.indexOf(value) >= 0 |this.list[i].mealName.indexOf(value) >= 0) {
+							this.searchList.push(this.list[i])
+						}
+					}
+				}
+				this.list=this.searchList
 			},
 			asyncGetList() {
 				getKeepSampleList(this.listParam).then(res => {
