@@ -29157,27 +29157,27 @@ var _default = {
   },
   "tabBar": {
     "color": "#6C7B92",
-    "selectedColor": "#FE5BA4",
+    "selectedColor": "#12B858",
     "list": [{
       "text": "首页",
       "pagePath": "pages/index/index",
-      "iconPath": "static/home_page_active.png",
-      "selectedIconPath": "static/home_page_active.png"
+      "iconPath": "static/首页-fill.png",
+      "selectedIconPath": "static/首页-fill (1).png"
     }, {
       "text": "食堂",
       "pagePath": "pages/canteen/index",
-      "iconPath": "static/就餐、食堂.png",
-      "selectedIconPath": "static/就餐、食堂.png"
+      "iconPath": "static/食堂-01 (1).png",
+      "selectedIconPath": "static/食堂-01.png"
     }, {
       "text": "库存",
       "pagePath": "pages/inventory/index",
-      "iconPath": "static/库存管理.png",
-      "selectedIconPath": "static/库存管理.png"
+      "iconPath": "static/库存.png",
+      "selectedIconPath": "static/库存 (1).png"
     }, {
       "text": "车辆",
       "pagePath": "pages/vehicle/index",
-      "iconPath": "static/车辆管理.png",
-      "selectedIconPath": "static/车辆管理.png"
+      "iconPath": "static/6-2车辆.png",
+      "selectedIconPath": "static/6-2车辆 (1).png"
     }]
   },
   "uniIdRouter": {}
@@ -30591,6 +30591,258 @@ var _default = {
 };
 exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 462 */,
+/* 463 */,
+/* 464 */,
+/* 465 */,
+/* 466 */,
+/* 467 */,
+/* 468 */,
+/* 469 */,
+/* 470 */,
+/* 471 */,
+/* 472 */,
+/* 473 */,
+/* 474 */,
+/* 475 */,
+/* 476 */,
+/* 477 */,
+/* 478 */,
+/* 479 */,
+/* 480 */,
+/* 481 */,
+/* 482 */,
+/* 483 */,
+/* 484 */,
+/* 485 */,
+/* 486 */,
+/* 487 */,
+/* 488 */,
+/* 489 */,
+/* 490 */,
+/* 491 */,
+/* 492 */,
+/* 493 */,
+/* 494 */,
+/* 495 */,
+/* 496 */,
+/* 497 */,
+/* 498 */,
+/* 499 */,
+/* 500 */,
+/* 501 */,
+/* 502 */,
+/* 503 */,
+/* 504 */,
+/* 505 */,
+/* 506 */,
+/* 507 */,
+/* 508 */,
+/* 509 */,
+/* 510 */,
+/* 511 */,
+/* 512 */,
+/* 513 */,
+/* 514 */
+/*!************************************************************************!*\
+  !*** E:/xgj-app-let/uni_modules/uview-ui/components/u-search/props.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {
+    // 搜索框形状，round-圆形，square-方形
+    shape: {
+      type: String,
+      default: uni.$u.props.search.shape
+    },
+    // 搜索框背景色，默认值#f2f2f2
+    bgColor: {
+      type: String,
+      default: uni.$u.props.search.bgColor
+    },
+    // 占位提示文字
+    placeholder: {
+      type: String,
+      default: uni.$u.props.search.placeholder
+    },
+    // 是否启用清除控件
+    clearabled: {
+      type: Boolean,
+      default: uni.$u.props.search.clearabled
+    },
+    // 是否自动聚焦
+    focus: {
+      type: Boolean,
+      default: uni.$u.props.search.focus
+    },
+    // 是否在搜索框右侧显示取消按钮
+    showAction: {
+      type: Boolean,
+      default: uni.$u.props.search.showAction
+    },
+    // 右边控件的样式
+    actionStyle: {
+      type: Object,
+      default: uni.$u.props.search.actionStyle
+    },
+    // 取消按钮文字
+    actionText: {
+      type: String,
+      default: uni.$u.props.search.actionText
+    },
+    // 输入框内容对齐方式，可选值为 left|center|right
+    inputAlign: {
+      type: String,
+      default: uni.$u.props.search.inputAlign
+    },
+    // input输入框的样式，可以定义文字颜色，大小等，对象形式
+    inputStyle: {
+      type: Object,
+      default: uni.$u.props.search.inputStyle
+    },
+    // 是否启用输入框
+    disabled: {
+      type: Boolean,
+      default: uni.$u.props.search.disabled
+    },
+    // 边框颜色
+    borderColor: {
+      type: String,
+      default: uni.$u.props.search.borderColor
+    },
+    // 搜索图标的颜色，默认同输入框字体颜色
+    searchIconColor: {
+      type: String,
+      default: uni.$u.props.search.searchIconColor
+    },
+    // 输入框字体颜色
+    color: {
+      type: String,
+      default: uni.$u.props.search.color
+    },
+    // placeholder的颜色
+    placeholderColor: {
+      type: String,
+      default: uni.$u.props.search.placeholderColor
+    },
+    // 左边输入框的图标，可以为uView图标名称或图片路径
+    searchIcon: {
+      type: String,
+      default: uni.$u.props.search.searchIcon
+    },
+    searchIconSize: {
+      type: [Number, String],
+      default: uni.$u.props.search.searchIconSize
+    },
+    // 组件与其他上下左右元素之间的距离，带单位的字符串形式，如"30px"、"30px 20px"等写法
+    margin: {
+      type: String,
+      default: uni.$u.props.search.margin
+    },
+    // 开启showAction时，是否在input获取焦点时才显示
+    animation: {
+      type: Boolean,
+      default: uni.$u.props.search.animation
+    },
+    // 输入框的初始化内容
+    value: {
+      type: String,
+      default: uni.$u.props.search.value
+    },
+    // 输入框最大能输入的长度，-1为不限制长度(来自uniapp文档)
+    maxlength: {
+      type: [String, Number],
+      default: uni.$u.props.search.maxlength
+    },
+    // 搜索框高度，单位px
+    height: {
+      type: [String, Number],
+      default: uni.$u.props.search.height
+    },
+    // 搜索框左侧文本
+    label: {
+      type: [String, Number, null],
+      default: uni.$u.props.search.label
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 515 */,
+/* 516 */,
+/* 517 */,
+/* 518 */
+/*!**************************************!*\
+  !*** E:/xgj-app-let/utils/common.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(wx) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//解决小程序端真机图片不展示
+
+/**
+ * 动态绑定的使用方式 例如首页使用：
+ * import common from '@/utils/common'
+ * :style="{
+            backgroundImage: `url(${common.urlTobase64('home', 'home-bg')})`,
+     }"
+ */
+
+/**
+ * 获取本地图
+ * @param folder // 文件夹名字 如 /static/images/home
+ * @param fileName // 文件名 如 home-bg
+ * @param format // 文件类型 如 png jpg
+ * @returns {*|string}
+ */
+
+var urlTobase64 = function urlTobase64(folder, fileName) {
+  var format = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "png";
+  var img = "/static/images/".concat(folder, "/").concat(fileName, ".").concat(format),
+    imgBase64 = wx.getFileSystemManager().readFileSync(img, "base64"),
+    base64Url = "data:image/png;base64,".concat(imgBase64);
+  /*   console.log(
+    "data:image/png;base64," + imgBase64,
+    "图片转换成功+++++++++++++++++++++++++++++"
+  ); */
+
+  return base64Url;
+};
+var _default = {
+  urlTobase64: urlTobase64
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
+
+/***/ }),
+/* 519 */
+/*!************************************!*\
+  !*** E:/xgj-app-let/static/bg.png ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/bg.png";
 
 /***/ })
 ]]);

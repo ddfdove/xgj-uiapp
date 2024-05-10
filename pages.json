@@ -177,36 +177,36 @@
 	},
 	"tabBar": {
 		"color": "#6C7B92",
-		"selectedColor": "#FE5BA4",
+		"selectedColor": "#12B858",
 		"list": [{
 				"text": "首页",
 				"pagePath": "pages/index/index",
 				// "iconPath": "static/home_page.png",
-				"iconPath": "static/home_page_active.png",
-				"selectedIconPath": "static/home_page_active.png"
+				"iconPath": "static/首页-fill.png",
+				"selectedIconPath": "static/首页-fill (1).png"
 			}, {
 				"text": "食堂",
 				"pagePath": "pages/canteen/index",
-				"iconPath": "static/就餐、食堂.png",
+				"iconPath": "static/食堂-01 (1).png",
 				// "iconPath": "static/home_page.png",
 				// "selectedIconPath": "static/canteen_active.png"
-				"selectedIconPath": "static/就餐、食堂.png"
+				"selectedIconPath": "static/食堂-01.png"
 			},
 			{
 				"text": "库存",
 				"pagePath": "pages/inventory/index",
-				"iconPath": "static/库存管理.png",
+				"iconPath": "static/库存.png",
 				// "iconPath": "static/inventory.png",
 				// "selectedIconPath": "static/inventory_active.png"
-				"selectedIconPath": "static/库存管理.png"
+				"selectedIconPath": "static/库存 (1).png"
 			},
 			{
 				"text": "车辆",
 				"pagePath": "pages/vehicle/index",
-				"iconPath": "static/车辆管理.png",
+				"iconPath": "static/6-2车辆.png",
 				// "iconPath": "static/vehicle.png",
 				// "selectedIconPath": "static/vehicle_active.png"
-				"selectedIconPath": "static/车辆管理.png"
+				"selectedIconPath": "static/6-2车辆 (1).png"
 			}
 		]
 	},

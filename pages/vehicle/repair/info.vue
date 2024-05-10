@@ -314,8 +314,8 @@
 			.write_info_content_button {
 				width: 620rpx;
 				height: 84rpx;
-				background: #fe5ba4;
-				border-radius: 42rpx;
+				background: #1DC36A;
+				border-radius: 10rpx;
 				display: flex;
 				justify-content: center;
 				align-items: center;

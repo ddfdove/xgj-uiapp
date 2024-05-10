@@ -100,8 +100,8 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
-    "u-Input": function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--input/u--input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--input/u--input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--input/u--input.vue */ 392))
+    uSearch: function () {
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 509))
     },
   }
 } catch (e) {
@@ -125,6 +125,22 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.__map(_vm.list, function (item, index) {
+    var $orig = _vm.__get_orig(item)
+    var g0 = item.updateTime.substr(0, 10)
+    return {
+      $orig: $orig,
+      g0: g0,
+    }
+  })
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0,
+      },
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -249,6 +265,18 @@ var _default = {
         pageNum: 1,
         pageSize: 10
       },
+      actionStyle: {
+        backgroundColor: '#1DC36A',
+        margin: '0 10px 0 20px',
+        padding: '10px',
+        width: '40px',
+        height: '18px',
+        lineHeight: '18px',
+        color: '#FFFFFF',
+        fontSize: '14px'
+      },
+      keyword: '',
+      searchList: [],
       list: [],
       totalPages: 0,
       //总页数
@@ -292,6 +320,27 @@ var _default = {
     back: function back() {
       uni.navigateBack();
     },
+    searchHistory: function searchHistory(value) {
+      // value自动接收输入框中的内容
+      if (value == '') {
+        //如果输入的值为空则加载所有的列表
+        this.asyncGetList();
+      } else {
+        //先清空展示的数据
+        this.searchList = [];
+        //然后开始循环全部数据
+        for (var i = 0; i < this.List.length; i++) {
+          //判断数据里面是否有符合输入的内容  不符合返回-1 只需要大于或等于0就是符合
+          //（核心所在，其它都是根据需求来自己写）
+          if (this.List[i].pullTime.indexOf(value) >= 0) {
+            this.searchList.push(this.List[i]);
+          }
+        }
+      }
+    },
+    // getList() {
+    // 	//向后台发送请求，拿到所有的数据然后赋值给aList和bList
+    // },
     asyncGetList: function asyncGetList() {
       var _this = this;
       (0, _index.purchaseList)(this.listParam).then(function (res) {

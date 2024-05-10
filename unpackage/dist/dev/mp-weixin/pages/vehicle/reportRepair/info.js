@@ -224,7 +224,6 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
-//
 
 var validateForm = __webpack_require__(/*! @/utils/validation.js */ 180);
 var _default = {
@@ -313,6 +312,8 @@ var _default = {
       this.queryParam.drivingId = id;
       console.log(this.queryParam.drivingId);
       this.asyncGetDetail();
+    } else {
+      this.form.mxDrivingSupplementList = [];
     }
   },
   methods: {

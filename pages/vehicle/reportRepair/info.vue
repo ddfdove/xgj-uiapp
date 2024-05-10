@@ -31,7 +31,6 @@
 					<div class="u-input" v-for="(list, index) in form.mxDrivingSupplementList" :key="index">
 						<view class="flex-row-start formItem">
 							<view class="label">备注</view>
-
 							<input class="input" type="text" v-model="list.remark" placeholder="请输入备注" />
 						</view>
 					</div>
@@ -166,11 +165,17 @@
 				this.queryParam.drivingId = id;
 				console.log(this.queryParam.drivingId)
 				this.asyncGetDetail();
+			}else{
+				this.form.mxDrivingSupplementList=[]
 			}
+			
 		},
 		methods: {
 			switchRemark() {
-				this.form.mxDrivingSupplementList.push({value:''});
+				
+					this.form.mxDrivingSupplementList.push({value:''});
+				
+				
 			},
 			// addInput() {
 
@@ -376,8 +381,8 @@
 			.write_info_content_button {
 				width: 620rpx;
 				height: 84rpx;
-				background: #fe5ba4;
-				border-radius: 42rpx;
+				background: #1DC36A;
+				border-radius: 10rpx;
 				display: flex;
 				justify-content: center;
 				align-items: center;

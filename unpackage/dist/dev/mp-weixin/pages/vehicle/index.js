@@ -142,12 +142,16 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {
 
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
 var _mixin = __webpack_require__(/*! @/pages/mixin/mixin.js */ 171);
 var _util = __webpack_require__(/*! @/utils/util.js */ 30);
+var _bg = _interopRequireDefault(__webpack_require__(/*! ../../static/bg.png */ 519));
+//
+//
 //
 //
 //
@@ -191,6 +195,7 @@ var _default = {
   mixins: [_mixin.publicMixin],
   data: function data() {
     return {
+      bgImg: _bg.default,
       menuButtonInfo: null,
       navigator: [{
         title: "加油",

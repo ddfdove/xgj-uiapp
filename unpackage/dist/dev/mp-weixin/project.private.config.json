@@ -3,5 +3,46 @@
   "projectname": "xgj(1)",
   "setting": {
     "compileHotReLoad": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/inventory/outbound/info",
+          "pathName": "pages/inventory/outbound/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/inventory/warehousing/info",
+          "pathName": "pages/inventory/warehousing/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/inventory/outbound/list",
+          "pathName": "pages/inventory/outbound/list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/inventory/warehousing/list",
+          "pathName": "pages/inventory/warehousing/list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/canteen/purchase/list",
+          "pathName": "pages/canteen/purchase/list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
   }
 }

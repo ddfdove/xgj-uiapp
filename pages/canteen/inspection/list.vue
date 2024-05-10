@@ -3,44 +3,41 @@
 		<div class="write_list_nav">
 			<div class="write_list_nav_view" v-if="menuButtonInfo"
 				:style="{height:menuButtonInfo.height+'px',top:menuButtonInfo.top+'px'}">
-				<image src="../../../static/back.png" mode="" @click="back()"></image>
-				<div :style="{height:menuButtonInfo.height+'px'}">
-					<u--input placeholder="搜索" prefixIcon="search" placeholderStyle="background-color:#F0F5FF;"
-						prefixIconStyle="font-size: 26px;color: #6C7B92" shape="circle"></u--input>
-				</div>
+				<image src="../../../static/back.png" mode="" @click="back"></image>
+				<text
+					style="margin-left: 80px;color: #1A1A1A;font-size: 18px; font-weight: 500;font-family: Source Han Sans CN;">添加食材检验</text>
 			</div>
 		</div>
 		<div class="write_list_content">
-			<div class="write_list_content_top">
-				<div class="write_list_content_top_l">
-					<div>
-						<span style="color:#FE5BA4" @click="checkedDate()">添加检验食材</span>
-					</div>
+			<div>
+				<div class="write_list_content_top">
+					<u-search placeholder="请输入检验人" prefixIcon="search" placeholderStyle=";color:#1A1A1A"
+						prefixIconStyle="font-size: 26px;color: #BFBFBF" bgColor="#FFFFFF" shape="square" height="76rpx"
+						searchIconSize="44" :showAction="true" v-model="keyword" @search="searchHistory"
+						:actionStyle="actionStyle"></u-search>
 				</div>
-				<span class="write_list_content_top_r">共计：{{count}}条</span>
+				<div style="margin: 15px 0 10px 0px; color: #86909C;font-size: 13px;">共计：{{count}}条</div>
 			</div>
-			<div class="write_list_content_item" v-for="(item,index) in list" :key="index"
-				@click="goToPage(`/pages/canteen/inspection/info?id=${item.testId}`)">
-				<div class="write_list_content_item_top">
-					<span>国家标准：{{item.nationalStandard}}</span>
-					<text v-text="item.testByName">查看详情</text>
-				</div>
-				<div class="write_list_content_item_content">
-					<div class="content_left">
-						<image style="width:100%;height:100%;" :src="item.status?'':'../../../static/wutu.png'" mode="">
-						</image>
+			<div>
+				<div class="write_list_content_item" v-for="(item,index) in list" :key="index"
+					@click="goToPage(`/pages/canteen/inspection/info?id=${item.testId}`)"
+					style="display: flex;flex-direction: column;">
+					<div class="write_list_content_item_top" style="flex:1;display: flex;margin-top: 20px;">
+						<span
+							style="margin-left: 30px;color: #1A1A1A;font-size: 18px; font-weight: 500;">{{item.materialName}}</span>
+						<span style="margin-left: 160px;">{{item.testByName}}</span>
 					</div>
-					<div class="content_right">
-						<p v-text="item.department">2022年温泉镇第五届红楼迷马山…</p>
-						<div>
-							<!-- <p>订单号<span v-text="item.department">358.00</span></p> -->
-							<text v-text="item.materialName"></text>
-							<!-- <text v-text="'x'+item.quantity"></text> -->
-						</div>
-						<span>日期 {{item.testTime}}</span>
+					<div class="write_list_content_item_content" style="flex:1;display: flex;">
+						<span
+							style="flex:1.6;margin-left: 10px;">国家标准：{{item.nationalStandard?item.nationalStandard:'无'}}</span>
+						<span style="flex:1;">日期：{{item.testTime.substr(0,10)}}</span>
 					</div>
+
 				</div>
+				<button style="margin-top: 40px;background-color: #1DC36A;" @click="checkedDate()">添加</button>
 			</div>
+
+		</div>
 		</div>
 		<div class="write_list_botttom">
 			<div class="write_list_botttom_content">
@@ -93,6 +90,18 @@
 					pageNum: 1,
 					pageSize: 10,
 				},
+				actionStyle: {
+					backgroundColor: '#1DC36A',
+					margin: '0 10px 0 20px',
+					padding: '10px',
+					width: '40px',
+					height: '18px',
+					lineHeight: '18px',
+					color: '#FFFFFF',
+					fontSize: '14px'
+				},
+				keyword: '',
+				searchList: [],
 				list: [],
 				totalPages: 0, //总页数
 				count: "0", //总条数
@@ -210,6 +219,7 @@
 			align-items: center;
 			overflow-y: scroll;
 
+
 			.write_list_content_top {
 				width: 702rpx;
 				display: flex;
@@ -267,96 +277,14 @@
 				box-sizing: border-box;
 				flex-direction: column;
 
-				.write_list_content_item_top {
-					width: 662rpx;
-					display: flex;
-					flex-direction: row;
-					align-items: center;
-					justify-content: space-between;
-					margin-bottom: 30rpx;
-
-					span {
-						font-size: 28rpx;
-						font-family: PingFangSC-Regular, PingFang SC;
-						font-weight: 400;
-						color: #333333;
-						line-height: 28rpx;
-					}
-
-					text {
-						font-size: 28rpx;
-						font-family: PingFangSC-Regular, PingFang SC;
-						font-weight: 400;
-						color: #2591FF;
-						line-height: 28rpx;
-					}
+				span {
+					flex: 1;
+					color: #86909C;
+					font-size: 13px;
+					font-weight: 350;
 				}
 
-				.write_list_content_item_content {
-					display: flex;
-					flex-direction: row;
-					align-items: center;
 
-					.content_left {
-						width: 160rpx;
-						height: 160rpx;
-						border-radius: 12rpx;
-						margin-right: 20rpx;
-						background-color: #0a0;
-					}
-
-					.content_right {
-						width: 472rpx;
-						height: 160rpx;
-						display: flex;
-						flex-direction: column;
-						justify-content: space-between;
-
-						p {
-							font-size: 30rpx;
-							font-family: PingFangSC-Medium, PingFang SC;
-							font-weight: bold;
-							color: #333333;
-							line-height: 30rpx;
-						}
-
-						div {
-							width: 472rpx;
-							display: flex;
-							flex-direction: row;
-							justify-content: space-between;
-							align-items: center;
-
-							p {
-								font-size: 22rpx;
-								color: #FE5BA4;
-								line-height: 22rpx;
-
-								span {
-									font-size: 34rpx;
-									font-weight: bold;
-									color: #FE5BA4;
-									line-height: 34rpx;
-								}
-							}
-
-							text {
-								font-size: 26rpx;
-								font-weight: 400;
-								color: #979CB3;
-								line-height: 26rpx;
-							}
-						}
-
-						>span {
-							font-size: 24rpx;
-							font-family: PingFangSC-Regular, PingFang SC;
-							font-weight: 400;
-							color: #6C7B92;
-							line-height: 25rpx;
-						}
-					}
-				}
 			}
 		}
 

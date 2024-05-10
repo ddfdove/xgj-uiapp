@@ -42,26 +42,26 @@
       {
         "text": "首页",
         "pagePath": "pages/index/index",
-        "iconPath": "static/home_page.png",
+        "iconPath": "static/home_page_active.png",
         "selectedIconPath": "static/home_page_active.png"
       },
       {
         "text": "食堂",
         "pagePath": "pages/canteen/index",
-        "iconPath": "static/canteen.png",
-        "selectedIconPath": "static/canteen_active.png"
+        "iconPath": "static/就餐、食堂.png",
+        "selectedIconPath": "static/就餐、食堂.png"
       },
       {
         "text": "库存",
         "pagePath": "pages/inventory/index",
-        "iconPath": "static/inventory.png",
-        "selectedIconPath": "static/inventory_active.png"
+        "iconPath": "static/库存管理.png",
+        "selectedIconPath": "static/库存管理.png"
       },
       {
         "text": "车辆",
         "pagePath": "pages/vehicle/index",
-        "iconPath": "static/vehicle.png",
-        "selectedIconPath": "static/vehicle_active.png"
+        "iconPath": "static/车辆管理.png",
+        "selectedIconPath": "static/车辆管理.png"
       }
     ]
   },

@@ -1,10 +1,12 @@
 <template>
-	<view class="index_page">
+	<!-- <view class="index_page" style="background:url('../../static/bg.png');background-size: 381px 381px;background-repeat: no-repeat;"> -->
+	<view class="index_page" :style="{backgroundImage:`url(${bgImg})`,backgroundSize: '381px 381px',backgroundRepeat:'no-repeat'}">
 		<view class="canteen_nav" v-if="menuButtonInfo"
 			:style="{height:menuButtonInfo.height+'px',top:menuButtonInfo.top+'px'}">
 			<image src="../../static/back.png" mode="" @click="this.goTab('/pages/index/index');"></image>
 			<view>车辆管理</view>
 		</view>
+		<h class="tip">车辆管理，健康，安全至上</h>
 		<view class="purchase">
 			<view class="title" style="flex:3;" @click="jumpPage(navigator[0])">
 				<div style="font-size: 36rpx;">加油</div>
@@ -45,10 +47,12 @@
 		util,
 		router
 	} from "@/utils/util.js"
+	import bgImg from "../../static/bg.png"
 	export default {
 		mixins: [publicMixin],
 		data() {
 			return {
+				bgImg:  bgImg,
 				menuButtonInfo: null,
 				navigator: [{
 						title: "加油",
@@ -119,11 +123,33 @@
 				margin: 28rpx 0 28rpx 32rpx;
 			}
 		}
-
+        .tip{
+        	/* 食堂管理，健康、高效、安全至上 */
+        	
+        	position: absolute;
+        	left: 46.66px;
+        	top: 105.67px;
+        	width: 300px;
+        	height: 22.97px;
+        	opacity: 1;
+        		
+        	font-family: ZhenyanGB;
+        	font-size: 20px;
+        	font-weight: 800;
+        	line-height: 140%;
+        	text-align: center;
+        	letter-spacing: 0em;
+        	text-align: center;	
+        	font-variation-settings: "opsz" auto;
+        	color: #1DC36A;
+        		
+        	text-shadow: 0px 2px 2px rgba(24, 144, 255, 0.08);
+        	
+        }
 		.purchase {
 			position: absolute;
 			left: 20px;
-			top: 104px;
+			top: 172.94px;
 			width: 336px;
 			height: 78px;
 			border-radius: 12px;
@@ -141,7 +167,7 @@
 		.inspection {
 			position: absolute;
 			left: 20px;
-			top: 197px;
+			top: 265.94px;
 			width: 336px;
 			height: 78px;
 			border-radius: 12px;
@@ -159,7 +185,7 @@
 		.keepSample {
 			position: absolute;
 			left: 20px;
-			top: 290px;
+			top: 358.94px;
 			width: 336px;
 			height: 78px;
 			border-radius: 12px;

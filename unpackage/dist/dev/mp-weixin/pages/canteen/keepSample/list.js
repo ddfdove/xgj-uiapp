@@ -100,8 +100,8 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
-    "u-Input": function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--input/u--input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--input/u--input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--input/u--input.vue */ 392))
+    uSearch: function () {
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 509))
     },
   }
 } catch (e) {
@@ -125,6 +125,22 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.__map(_vm.list, function (item, index) {
+    var $orig = _vm.__get_orig(item)
+    var g0 = item.srTime.substr(0, 10)
+    return {
+      $orig: $orig,
+      g0: g0,
+    }
+  })
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0,
+      },
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -221,6 +237,22 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 30);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   mixins: [_mixin.publicMixin],
   data: function data() {
@@ -230,6 +262,18 @@ var _default = {
         pageNum: 1,
         pageSize: 10
       },
+      actionStyle: {
+        backgroundColor: '#1DC36A',
+        margin: '0 10px 0 20px',
+        padding: '10px',
+        width: '40px',
+        height: '18px',
+        lineHeight: '18px',
+        color: '#FFFFFF',
+        fontSize: '14px'
+      },
+      keyword: '',
+      searchList: [],
       list: [],
       totalPages: 0,
       //总页数
