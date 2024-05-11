@@ -11,13 +11,13 @@
 		<div class="write_list_content">
 			<div>
 				<div class="write_list_content_top">
-					<u-search placeholder="请输入采购人" prefixIcon="search" placeholderStyle=";color:#1A1A1A"
+					<u-search placeholder="请输入采购人或食材名查询" prefixIcon="search" placeholderStyle=";color:#1A1A1A"
 						prefixIconStyle="font-size: 26px;color: #BFBFBF" bgColor="#FFFFFF" shape="square" height="76rpx"
-						searchIconSize="44" :showAction="true" v-model="keyword" @search="searchHistory"
-						:actionStyle="actionStyle"></u-search>
+						searchIconSize="44" :showAction="true" v-model="keyword" @search="searchHistory" @custom="searchHistory"
+						:actionStyle="actionStyle" focus="true"></u-search>
 					<!-- 	<button style="background-color:#1DC36A ;margin:0 10px 0 20px;height: 38px;line-height: 38px;color: #FFFFFF;font-size: 14px;">搜索</button> -->
 				</div>
-				<div style="margin: 15px 0 10px 0px; color: #86909C;font-size: 13px;">共计：{{count}}条</div>
+				<div style="margin: 15px 0 10px 0px; color: #86909C;font-size: 13px;">共计：{{list.length}}条</div>
 			</div>
 			<div>
 				<div class="write_list_content_item" v-for="(item,index) in list" :key="index"
@@ -100,8 +100,8 @@
 					fontSize: '14px'
 				},
 				keyword: '',
-				searchList: [],
-				list: [],
+				searchList: [],//所有数据
+				list: [],//展示的数据
 				totalPages: 0, //总页数
 				count: "0", //总条数
 			};
@@ -148,17 +148,18 @@
 					this.asyncGetList();
 				} else {
 					//先清空展示的数据
-					this.searchList = []
+					this.list = []
+					// this.asyncGetList();
 					//然后开始循环全部数据
-					for (var i = 0; i < this.list.length; i++) {
+					for (var i = 0; i < this.searchList.length; i++) {
 						//判断数据里面是否有符合输入的内容  不符合返回-1 只需要大于或等于0就是符合
 						//（核心所在，其它都是根据需求来自己写）
-						if (this.list[i].planManagerName.indexOf(value) >= 0 |this.list[i].materialName.indexOf(value) >= 0) {
-							this.searchList.push(this.list[i])
+						if (this.searchList[i].planManagerName.indexOf(value) >= 0 |this.searchList[i].materialName.indexOf(value) >= 0) {
+							this.list.push(this.searchList[i])
 						}
 					}
 				}
-				this.list=this.searchList
+				// this.list=this.searchList
 			},
 			// getList() {
 			// 	//向后台发送请求，拿到所有的数据然后赋值给aList和bList
@@ -174,6 +175,7 @@
 						this.listParam.pageNum = res.pageNum; //第几页
 						this.listParam.pageSize = res.pageSize; //每页几条数据
 						this.list = res.data || [];
+						this.searchList = res.data || [];
 					}
 				})
 			}
