@@ -144,7 +144,7 @@
 					// 	msg: ["新增行"],
 					// },
 					{
-						name: "updateTime",
+						name: "createTime",
 						rule: ["required"],
 						msg: ["出车时间"],
 					},

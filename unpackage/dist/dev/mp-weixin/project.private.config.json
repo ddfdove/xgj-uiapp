@@ -3,25 +3,5 @@
   "projectname": "xgj(1)",
   "setting": {
     "compileHotReLoad": true
-  },
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/inventory/warehousing/list",
-          "pathName": "pages/inventory/warehousing/list",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/inventory/outbound/list",
-          "pathName": "pages/inventory/outbound/list",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        }
-      ]
-    }
   }
 }
