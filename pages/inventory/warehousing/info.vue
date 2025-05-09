@@ -113,16 +113,6 @@
 					// "keeperReinspectionName": "王青利", //库管员复检关联库管
 					"status": "",
 					"remark": "",
-
-
-					// "createBy": "1",
-					// "createTime": "2024-04-10 09:56:34",
-					// "updateBy": "1",
-					// "updateTime": "2024-04-11 18:29:33",
-					// "isSelected": false,
-					// "warehousingId": 3, //入库产品id
-					// "warehousingNumber": "RK202404100956330001", //入库产品单号
-					// "delFlag": null
 				},
 				queryParam: {
 					warehousingId: "",

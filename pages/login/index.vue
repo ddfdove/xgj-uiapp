@@ -220,14 +220,14 @@
 			.login_content_input {
 				>view {
 					width: 590rpx;
-					/deep/.u-input {
+					::v-deep.u-input {
 						border-radius: 4px !important;
 						background-color: #F0F5FF;
 						padding-top: 3px !important;
 						padding-bottom: 3px !important;
 						height: 92rpx;
 					}
-					/deep/.u-border {
+					::v-deep.u-border {
 						border-color: #F0F5FF !important;
 					}
 				}

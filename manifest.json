@@ -56,7 +56,8 @@
         },
         // "ignoreDevUnusedFiles":false,
         "libVersion" : "3.3.4",
-        "usingComponents" : true
+        "usingComponents" : true,
+        "sassImplementationName" : "node-sass"
     },
     "mp-alipay" : {
         "usingComponents" : true

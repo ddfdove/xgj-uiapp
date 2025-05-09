@@ -120,7 +120,7 @@
   padding: 5px;
   height: 200rpx;
 }
-.write_info_page .write_info_content .personForm .formItem .input[type="textare"] {
+.write_info_page .write_info_content .personForm .formItem .input[type=textare] {
   height: 200rpx;
 }
 .write_info_page .write_info_content .write_info_content_button {
@@ -139,4 +139,3 @@
   color: #ffffff;
   line-height: 32rpx;
 }
-

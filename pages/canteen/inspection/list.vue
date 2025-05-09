@@ -209,13 +209,13 @@
 					width: 440rpx;
 					height: 64rpx;
 
-					>/deep/.u-input {
+					>::v-deep.u-input {
 						background-color: #F0F5FF;
 						padding-top: 3px !important;
 						padding-bottom: 3px !important;
 					}
 
-					>/deep/.u-border {
+					>::v-deep.u-border {
 						border-color: #F0F5FF !important;
 
 					}

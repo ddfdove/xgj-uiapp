@@ -258,4 +258,3 @@
 .uni-datetime-picker--btn:active {
   opacity: 0.7;
 }
-

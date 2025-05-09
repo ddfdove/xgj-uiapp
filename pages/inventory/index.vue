@@ -87,10 +87,7 @@
 				let me = this;
 				uni.scanCode({
 					success(res) {
-						// console.log("扫码成功",res);
 						if (res.errMsg == "scanCode:ok") {
-							// me.goOderInfo(res.result);
-							// me.goToPage("/pages/order/info?ticketNumber="+res.result);
 							uni.request({
 								url: res.result,
 								success: (res2) => {
@@ -98,12 +95,6 @@
 									this.materialId = res2.data.data.materialId
 									this.warehouseId = res2.data.data.warehouseId
 									let data = res2.data.data;
-
-									// console.log(this.materialId);
-									// console.log(this.warehouseId);
-									// me.goToPage(
-									// 	`${item.href}?wareId=${this.warehouseId}&matId=${this.materialId}`
-									// 	);
 									me.goToPage(`${item.href}?info=${JSON.stringify(data)}`);
 								}
 							})

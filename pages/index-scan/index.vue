@@ -172,14 +172,14 @@
 			height: 110rpx;
 			margin-top: 100rpx;
 			position: relative;
-			/deep/.u-input{
+			::v-deep.u-input{
 				border-radius:4px!important;
 				background-color: #F0F5FF;
 				padding-top: 3px!important;
 				padding-bottom: 3px!important;
 				height: 92rpx;
 			}
-			/deep/.u-border{
+			::v-deep.u-border{
 				border-color: #F0F5FF!important;
 				   
 			}
